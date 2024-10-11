@@ -2,7 +2,7 @@ name: Code Test
 
 on:
   push:
-    branches: [main]
+    branches: [main, "!release-please-*"]
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
 
@@ -56,3 +56,20 @@ jobs:
 
       - name: Validate Schema
         run: just validate-schema
+
+  test-action:
+    name: Test Action
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run GitHub Stats Analyser (pre-built image)
+        uses: ./
+        with:
+          REPOSITORY_OWNER: ${{ github.REPOSITORY_OWNER }}
+
+      - name: Test Output
+        run: test/test_output.sh
