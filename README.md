@@ -7,7 +7,6 @@
   - [Introduction](#introduction)
   - [Usage](#usage)
     - [GitHub Action Example](#github-action-example)
-    - [GitHub Action Pre-built Image](#github-action-pre-built-image)
     - [GitHub Action Inputs](#github-action-inputs)
   - [License](#license)
 
@@ -30,20 +29,6 @@ The GitHub Action is designed to be used in a workflow.
   uses: jackplowman/github-stats-analyser@latest
   with:
     REPOSITORY_OWNER: jackplowman # Put your GitHub username here or use ${{ github.REPOSITORY_OWNER }}
-```
-
-> [!TIP]
-> It's recommended to use the pre-built Docker image as it will be faster to install.
-
-### GitHub Action Pre-built Image
-
-You can use the pre-built Docker image by adding the following to your workflow:
-
-```yaml
-- name: GitHub Stats Analyser
-      uses: docker://ghcr.io/jackplowman/github-stats-analyser:v1.1.0
-      with:
-        GITHUB_TOKEN: ${{ inputs.token }}
 ```
 
 ### GitHub Action Inputs

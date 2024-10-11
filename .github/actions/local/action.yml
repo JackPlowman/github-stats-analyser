@@ -8,7 +8,7 @@ branding:
 
 runs:
   using: "docker"
-  uses: docker://ghcr.io/jackplowman/github-stats-analyser:v1.1.0
+  image: "../../../Dockerfile"
   env:
     GITHUB_ACTION: "true"
 

@@ -47,7 +47,7 @@ jobs:
         uses: ./.github/actions/setup-dependencies
 
       - name: Run GitHub Stats Analyser
-        uses: ./
+        uses: ./.github/actions/local
         with:
           REPOSITORY_OWNER: ${{ github.REPOSITORY_OWNER }}
 
