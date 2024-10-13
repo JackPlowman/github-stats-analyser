@@ -2,10 +2,14 @@ from __future__ import annotations
 
 from os import getenv
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from git import Repo
 from github import Github, PaginatedList, Repository
 from structlog import get_logger, stdlib
+
+if TYPE_CHECKING:
+    from .configuration import Configuration
 
 logger: stdlib.BoundLogger = get_logger()
 
@@ -30,14 +34,14 @@ def clone_repo(owner_name: str, repository_name: str) -> str:
     return file_path
 
 
-def retrieve_repositories() -> PaginatedList[Repository]:
+def retrieve_repositories(configuration: Configuration) -> PaginatedList[Repository]:
     """Retrieve the list of repositories to analyse.
 
     Returns:
         PaginatedList[Repository]: The list of repositories.
     """
     github = Github(getenv("INPUT_GITHUB_TOKEN"))
-    repositories = github.search_repositories(query=f'user:{getenv("INPUT_REPOSITORY_OWNER")} archived:false')
+    repositories = github.search_repositories(query=f"user:{configuration.repository_owner} archived:false")
     logger.info(
         "Retrieved repositories to analyse",
         repositories_count=repositories.totalCount,

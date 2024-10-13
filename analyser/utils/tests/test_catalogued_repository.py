@@ -1,5 +1,5 @@
-from analyser.catalogued_repository import CataloguedRepository
 from analyser.file_analysis.repository_languages import RepositoryLanguages
+from analyser.utils.catalogued_repository import CataloguedRepository
 
 
 def test_catalogued_repository() -> None:

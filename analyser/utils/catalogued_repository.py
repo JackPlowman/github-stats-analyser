@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from .file_analysis.repository_languages import RepositoryLanguages
+    from analyser.file_analysis.repository_languages import RepositoryLanguages
 
 
 @dataclass

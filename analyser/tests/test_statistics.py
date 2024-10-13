@@ -26,10 +26,11 @@ def test_create_statistics(
     mock_create_repository_statistics.return_value = MagicMock(
         repository_name="Test1", total_files=10, commits=[], total_commits=0
     )
+    configuration = MagicMock(repository_owner="test")
     # Act
-    create_statistics()
+    create_statistics(configuration)
     # Assert
-    mock_retrieve_repositories.assert_called_once_with()
+    mock_retrieve_repositories.assert_called_once_with(configuration)
     mock_clone_repo.assert_called_once_with(owner, repo_name)
     mock_create_repository_statistics.assert_called_once_with(repo_name, "TestPath")
     mock_data_frame.assert_called_once_with(

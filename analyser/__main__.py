@@ -6,6 +6,7 @@ from shutil import rmtree
 from structlog import get_logger, stdlib
 
 from .statistics import create_statistics
+from .utils.configuration import Configuration
 from .utils.custom_logging import set_up_custom_logging
 
 logger: stdlib.BoundLogger = get_logger()
@@ -15,7 +16,8 @@ def main() -> None:
     """Entrypoint for Application."""
     try:
         set_up_custom_logging()
-        create_statistics()
+        configuration = Configuration()
+        create_statistics(configuration)
     except Exception as error:
         logger.exception("An error occurred during the execution of the analyser.", error=error)
         raise

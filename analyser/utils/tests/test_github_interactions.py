@@ -40,9 +40,10 @@ def test_retrieve_repositories(mock_getenv: MagicMock, mock_github: MagicMock) -
     mock_github.return_value.search_repositories.return_value = search_return = MagicMock(
         totalCount=1, list=[MagicMock(full_name=full_name)]
     )
+    configuration = MagicMock(repository_owner="Test")
     # Act
-    repositories = retrieve_repositories()
+    repositories = retrieve_repositories(configuration)
     # Assert
     mock_github.assert_called_once_with(token)
-    mock_getenv.assert_has_calls([call("INPUT_GITHUB_TOKEN"), call("INPUT_REPOSITORY_OWNER")])
+    mock_getenv.assert_has_calls([call("INPUT_GITHUB_TOKEN")])
     assert repositories == search_return
