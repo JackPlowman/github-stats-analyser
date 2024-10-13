@@ -33,10 +33,12 @@ The GitHub Action is designed to be used in a workflow.
 
 ### GitHub Action Inputs
 
-| Name               | Required | Description                                         | Type   | Default               |
-| ------------------ | -------- | --------------------------------------------------- | ------ | --------------------- |
-| `REPOSITORY_OWNER` | yes      | The GitHub username of the repositories to analyse. | string | N/A                   |
-| `GITHUB_TOKEN`     | no       | A GitHub token to authenticate API requests.        | string | `${{ github.token }}` |
+| Name                     | Required | Description                                                                                                                                                                                                         | Type   | Default               |
+| ------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --------------------- |
+| `REPOSITORY_OWNER`       | yes      | The GitHub username of the repositories to analyse.                                                                                                                                                                 | string | N/A                   |
+| `GITHUB_TOKEN`           | no       | A GitHub token to authenticate API requests.                                                                                                                                                                        | string | `${{ github.token }}` |
+| `REPOSITORY_SEARCH_TYPE` | no       | The type of search to perform. Options are `all` or `named`. All finds all repositories owned by the user. Named finds repositories with the specified names. Names must be set using the `REPOSITORY_NAMES` input. | string | `all`                 |
+| `REPOSITORY_NAMES`       | no       | A comma-separated list of repository names to analyse.                                                                                                                                                              | string | N/A                   |
 
 ## License
 

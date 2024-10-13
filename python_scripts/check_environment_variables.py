@@ -1,9 +1,11 @@
 from os import getenv
 from sys import exit
 
-EXPECTED_ENVIRONMENT_VARIABLES = ["INPUT_GITHUB_TOKEN", "INPUT_REPOSITORY_OWNER"]
+REQUIRED_ENVIRONMENT_VARIABLES = ["INPUT_GITHUB_TOKEN", "INPUT_REPOSITORY_OWNER"]
 
-for variable in EXPECTED_ENVIRONMENT_VARIABLES:
+
+"""Check that the required environment variables are set."""
+for variable in REQUIRED_ENVIRONMENT_VARIABLES:
     if getenv(variable) is None:
         if "INPUT_" in variable:
             print(f'Error: Required environment variable {variable.removeprefix("INPUT_")} is not set')
