@@ -41,7 +41,7 @@ def create_statistics() -> None:
             for repository in list_of_repositories
         ]
     ).to_json(DEFAULT_FILE_LOCATION, orient="records")
-    logger.info("Saved statistics to file", file_location=DEFAULT_FILE_LOCATION)
+    logger.debug("Saved statistics to file", file_location=DEFAULT_FILE_LOCATION)
 
 
 def create_repository_statistics(repository_name: str, path_to_repo: str) -> CataloguedRepository:
