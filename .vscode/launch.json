@@ -13,7 +13,7 @@
       "module": "analyser",
       "cwd": "${workspaceFolder}",
       "env": {
-        "DEBUG": "true",
+        "INPUT_DEBUG": "true",
         "INPUT_REPOSITORY_OWNER": "JackPlowman"
       },
       "console": "integratedTerminal",

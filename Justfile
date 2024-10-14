@@ -12,7 +12,7 @@ run:
 
 # Run the analyser with default values
 run-with-defaults:
-    DEBUG=true INPUT_REPOSITORY_OWNER=JackPlowman poetry run python -m analyser
+    INPUT_DEBUG=true INPUT_REPOSITORY_OWNER=JackPlowman poetry run python -m analyser
 
 # Run unit tests
 unit-test:

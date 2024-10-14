@@ -1,6 +1,5 @@
 [tool.poetry]
 name = "github-stats-analyser"
-description = ""
 authors = ["Jack Plowman <62281988+JackPlowman@users.noreply.github.com>"]
 license = "MIT"
 package-mode = false

@@ -37,6 +37,7 @@ The GitHub Action is designed to be used in a workflow.
 | ------------------ | -------- | --------------------------------------------------- | ------ | --------------------- |
 | `REPOSITORY_OWNER` | yes      | The GitHub username of the repositories to analyse. | string | N/A                   |
 | `GITHUB_TOKEN`     | no       | A GitHub token to authenticate API requests.        | string | `${{ github.token }}` |
+| `DEBUG`            | no       | Enable debug logging.                               | string | `false`               |
 
 ## License
 
