@@ -2,9 +2,10 @@ name: Code Test
 
 on:
   push:
-    branches: [main, "!release-please-*"]
+    branches: [main]
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
+    branches-ignore: [release-please-*]
 
 permissions:
   contents: read
