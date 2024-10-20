@@ -28,7 +28,7 @@ def create_statistics(configuration: Configuration) -> None:
         catalogued_repository = create_repository_statistics(repository_name, path)
         list_of_repositories.append(catalogued_repository)
 
-    logger.info("List of repositories", list_of_repositories=list_of_repositories)
+    logger.debug("List of repositories", list_of_repositories=list_of_repositories)
 
     DataFrame(
         [
