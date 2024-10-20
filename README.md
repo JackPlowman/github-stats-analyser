@@ -28,7 +28,7 @@ The GitHub Action is designed to be used in a workflow.
 - name: Analyse GitHub repositories
   uses: jackplowman/github-stats-analyser@latest
   with:
-    REPOSITORY_OWNER: jackplowman # Put your GitHub username here or use ${{ github.REPOSITORY_OWNER }}
+    REPOSITORY_OWNER: jackplowman # Put your GitHub username here or use ${{ github.repository_owner }}
 ```
 
 ### GitHub Action Inputs
