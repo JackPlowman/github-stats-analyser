@@ -8,7 +8,7 @@ branding:
 
 runs:
   using: "docker"
-  image: docker://ghcr.io/jackplowman/github-stats-analyser:v1.1.0
+  image: docker://ghcr.io/jackplowman/github-stats-analyser:v1.2.0
   env:
     GITHUB_ACTION: "true"
     FORCE_COLOR: "true" # Force log colour output
