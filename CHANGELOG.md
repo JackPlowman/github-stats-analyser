@@ -1,5 +1,34 @@
 # Changelog
 
+## [1.2.0](https://github.com/JackPlowman/github-stats-analyser/compare/v1.1.0...v1.2.0) (2024-10-20)
+
+
+### 🚀 Features
+
+* Add Debug Mode ([#160](https://github.com/JackPlowman/github-stats-analyser/issues/160)) ([2249da5](https://github.com/JackPlowman/github-stats-analyser/commit/2249da523f6175554b916f825d5d96b893420953)), closes [#159](https://github.com/JackPlowman/github-stats-analyser/issues/159)
+
+
+### 📝 Documentation
+
+* Update README with pre-built image and license info ([#136](https://github.com/JackPlowman/github-stats-analyser/issues/136)) ([9ddc6f9](https://github.com/JackPlowman/github-stats-analyser/commit/9ddc6f9399e838d82b4b879477fef7538275d555)), closes [#137](https://github.com/JackPlowman/github-stats-analyser/issues/137)
+
+
+### 🧰 Maintenance
+
+* Add Configuration class and refactor repository retrieval ([#156](https://github.com/JackPlowman/github-stats-analyser/issues/156)) ([15425e6](https://github.com/JackPlowman/github-stats-analyser/commit/15425e66aa2a623cf2e91fe955954e22e8e9aea5)), closes [#154](https://github.com/JackPlowman/github-stats-analyser/issues/154)
+* Add setup-dependencies directory to Dependabot config ([#133](https://github.com/JackPlowman/github-stats-analyser/issues/133)) ([44ec79d](https://github.com/JackPlowman/github-stats-analyser/commit/44ec79de162eb6d70ba4dab711a28d4e9e079469)), closes [#134](https://github.com/JackPlowman/github-stats-analyser/issues/134)
+* Add test action and output validation ([#147](https://github.com/JackPlowman/github-stats-analyser/issues/147)) ([040eaa8](https://github.com/JackPlowman/github-stats-analyser/commit/040eaa82a1c005c9b7e4aea31457f04e1545a865)), closes [#148](https://github.com/JackPlowman/github-stats-analyser/issues/148)
+* Add version check workflow and version file ([#145](https://github.com/JackPlowman/github-stats-analyser/issues/145)) ([19dd4aa](https://github.com/JackPlowman/github-stats-analyser/commit/19dd4aa92aa610d35df41aede91bde4ba7ba6e86)), closes [#146](https://github.com/JackPlowman/github-stats-analyser/issues/146)
+* Bump Python Version to Python 3.13 ([#140](https://github.com/JackPlowman/github-stats-analyser/issues/140)) ([3135efc](https://github.com/JackPlowman/github-stats-analyser/commit/3135efc7ab40db35202ab7e6aa87948b686a52c4)), closes [#139](https://github.com/JackPlowman/github-stats-analyser/issues/139)
+* Fix Docker image reference in action.yml ([#149](https://github.com/JackPlowman/github-stats-analyser/issues/149)) ([bbfd6f1](https://github.com/JackPlowman/github-stats-analyser/commit/bbfd6f10de233b6061628eddd2c5732d808b4afc)), closes [#150](https://github.com/JackPlowman/github-stats-analyser/issues/150)
+* Force color output in logs ([#164](https://github.com/JackPlowman/github-stats-analyser/issues/164)) ([2d0d5da](https://github.com/JackPlowman/github-stats-analyser/commit/2d0d5da8edef3af7f1c82e7f7f20ee2f8c45c9bf)), closes [#163](https://github.com/JackPlowman/github-stats-analyser/issues/163)
+* Optimise pre-commit hook for Python files ([#142](https://github.com/JackPlowman/github-stats-analyser/issues/142)) ([8e48442](https://github.com/JackPlowman/github-stats-analyser/commit/8e48442d2013086557fdbb22aa9154f1b1b8c5f3)), closes [#141](https://github.com/JackPlowman/github-stats-analyser/issues/141)
+* Reduce log verbosity ([#165](https://github.com/JackPlowman/github-stats-analyser/issues/165)) ([1c78547](https://github.com/JackPlowman/github-stats-analyser/commit/1c785478cf6c5e9714a74ddf91378a52c0f61b85)), closes [#162](https://github.com/JackPlowman/github-stats-analyser/issues/162)
+* Reduce Verbose Logging ([#158](https://github.com/JackPlowman/github-stats-analyser/issues/158)) ([94fea82](https://github.com/JackPlowman/github-stats-analyser/commit/94fea82cf9848e24c83c7c44e5821246474636ae)), closes [#157](https://github.com/JackPlowman/github-stats-analyser/issues/157)
+* Refactor GitHub Action structure and usage ([#143](https://github.com/JackPlowman/github-stats-analyser/issues/143)) ([fc7d2d6](https://github.com/JackPlowman/github-stats-analyser/commit/fc7d2d681b385142d06d4e3b3361bf0a8ab368b0)), closes [#144](https://github.com/JackPlowman/github-stats-analyser/issues/144)
+* Simplify Docker build job name and description ([#166](https://github.com/JackPlowman/github-stats-analyser/issues/166)) ([d94299f](https://github.com/JackPlowman/github-stats-analyser/commit/d94299fdba526710dc17ded5e77b3b804af2c033)), closes [#167](https://github.com/JackPlowman/github-stats-analyser/issues/167)
+* Update workflow trigger conditions ([#168](https://github.com/JackPlowman/github-stats-analyser/issues/168)) ([f96a17a](https://github.com/JackPlowman/github-stats-analyser/commit/f96a17a4b6d926da4a873ba14932113a85cafbb5)), closes [#169](https://github.com/JackPlowman/github-stats-analyser/issues/169)
+
 ## [1.1.0](https://github.com/JackPlowman/github-stats-analyser/compare/v1.0.1...v1.1.0) (2024-10-06)
 
 
