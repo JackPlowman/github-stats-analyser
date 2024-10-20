@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/JackPlowman/github-stats-analyser/compare/v1.2.0...v1.2.1) (2024-10-20)
+
+
+### 🧰 Maintenance
+
+* Remove version check workflow ([#172](https://github.com/JackPlowman/github-stats-analyser/issues/172)) ([e041d95](https://github.com/JackPlowman/github-stats-analyser/commit/e041d95769247a5d32ec5323793abbfb10a71a5a)), closes [#171](https://github.com/JackPlowman/github-stats-analyser/issues/171)
+
 ## [1.2.0](https://github.com/JackPlowman/github-stats-analyser/compare/v1.1.0...v1.2.0) (2024-10-20)
 
 
