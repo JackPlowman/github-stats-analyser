@@ -10,8 +10,8 @@ permissions:
   contents: read
 
 jobs:
-  docker-build-and-run:
-    name: Build Docker Image and Run
+  docker-build:
+    name: Build Docker Image
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
