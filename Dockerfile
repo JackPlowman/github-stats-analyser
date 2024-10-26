@@ -5,7 +5,7 @@ FROM python:3.13-alpine AS builder
 WORKDIR /
 
 COPY pyproject.toml poetry.lock ./
-RUN pip install --no-cache-dir poetry==1.8.3 && poetry export --output=requirements.txt
+RUN pip install --no-cache-dir poetry==1.8.4 && poetry export --output=requirements.txt
 
 FROM python:3.13-alpine AS analyser
 
