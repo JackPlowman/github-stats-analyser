@@ -25,12 +25,29 @@ jobs:
         uses: deepakputhraya/action-pr-title@v1.0.2
         with:
           allowed_prefixes: "feat: ,fix: ,bug: ,ci: ,refactor: ,docs: ,build: ,chore(,deps(,chore: ,feat!: ,fix!: ,refactor!: ,test: " # title should start with the given prefix
+
   labeller:
-    name: Labeller
+    name: Label Pull Request
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/labeler@v5.0.0
+      - name: Label Pull Request
+        uses: actions/labeler@v5.0.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           configuration-path: .github/other-configurations/labeller.yml
           sync-labels: true
+
+      - name: Add Size Labels
+        uses: pascalgn/size-label-action@v0.5.5
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          with:
+          sizes: >
+            {
+              "0": "XS",
+              "20": "S",
+              "50": "M",
+              "200": "L",
+              "500": "XL",
+              "1000": "XXL"
+            }
