@@ -54,9 +54,13 @@ jobs:
 
       - name: Check Python Code Quality (Ruff)
         run: just ruff-lint
+        env:
+          RUFF_OUTPUT_FORMAT: "github"
 
       - name: Check Python Code Format (Ruff)
         run: just ruff-format
+        env:
+          RUFF_OUTPUT_FORMAT: "github"
 
       - name: Check Python Code for Dead Code (Vulture)
         run: just vulture

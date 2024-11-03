@@ -16,7 +16,7 @@ pandas = "2.2.3"
 [tool.poetry.group.dev.dependencies]
 pytest = "8.3.3"
 pytest-cov = "5.0.0"
-ruff = "0.7.1"
+ruff = "0.7.2"
 vulture = "2.13"
 check-jsonschema = "0.29.3"
 
