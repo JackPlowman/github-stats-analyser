@@ -24,7 +24,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      # Lint and Format everything but Python/JavaScript/TypeScript
+      # Lint and Format everything but Python
       - name: Lint Code Base
         uses: super-linter/super-linter/slim@v7.1.0
         env:
