@@ -1,4 +1,4 @@
-name: "Pull Request Checks"
+name: "Pull Request Tasks"
 
 on:
   pull_request:
@@ -18,7 +18,7 @@ permissions:
 
 jobs:
   check-pr-title:
-    name: Check PR Title
+    name: Check Pull Request Title
     runs-on: ubuntu-latest
     steps:
       - name: Check PR Title
@@ -51,3 +51,12 @@ jobs:
               "800": "XL",
               "2000": "XXL"
             }
+
+  dependency-review:
+    name: Dependency Review
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.2
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v4.4.0
