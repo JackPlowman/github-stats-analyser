@@ -6,11 +6,9 @@ on:
       [
         opened,
         edited,
-        unlocked,
-        labeled,
+ 
         synchronize,
-        reopened,
-        ready_for_review,
+
       ]
 
 permissions:
