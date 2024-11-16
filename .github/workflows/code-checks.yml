@@ -175,9 +175,13 @@ jobs:
     name: Scorecard Analysis
     runs-on: ubuntu-latest
     permissions:
-      statuses: write
       security-events: write
       id-token: write
+      contents: read
+      actions: read
+      issues: read
+      pull-requests: read
+      checks: read
     steps:
       - name: "Checkout code"
         uses: actions/checkout@v4.2.2
