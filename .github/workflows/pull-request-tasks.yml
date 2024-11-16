@@ -8,14 +8,14 @@ permissions:
   pull-requests: write
 
 jobs:
-  check-pr-title:
+  check-pull-request-title:
     name: Check Pull Request Title
     runs-on: ubuntu-latest
     steps:
       - name: Check PR Title
         uses: deepakputhraya/action-pr-title@v1.0.2
         with:
-          allowed_prefixes: "feat: ,fix: ,bug: ,ci: ,refactor: ,docs: ,build: ,chore(,deps(,chore: ,feat!: ,fix!: ,refactor!: ,test: " # title should start with the given prefix
+          allowed_prefixes: "feat: ,fix: ,bug: ,ci: ,refactor: ,docs: ,build: ,chore(,deps(,chore: ,feat!: ,fix!: ,refactor!: ,test: ,build(deps): " # title should start with the given prefix
 
   labeller:
     name: Label Pull Request
