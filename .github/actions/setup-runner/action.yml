@@ -15,5 +15,3 @@ runs:
         egress-policy: audit
     - name: Set up Just
       uses: extractions/setup-just@v2
-
-
