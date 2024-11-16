@@ -11,13 +11,13 @@ on:
 permissions:
   contents: read
   packages: read
-  statuses: write
-  security-events: write
 
 jobs:
   check-code-quality:
     name: Check Code Quality
     runs-on: ubuntu-latest
+    permissions:
+      statuses: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
@@ -46,6 +46,8 @@ jobs:
   check-python-code-format-and-quality:
     name: Check Python Code Format and Quality
     runs-on: ubuntu-latest
+    permissions:
+      statuses: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
@@ -71,6 +73,9 @@ jobs:
   upload-ruff-analysis-results:
     name: Upload Ruff Analysis Results
     runs-on: ubuntu-latest
+    permissions:
+      statuses: write
+      security-events: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
@@ -96,6 +101,8 @@ jobs:
   run-codeql-analysis:
     name: CodeQL Analysis
     runs-on: ubuntu-latest
+    permissions:
+      statuses: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
@@ -110,6 +117,8 @@ jobs:
   check-markdown-links:
     name: Check Markdown links
     runs-on: ubuntu-latest
+    permissions:
+      statuses: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4.2.2
@@ -128,6 +137,8 @@ jobs:
   check-justfile-format:
     name: Check Justfile Format
     runs-on: ubuntu-latest
+    permissions:
+      statuses: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4.2.2
@@ -143,6 +154,8 @@ jobs:
   docker-build:
     name: Build Docker Image
     runs-on: ubuntu-latest
+    permissions:
+      statuses: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
@@ -157,6 +170,35 @@ jobs:
 
       - name: Build Docker Image
         run: just docker-build
+
+  run-scorecard-analysis:
+    name: Scorecard Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      security-events: write
+      id-token: write
+      contents: read
+      actions: read
+      issues: read
+      pull-requests: read
+      checks: read
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v4.2.2
+        with:
+          persist-credentials: false
+
+      - name: "Run analysis"
+        uses: ossf/scorecard-action@v2.4.0
+        with:
+          results_file: results.sarif
+          results_format: sarif
+          publish_results: true
+
+      - name: "Upload to code-scanning"
+        uses: github/codeql-action/upload-sarif@v3.27.4
+        with:
+          sarif_file: results.sarif
 
   run-code-limit:
     name: Code Limit Analysis
