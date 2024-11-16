@@ -1,53 +1,33 @@
-name: "Pull Request Tasks"
-
-on:
-  pull_request:
-    types: [opened, edited, synchronize]
-
-permissions:
-  pull-requests: write
-
 jobs:
-  check-pr-title:
+  check-pull-request-title:
     name: Check Pull Request Title
     runs-on: ubuntu-latest
     steps:
-      - name: Check PR Title
-        uses: deepakputhraya/action-pr-title@v1.0.2
-        with:
-          allowed_prefixes: "feat: ,fix: ,bug: ,ci: ,refactor: ,docs: ,build: ,chore(,deps(,chore: ,feat!: ,fix!: ,refactor!: ,test: " # title should start with the given prefix
-
-  labeller:
-    name: Label Pull Request
-    runs-on: ubuntu-latest
-    steps:
-      - name: Label Pull Request
-        uses: actions/labeler@v5.0.0
-        with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          configuration-path: .github/other-configurations/labeller.yml
-          sync-labels: true
-
-      - name: Add Size Labels
-        uses: pascalgn/size-label-action@v0.5.5
-        env:
-          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        with:
-          sizes: >
-            {
-              "0": "XS",
-              "40": "S",
-              "100": "M",
-              "200": "L",
-              "800": "XL",
-              "2000": "XXL"
-            }
-
+    - name: Check PR Title
+      uses: deepakputhraya/action-pr-title@v1.0.2
+      with: {allowed_prefixes: 'feat: ,fix: ,bug: ,ci: ,refactor: ,docs: ,build: ,chore(,deps(,chore:
+          ,feat!: ,fix!: ,refactor!: ,test: '}
   dependency-review:
     name: Dependency Review
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4.2.2
-      - name: Dependency Review
-        uses: actions/dependency-review-action@v4.4.0
+    - {name: Checkout Repository, uses: actions/checkout@v4.2.2}
+    - {name: Dependency Review, uses: actions/dependency-review-action@v4.4.0}
+  labeller:
+    name: Label Pull Request
+    runs-on: ubuntu-latest
+    steps:
+    - name: Label Pull Request
+      uses: actions/labeler@v5.0.0
+      with: {configuration-path: .github/other-configurations/labeller.yml, repo-token: '${{
+          secrets.GITHUB_TOKEN }}', sync-labels: true}
+    - env: {GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'}
+      name: Add Size Labels
+      uses: pascalgn/size-label-action@v0.5.5
+      with: {sizes: "{\n  \"0\": \"XS\",\n  \"40\": \"S\",\n  \"100\": \"M\",\n  \"\
+          200\": \"L\",\n  \"800\": \"XL\",\n  \"2000\": \"XXL\"\n}\n"}
+name: Pull Request Tasks
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+permissions: {pull-requests: write}
