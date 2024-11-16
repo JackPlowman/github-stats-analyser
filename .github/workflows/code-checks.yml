@@ -157,3 +157,20 @@ jobs:
 
       - name: Build Docker Image
         run: just docker-build
+
+  run-code-limit:
+    name: Code Limit Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      statuses: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: "Run Code Limit"
+        uses: getcodelimit/codelimit-action@8ee70f8d3d5b984130e46fb8ccbe229f5e1d68d0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          upload: true
