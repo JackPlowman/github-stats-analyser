@@ -12,6 +12,8 @@ jobs:
     name: Check Pull Request Title
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - name: Check PR Title
         uses: deepakputhraya/action-pr-title@v1.0.2
         with:
@@ -21,13 +23,14 @@ jobs:
     name: Label Pull Request
     runs-on: ubuntu-latest
     steps:
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - name: Label Pull Request
         uses: actions/labeler@v5.0.0
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           configuration-path: .github/other-configurations/labeller.yml
           sync-labels: true
-
       - name: Add Size Labels
         uses: pascalgn/size-label-action@v0.5.5
         env:
@@ -47,7 +50,7 @@ jobs:
     name: Dependency Review
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4.2.2
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - name: Dependency Review
         uses: actions/dependency-review-action@v4.4.0

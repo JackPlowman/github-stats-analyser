@@ -19,11 +19,8 @@ jobs:
     permissions:
       statuses: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-        with:
-          fetch-depth: 0
-
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       # Lint and Format everything but Python
       - name: Lint Code Base
         uses: super-linter/super-linter/slim@v7.1.0
@@ -49,24 +46,18 @@ jobs:
     permissions:
       statuses: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-        with:
-          fetch-depth: 0
-
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - name: Setup Dependencies
         uses: ./.github/actions/setup-dependencies
-
       - name: Check Python Code Quality (Ruff)
         run: just ruff-lint
         env:
           RUFF_OUTPUT_FORMAT: "github"
-
       - name: Check Python Code Format (Ruff)
         run: just ruff-format
         env:
           RUFF_OUTPUT_FORMAT: "github"
-
       - name: Check Python Code for Dead Code (Vulture)
         run: just vulture
 
@@ -77,21 +68,16 @@ jobs:
       statuses: write
       security-events: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-        with:
-          fetch-depth: 0
-
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - name: Setup Python Dependencies
         uses: ./.github/actions/setup-dependencies
-
       - name: Check Python Code Quality (Ruff)
         run: just ruff-lint
         env:
           RUFF_OUTPUT_FORMAT: "sarif"
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
-
       - name: Upload Ruff analysis results to GitHub
         uses: github/codeql-action/upload-sarif@v3.27.0
         with:
@@ -105,8 +91,8 @@ jobs:
       statuses: write
       security-events: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4.2.2
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3.27.0
         with:
@@ -121,11 +107,8 @@ jobs:
     permissions:
       statuses: write
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4.2.2
-        with:
-          fetch-depth: 0
-
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - name: Check Markdown links
         uses: UmbrellaDocs/action-linkspector@v1.2.4
         with:
@@ -141,14 +124,8 @@ jobs:
     permissions:
       statuses: write
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4.2.2
-        with:
-          fetch-depth: 0
-
-      - name: Set up Just
-        uses: extractions/setup-just@v2
-
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - name: Check Justfile Format
         run: just format-check
 
@@ -158,17 +135,10 @@ jobs:
     permissions:
       statuses: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-        with:
-          fetch-depth: 0
-
-      - name: Set up Just
-        uses: extractions/setup-just@v2
-
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3.7.1
-
       - name: Build Docker Image
         run: just docker-build
 
@@ -184,18 +154,14 @@ jobs:
       pull-requests: read
       checks: read
     steps:
-      - name: "Checkout code"
-        uses: actions/checkout@v4.2.2
-        with:
-          persist-credentials: false
-
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - name: "Run analysis"
         uses: ossf/scorecard-action@v2.4.0
         with:
           results_file: results.sarif
           results_format: sarif
           publish_results: true
-
       - name: "Upload to code-scanning"
         uses: github/codeql-action/upload-sarif@v3.27.4
         with:
@@ -207,11 +173,8 @@ jobs:
     permissions:
       statuses: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-        with:
-          fetch-depth: 0
-
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - name: "Run Code Limit"
         uses: getcodelimit/codelimit-action@8ee70f8d3d5b984130e46fb8ccbe229f5e1d68d0
         with:

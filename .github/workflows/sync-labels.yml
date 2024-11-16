@@ -15,10 +15,8 @@ jobs:
   configure-labels:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-        with:
-          fetch-depth: 0
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - uses: micnncim/action-label-syncer@v1.3.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}

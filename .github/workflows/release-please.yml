@@ -18,6 +18,8 @@ jobs:
       pull-requests: write
     timeout-minutes: 60
     steps:
+      - name: Setup Runner
+        uses: ./.github/actions/setup-runner
       - name: Release Please
         uses: googleapis/release-please-action@v4.1.3
         id: release
