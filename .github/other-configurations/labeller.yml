@@ -2,7 +2,17 @@
 documentation:
   - any:
       - changed-files:
-          - any-glob-to-any-file: ["README.md", "docs/**"]
+          - any-glob-to-any-file: ["README.md", "*.md", "docs/**"]
+markdown:
+  - any:
+      - changed-files:
+          - any-glob-to-any-file:
+              [
+                "docs/*.md",
+                "*.md",
+                "LICENSE",
+                ".github/pull_request_template.md",
+              ]
 dependencies:
   - any:
       - changed-files:
@@ -23,8 +33,7 @@ shell:
 github_actions:
   - any:
       - changed-files:
-          - any-glob-to-any-file:
-              [".github/workflows/*", ".github/workflows/**/*"]
+          - any-glob-to-any-file: [".github/workflows/*", ".github/actions/*"]
 docker:
   - any:
       - changed-files:
