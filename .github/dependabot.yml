@@ -9,7 +9,10 @@ updates:
     commit-message:
       prefix: "deps(github-actions)"
     schedule:
-      interval: "daily"
+      interval: "weekly"
+      day: "saturday"
+      time: "01:00"
+      timezone: "Europe/London"
     target-branch: "main"
     groups:
       github-actions:
@@ -21,7 +24,10 @@ updates:
     commit-message:
       prefix: "deps(python)"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
+      day: "saturday"
+      time: "01:00"
+      timezone: "Europe/London"
     target-branch: "main"
     groups:
       python:
@@ -33,5 +39,8 @@ updates:
     commit-message:
       prefix: "deps(docker)"
     schedule:
-      interval: "monthly"
+      interval: "weekly"
+      day: "saturday"
+      time: "01:00"
+      timezone: "Europe/London"
     target-branch: "main"
