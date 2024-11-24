@@ -1,3 +1,3 @@
 #!/bin/sh
 
-cat README.md
+cat test_markdown.md >> $GITHUB_STEP_SUMMARY
