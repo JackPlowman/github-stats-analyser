@@ -1,4 +1,4 @@
-from unittest.mock import MagicMock, call, patch
+from unittest.mock import MagicMock, patch
 
 from analyser.utils.github_interactions import clone_repo, retrieve_repositories
 
