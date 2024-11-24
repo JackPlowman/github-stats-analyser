@@ -47,9 +47,7 @@ def create_statistics(configuration: Configuration) -> DataFrame:
     return dataframe
 
 
-def create_repository_statistics(
-    repository_name: str, path_to_repo: str
-) -> CataloguedRepository:
+def create_repository_statistics(repository_name: str, path_to_repo: str) -> CataloguedRepository:
     """Create statistics for a repository.
 
     Args:
