@@ -86,22 +86,18 @@ ruff-fix:
 # Check for Ruff issues
 ruff-lint:
     poetry run ruff check analyser
-    poetry run ruff check python_scripts
 
 # Fix Ruff lint issues
 ruff-lint-fix:
     poetry run ruff check analyser --fix
-    poetry run ruff check python_scripts --fix
 
 # Check for Ruff format issues
 ruff-format:
     poetry run ruff format --check analyser
-    poetry run ruff format --check python_scripts
 
 # Fix Ruff format issues
 ruff-format-fix:
     poetry run ruff format analyser
-    poetry run ruff format python_scripts
 
 # ------------------------------------------------------------------------------
 # Other Python Tools
