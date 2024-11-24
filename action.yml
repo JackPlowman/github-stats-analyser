@@ -12,7 +12,6 @@ runs:
   env:
     GITHUB_ACTION: "true"
     FORCE_COLOR: "true" # Force log colour output
-  post-entrypoint: 'output.sh'
 
 inputs:
   GITHUB_TOKEN:
