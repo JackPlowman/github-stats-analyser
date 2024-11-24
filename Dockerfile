@@ -17,6 +17,7 @@ RUN mkdir -p /statistics && \
 
 COPY --chmod=755 run.sh run.sh
 COPY --chmod=755 output.sh output.sh
+COPY --chmod=755 test_markdown.md test_markdown.md
 COPY analyser analyser
 COPY __init__.py python_scripts/check_environment_variables.py /
 
