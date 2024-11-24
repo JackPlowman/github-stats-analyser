@@ -11,7 +11,7 @@ runs:
   image: "../../../Dockerfile"
   env:
     GITHUB_ACTION: "true"
-  post-entrypoint: "ls -la"
+  post-entrypoint: "/output.sh"
 
 inputs:
   GITHUB_TOKEN:
