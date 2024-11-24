@@ -41,7 +41,7 @@ jobs:
           VALIDATE_PYTHON_RUFF: false
           VALIDATE_PYTHON_PYINK: false
           VALIDATE_NATURAL_LANGUAGE: false
-          GITHUB_ACTIONS_COMMAND_ARGS: "-ignore '.branding.icon.'"
+          GITHUB_ACTIONS_COMMAND_ARGS: "-ignore '.branding.icon'"
 
   check-python-code-format-and-quality:
     name: Check Python Code Format and Quality
