@@ -13,7 +13,7 @@ logger: stdlib.BoundLogger = get_logger()
 DEFAULT_FILE_LOCATION = "statistics/repository_statistics.json"
 
 
-def create_statistics(configuration: Configuration) -> None:
+def create_statistics(configuration: Configuration) -> DataFrame:
     """Create statistics."""
     # Retrieve the list of repositories to analyse
     repositories = retrieve_repositories(configuration)
@@ -30,7 +30,7 @@ def create_statistics(configuration: Configuration) -> None:
 
     logger.debug("List of repositories", list_of_repositories=list_of_repositories)
 
-    DataFrame(
+    dataframe = DataFrame(
         [
             {
                 "repository": repository.repository_name,
@@ -41,11 +41,15 @@ def create_statistics(configuration: Configuration) -> None:
             }
             for repository in list_of_repositories
         ]
-    ).to_json(DEFAULT_FILE_LOCATION, orient="records")
+    )
+    dataframe.to_json(DEFAULT_FILE_LOCATION, orient="records")
     logger.debug("Saved statistics to file", file_location=DEFAULT_FILE_LOCATION)
+    return dataframe
 
 
-def create_repository_statistics(repository_name: str, path_to_repo: str) -> CataloguedRepository:
+def create_repository_statistics(
+    repository_name: str, path_to_repo: str
+) -> CataloguedRepository:
     """Create statistics for a repository.
 
     Args:
