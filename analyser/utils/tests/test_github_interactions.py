@@ -33,10 +33,10 @@ def test_clone_repo_exists(mock_repo: MagicMock, mock_path: MagicMock) -> None:
 @patch(f"{FILE_PATH}.Github")
 def test_retrieve_repositories(mock_github: MagicMock) -> None:
     # Arrange
-    token = "TestToken"
+    token = "TestToken"  # noqa: S
     full_name = "Test3/Test4"
-    mock_github.return_value.search_repositories.return_value = search_return = MagicMock(
-        totalCount=1, list=[MagicMock(full_name=full_name)]
+    mock_github.return_value.search_repositories.return_value = search_return = (
+        MagicMock(totalCount=1, list=[MagicMock(full_name=full_name)])
     )
     configuration = MagicMock(repository_owner="Test", github_token=token)
     # Act
