@@ -1,4 +1,4 @@
-from unittest.mock import MagicMock, call, patch
+from unittest.mock import MagicMock, patch
 
 from analyser.utils.github_interactions import clone_repo, retrieve_repositories
 
@@ -31,19 +31,16 @@ def test_clone_repo_exists(mock_repo: MagicMock, mock_path: MagicMock) -> None:
 
 
 @patch(f"{FILE_PATH}.Github")
-@patch(f"{FILE_PATH}.getenv")
-def test_retrieve_repositories(mock_getenv: MagicMock, mock_github: MagicMock) -> None:
+def test_retrieve_repositories(mock_github: MagicMock) -> None:
     # Arrange
     token = "TestToken"  # noqa: S105
-    mock_getenv.side_effect = [token, "Test"]
     full_name = "Test3/Test4"
     mock_github.return_value.search_repositories.return_value = search_return = MagicMock(
         totalCount=1, list=[MagicMock(full_name=full_name)]
     )
-    configuration = MagicMock(repository_owner="Test")
+    configuration = MagicMock(repository_owner="Test", github_token=token)
     # Act
     repositories = retrieve_repositories(configuration)
     # Assert
     mock_github.assert_called_once_with(token)
-    mock_getenv.assert_has_calls([call("INPUT_GITHUB_TOKEN")])
     assert repositories == search_return
