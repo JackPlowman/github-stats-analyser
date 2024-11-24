@@ -1,4 +1,5 @@
 from os import environ
+from pathlib import Path
 
 from pandas import DataFrame
 from structlog import get_logger, stdlib
@@ -12,9 +13,5 @@ def generate_action_summary(statistics_dataframe: DataFrame) -> None:
     Args:
         statistics_dataframe (DataFrame): The statistics data frame.
     """
-    environ["GITHUB_STEP_SUMMARY"] = statistics_dataframe.to_markdown()
-    logger.warning(
-        "Generated action summary",
-        action_summary=environ["GITHUB_STEP_SUMMARY"],
-        statistics=statistics_dataframe.to_markdown(),
-    )
+    with Path(environ["GITHUB_STEP_SUMMARY"]).open("w") as file:
+        file.write(statistics_dataframe.to_markdown())
