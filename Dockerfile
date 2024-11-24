@@ -17,7 +17,6 @@ RUN mkdir -p /statistics && \
 
 COPY --chmod=755 run.sh run.sh
 COPY analyser analyser
-COPY __init__.py python_scripts/check_environment_variables.py /
 
 COPY --from=builder requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
