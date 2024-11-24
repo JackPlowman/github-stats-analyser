@@ -16,6 +16,7 @@ RUN mkdir -p /statistics && \
   apk add --no-cache git=2.45.2-r0
 
 COPY --chmod=755 run.sh run.sh
+COPY --chmod=755 output.sh output.sh
 COPY analyser analyser
 COPY __init__.py python_scripts/check_environment_variables.py /
 
