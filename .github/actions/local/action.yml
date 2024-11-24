@@ -11,6 +11,7 @@ runs:
   image: "../../../Dockerfile"
   env:
     GITHUB_ACTION: "true"
+  post-entrypoint: "echo $GITHUB_STEP_SUMMARY"
 
 inputs:
   GITHUB_TOKEN:
