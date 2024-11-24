@@ -18,3 +18,6 @@ if [ "$CI" = "true" ]; then
   cp statistics/repository_statistics.json github/workspace/repository_statistics.json
   echo "Copied statistics to github/workspace"
 fi
+
+echo "Summary of the analysis:"
+echo $GITHUB_STEP_SUMMARY
