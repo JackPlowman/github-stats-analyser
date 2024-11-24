@@ -8,20 +8,23 @@ from analyser.__main__ import main
 FILE_PATH = "analyser.__main__"
 
 
+@patch(f"{FILE_PATH}.generate_action_summary")
 @patch(f"{FILE_PATH}.create_statistics")
-def test_main(mock_create_statistics: MagicMock) -> None:
+def test_main(mock_create_statistics: MagicMock, mock_generate_action_summary: MagicMock) -> None:
     # Arrange
     environ["INPUT_REPOSITORY_OWNER"] = "test2"
     # Act
     main()
     # Assert
     mock_create_statistics.assert_called_once()
+    mock_generate_action_summary.assert_called_once_with(mock_create_statistics.return_value)
     # Clean Up
     del environ["INPUT_REPOSITORY_OWNER"]
 
 
+@patch(f"{FILE_PATH}.generate_action_summary")
 @patch(f"{FILE_PATH}.create_statistics")
-def test_main__error(mock_create_statistics: MagicMock) -> None:
+def test_main__error(mock_create_statistics: MagicMock, mock_generate_action_summary: MagicMock) -> None:
     # Arrange
     mock_create_statistics.side_effect = Exception("Test")
     environ["INPUT_REPOSITORY_OWNER"] = "test2"
@@ -30,5 +33,6 @@ def test_main__error(mock_create_statistics: MagicMock) -> None:
         main()
     # Assert
     mock_create_statistics.assert_called_once()
+    mock_generate_action_summary.assert_not_called()
     # Clean Up
     del environ["INPUT_REPOSITORY_OWNER"]
