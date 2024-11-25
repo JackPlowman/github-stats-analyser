@@ -1,0 +1,21 @@
+name: "Setup Dependencies"
+description: "Installs dependencies for the project"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Dependencies
+      uses: ../setup-dependencies
+
+    - name: Set up Chrome
+      uses: browser-actions/setup-chrome@v1.7.2
+      with:
+        chrome-version: 130
+        install-chromedriver: true
+        install-dependencies: true
+
+    - run: chrome --version
+      shell: bash
+
+    - run: chromedriver --version
+      shell: bash
