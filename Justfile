@@ -31,7 +31,7 @@ test-github-summary:
 
 # Validate the schema of the generated statistics file
 validate-schema:
-    poetry run check-jsonschema --schemafile tests/schema_validation/repository_statistics_schema.json test/schema_validation/repository_statistics.json
+    poetry run check-jsonschema --schemafile tests/schema_validation/repository_statistics_schema.json tests/schema_validation/repository_statistics.json
 
 # ------------------------------------------------------------------------------
 # Cleaning Commands

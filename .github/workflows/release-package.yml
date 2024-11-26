@@ -61,4 +61,4 @@ jobs:
         with:
           REPOSITORY_OWNER: ${{ github.REPOSITORY_OWNER }}
       - name: Test Output
-        run: test/test_output.sh
+        run: tests/test_output.sh

@@ -253,6 +253,6 @@ jobs:
         with:
           REPOSITORY_OWNER: ${{ github.REPOSITORY_OWNER }}
       - name: Copy generated files to github pages folder
-        run: cp repository_statistics.json test/schema_validation
+        run: cp repository_statistics.json tests/schema_validation
       - name: Validate Schema
         run: just validate-schema
