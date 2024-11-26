@@ -256,4 +256,3 @@ jobs:
         run: cp repository_statistics.json test/schema_validation
       - name: Validate Schema
         run: just validate-schema
-
