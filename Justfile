@@ -27,11 +27,11 @@ unit-test-debug:
     poetry run pytest analyser --cov=. --cov-report=xml -vvvv
 
 test-github-summary:
-    poetry run pytest test/github_summary
+    poetry run pytest tests/github_summary
 
 # Validate the schema of the generated statistics file
 validate-schema:
-    poetry run check-jsonschema --schemafile test/schema_validation/repository_statistics_schema.json test/schema_validation/repository_statistics.json
+    poetry run check-jsonschema --schemafile tests/schema_validation/repository_statistics_schema.json test/schema_validation/repository_statistics.json
 
 # ------------------------------------------------------------------------------
 # Cleaning Commands
