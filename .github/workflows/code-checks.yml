@@ -23,7 +23,6 @@ jobs:
         uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0
-
       # Lint and Format everything but Python
       - name: Lint Code Base
         uses: super-linter/super-linter/slim@v7.1.0
@@ -53,20 +52,16 @@ jobs:
         uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0
-
       - name: Setup Dependencies
         uses: ./.github/actions/setup-dependencies
-
       - name: Check Python Code Quality (Ruff)
         run: just ruff-lint
         env:
           RUFF_OUTPUT_FORMAT: "github"
-
       - name: Check Python Code Format (Ruff)
         run: just ruff-format
         env:
           RUFF_OUTPUT_FORMAT: "github"
-
       - name: Check Python Code for Dead Code (Vulture)
         run: just vulture
 
@@ -81,17 +76,14 @@ jobs:
         uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0
-
       - name: Setup Python Dependencies
         uses: ./.github/actions/setup-dependencies
-
       - name: Check Python Code Quality (Ruff)
         run: just ruff-lint
         env:
           RUFF_OUTPUT_FORMAT: "sarif"
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
-
       - name: Upload Ruff analysis results to GitHub
         uses: github/codeql-action/upload-sarif@v3.27.5
         with:
@@ -125,7 +117,6 @@ jobs:
         uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0
-
       - name: Check Markdown links
         uses: UmbrellaDocs/action-linkspector@v1.2.4
         with:
@@ -162,13 +153,10 @@ jobs:
         uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0
-
       - name: Set up Just
         uses: extractions/setup-just@v2
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3.7.1
-
       - name: Build Docker Image
         run: just docker-build
 
@@ -197,7 +185,7 @@ jobs:
           publish_results: true
 
       - name: "Upload to code-scanning"
-        uses: github/codeql-action/upload-sarif@v3.27.4
+        uses: github/codeql-action/upload-sarif@v3.27.5
         with:
           sarif_file: results.sarif
 
