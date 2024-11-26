@@ -259,7 +259,7 @@ jobs:
       - name: Download GitHub Action Summary
         uses: austenstone/job-summary@v2.0
         with:
-          name: GITHUB_ACTION_SUMMARY.md
+          name: GITHUB_ACTION_SUMMARY
           create-pdf: false
           create-pdf-artifact: false
           create-md: true

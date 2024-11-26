@@ -21,6 +21,7 @@ vulture = "2.13"
 check-jsonschema = "0.29.4"
 requests = "2.32.3"
 Markdown = "3.7"
+beautifulsoup4 = "4.12.3"
 
 [build-system]
 requires = ["poetry-core"]
