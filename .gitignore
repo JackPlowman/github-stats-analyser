@@ -163,3 +163,7 @@ cython_debug/
 
 # Cache Folders
 .ruff_cache
+
+# Other
+tests/schema_validation/repository_statistics.json
+tests/github_summary/GITHUB_ACTION_SUMMARY.md

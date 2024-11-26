@@ -14,6 +14,10 @@ run:
 run-with-defaults:
     INPUT_DEBUG=true INPUT_REPOSITORY_OWNER=JackPlowman poetry run python -m analyser
 
+# ------------------------------------------------------------------------------
+# Test Commands
+# ------------------------------------------------------------------------------
+
 # Run unit tests
 unit-test:
     poetry run pytest analyser --cov=. --cov-report=xml
@@ -22,9 +26,12 @@ unit-test:
 unit-test-debug:
     poetry run pytest analyser --cov=. --cov-report=xml -vvvv
 
+test-github-summary:
+    poetry run pytest tests/github_summary
+
 # Validate the schema of the generated statistics file
 validate-schema:
-    poetry run check-jsonschema --schemafile test/schema_validation/repository_statistics_schema.json test/schema_validation/repository_statistics.json
+    poetry run check-jsonschema --schemafile tests/schema_validation/repository_statistics_schema.json tests/schema_validation/repository_statistics.json
 
 # ------------------------------------------------------------------------------
 # Cleaning Commands
