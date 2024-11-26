@@ -26,7 +26,7 @@ jobs:
 
       # Lint and Format everything but Python
       - name: Lint Code Base
-        uses: super-linter/super-linter/slim@v7.1.0
+        uses: super-linter/super-linter/slim@v7.2.0
         env:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
@@ -197,7 +197,7 @@ jobs:
           publish_results: true
 
       - name: "Upload to code-scanning"
-        uses: github/codeql-action/upload-sarif@v3.27.4
+        uses: github/codeql-action/upload-sarif@v3.27.5
         with:
           sarif_file: results.sarif
 
