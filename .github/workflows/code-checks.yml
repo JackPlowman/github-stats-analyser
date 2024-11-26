@@ -93,7 +93,7 @@ jobs:
         continue-on-error: true
 
       - name: Upload Ruff analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v3.27.0
+        uses: github/codeql-action/upload-sarif@v3.27.5
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
@@ -108,12 +108,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4.2.2
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3.27.0
+        uses: github/codeql-action/init@v3.27.5
         with:
           languages: python
           queries: security-and-quality
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3.27.0
+        uses: github/codeql-action/analyze@v3.27.5
 
   check-markdown-links:
     name: Check Markdown links
