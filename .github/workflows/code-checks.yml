@@ -217,3 +217,43 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           upload: true
+
+  unit-test:
+    name: Run Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+      - name: Setup Dependencies
+        uses: ./.github/actions/setup-dependencies
+      - name: Run Unit Tests
+        run: just unit-test
+      - name: Override Coverage Source Path for SonarCloud
+        run: sed -i "s/<source>\/home\/runner\/work\/github-stats-analyser\/github-stats-analyser<\/source>/<source>\/github\/workspace<\/source>/g" /home/runner/work/github-stats-analyser/github-stats-analyser/coverage.xml
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v3.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+  validate-schema:
+    name: Validate Schema
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+      - name: Setup Dependencies
+        uses: ./.github/actions/setup-dependencies
+      - name: Run GitHub Stats Analyser
+        uses: ./.github/actions/local
+        with:
+          REPOSITORY_OWNER: ${{ github.REPOSITORY_OWNER }}
+      - name: Copy generated files to github pages folder
+        run: cp repository_statistics.json test/schema_validation
+      - name: Validate Schema
+        run: just validate-schema
+
