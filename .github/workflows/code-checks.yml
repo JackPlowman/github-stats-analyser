@@ -284,4 +284,3 @@ jobs:
           path: tests/schema_validation
       - name: Validate Schema
         run: just validate-schema
-
