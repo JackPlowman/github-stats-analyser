@@ -14,6 +14,10 @@ run:
 run-with-defaults:
     INPUT_DEBUG=true INPUT_REPOSITORY_OWNER=JackPlowman poetry run python -m analyser
 
+# ------------------------------------------------------------------------------
+# Test Commands
+# ------------------------------------------------------------------------------
+
 # Run unit tests
 unit-test:
     poetry run pytest analyser --cov=. --cov-report=xml
@@ -21,6 +25,9 @@ unit-test:
 # Run unit tests with debug output
 unit-test-debug:
     poetry run pytest analyser --cov=. --cov-report=xml -vvvv
+
+test-github-summary:
+    poetry run pytest test/github_summary
 
 # Validate the schema of the generated statistics file
 validate-schema:
