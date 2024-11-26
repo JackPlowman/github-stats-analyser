@@ -238,8 +238,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
-  validate-schema:
-    name: Validate Schema
+  run-local-action:
+    name: Run Local Action
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -252,10 +252,6 @@ jobs:
         uses: ./.github/actions/local
         with:
           REPOSITORY_OWNER: ${{ github.REPOSITORY_OWNER }}
-      - name: Copy generated files to github pages folder
-        run: cp repository_statistics.json tests/schema_validation
-      - name: Validate Schema
-        run: just validate-schema
       - name: Download GitHub Action Summary
         uses: austenstone/job-summary@v2.0
         with:
@@ -264,3 +260,27 @@ jobs:
           create-pdf-artifact: false
           create-md: true
           create-md-artifact: true
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4.4.3
+        with:
+          name: repository_statistics
+          path: repository_statistics.json
+
+  validate-schema:
+    name: Validate Schema
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+      - name: Setup Dependencies
+        uses: ./.github/actions/setup-dependencies
+      - name: Download Artifact
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: repository_statistics
+          path: tests/schema_validation
+      - name: Validate Schema
+        run: just validate-schema
+
