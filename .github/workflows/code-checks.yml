@@ -256,3 +256,11 @@ jobs:
         run: cp repository_statistics.json tests/schema_validation
       - name: Validate Schema
         run: just validate-schema
+      - name: Download GitHub Action Summary
+        uses: austenstone/job-summary@v2.0
+        with:
+          name: GITHUB_ACTION_SUMMARY.md
+          create-pdf: false
+          create-pdf-artifact: false
+          create-md: true
+          create-md-artifact: true

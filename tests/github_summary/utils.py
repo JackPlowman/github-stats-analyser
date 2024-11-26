@@ -40,4 +40,10 @@ def get_github_summary_markdown_url(owner: str, repo: str, run_id: int) -> str:
         msg = "Multiple jobs found"
         raise ValueError(msg)
     job = jobs[0]
-    return job["html_url"]
+    step_id = job["html_url"].split("/")[-1]
+    print(f"https://github.com/{owner}/{repo}/actions/runs/{run_id}/jobs/{step_id}/summary_raw")
+    raise NotImplementedError("Function not implemented")
+
+    # return job["html_url"]
+    # print(f"{job["html_url"]}/summary_raw")
+    # raise NotImplementedError("Function not implemented")

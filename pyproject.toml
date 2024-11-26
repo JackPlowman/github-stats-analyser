@@ -20,6 +20,7 @@ vulture = "2.13"
 [tool.poetry.group.test.dependencies]
 check-jsonschema = "0.29.4"
 requests = "2.32.3"
+Markdown = "3.7"
 
 [build-system]
 requires = ["poetry-core"]
