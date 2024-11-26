@@ -269,6 +269,7 @@ jobs:
   validate-schema:
     name: Validate Schema
     runs-on: ubuntu-latest
+    needs: run-local-action
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
