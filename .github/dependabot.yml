@@ -36,6 +36,9 @@ updates:
       python:
         patterns:
           - "*"
+        update-types:
+          - "patch"
+          - "minor"
 
   - package-ecosystem: "docker"
     directory: "/"
@@ -47,3 +50,10 @@ updates:
       time: "01:00"
       timezone: "Europe/London"
     target-branch: "main"
+    groups:
+      docker:
+        patterns:
+          - "*"
+        update-types:
+          - "patch"
+          - "minor"
