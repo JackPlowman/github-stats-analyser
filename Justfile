@@ -81,7 +81,7 @@ docker-run:
       --rm jackplowman/github-stats-analyser:latest
 
 # ------------------------------------------------------------------------------
-# Ruff - Python Linting and Formating
+# Ruff - Python Linting and Formatting
 # Set up ruff red-knot when it's ready
 # ------------------------------------------------------------------------------
 
@@ -92,19 +92,19 @@ ruff-fix:
 
 # Check for Ruff issues
 ruff-lint:
-    poetry run ruff check analyser
+    poetry run ruff check .
 
 # Fix Ruff lint issues
 ruff-lint-fix:
-    poetry run ruff check analyser --fix
+    poetry run ruff check . --fix
 
 # Check for Ruff format issues
 ruff-format:
-    poetry run ruff format --check analyser
+    poetry run ruff format --check .
 
 # Fix Ruff format issues
 ruff-format-fix:
-    poetry run ruff format analyser
+    poetry run ruff format .
 
 # ------------------------------------------------------------------------------
 # Other Python Tools
