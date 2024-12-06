@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.3.1](https://github.com/JackPlowman/github-stats-analyser/compare/v1.3.0...v1.3.1) (2024-12-06)
+
+
+### 📝 Documentation
+
+* Add PROJECT_TECHNOLOGIES.md file ([#240](https://github.com/JackPlowman/github-stats-analyser/issues/240)) ([2078ae8](https://github.com/JackPlowman/github-stats-analyser/commit/2078ae8007ec280c53c6fedcbf8a35f647cf3bd0)), closes [#200](https://github.com/JackPlowman/github-stats-analyser/issues/200)
+
+
+### 🧰 Maintenance
+
+* Add GitHub Summary Tests Job ([#251](https://github.com/JackPlowman/github-stats-analyser/issues/251)) ([f775c98](https://github.com/JackPlowman/github-stats-analyser/commit/f775c98c3ba86f8a877af776c95a8f40bae4ffff)), closes [#242](https://github.com/JackPlowman/github-stats-analyser/issues/242)
+* Merge GitHub Workflows ([#247](https://github.com/JackPlowman/github-stats-analyser/issues/247)) ([b401dc9](https://github.com/JackPlowman/github-stats-analyser/commit/b401dc91c3a04e8ce82914a6e28a3b88b9edcf19)), closes [#246](https://github.com/JackPlowman/github-stats-analyser/issues/246)
+* Remove Check Environment Variables Script ([#237](https://github.com/JackPlowman/github-stats-analyser/issues/237)) ([c36e5d2](https://github.com/JackPlowman/github-stats-analyser/commit/c36e5d2c850f0a1b8f3475d07d221d2f08a955f0))
+* Run Ruff on All Python Code ([#256](https://github.com/JackPlowman/github-stats-analyser/issues/256)) ([e6e6d35](https://github.com/JackPlowman/github-stats-analyser/commit/e6e6d35c863e0e5624b75cc71b5da33a47a6f451))
+* Ungroup Major Application Dependencies ([#253](https://github.com/JackPlowman/github-stats-analyser/issues/253)) ([c5cf9cf](https://github.com/JackPlowman/github-stats-analyser/commit/c5cf9cf96a0928f088927c1944f25eae2ea3f0fd)), closes [#254](https://github.com/JackPlowman/github-stats-analyser/issues/254)
+* Update CodeLimit Action and Permissions ([#260](https://github.com/JackPlowman/github-stats-analyser/issues/260)) ([9123098](https://github.com/JackPlowman/github-stats-analyser/commit/9123098029cbafca8e8010ae7ff6a796490be02d)), closes [#261](https://github.com/JackPlowman/github-stats-analyser/issues/261)
+
 ## [1.3.0](https://github.com/JackPlowman/github-stats-analyser/compare/v1.2.0...v1.3.0) (2024-11-24)
 
 
