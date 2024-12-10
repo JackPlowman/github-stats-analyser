@@ -1,3 +1,6 @@
+from json import dump
+from pathlib import Path
+
 import git
 from pandas import DataFrame
 from structlog import get_logger, stdlib
@@ -42,7 +45,7 @@ def create_statistics(configuration: Configuration) -> DataFrame:
             for repository in list_of_repositories
         ]
     )
-    dataframe.to_json(DEFAULT_FILE_LOCATION, orient="records")
+    generate_output_file(configuration, dataframe)
     logger.debug("Saved statistics to file", file_location=DEFAULT_FILE_LOCATION)
     return dataframe
 
@@ -75,3 +78,20 @@ def create_repository_statistics(repository_name: str, path_to_repo: str) -> Cat
         commits=commits,
         languages=analysed_repository.languages.get_data(),
     )
+
+
+def generate_output_file(configuration: Configuration, dataframe: DataFrame) -> None:
+    """Generate an output file.
+
+    Args:
+        configuration (Configuration): The configuration.
+        dataframe (DataFrame): The data frame.
+    """
+    with Path(DEFAULT_FILE_LOCATION).open("w") as file:
+        dump(
+            {
+                "repository_owner": configuration.repository_owner,
+                "repositories": dataframe.to_dict(orient="records"),
+            },
+            file,
+        )
