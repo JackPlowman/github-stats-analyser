@@ -236,6 +236,7 @@ jobs:
       - name: Run GitHub Stats Analyser
         uses: ./.github/actions/local
         with:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           REPOSITORY_OWNER: ${{ github.REPOSITORY_OWNER }}
       - name: Download GitHub Action Summary
         uses: austenstone/job-summary@v2.0
