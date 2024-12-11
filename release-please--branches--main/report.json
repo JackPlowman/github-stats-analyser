@@ -1,13 +1,13 @@
 {
   "version": "0.13.0",
-  "uuid": "20520fa2-b066-417e-9ff9-3bdee93d23c8",
+  "uuid": "2742b64d-5337-4f6c-a36d-69a3cf66db32",
   "root": "/github/workspace",
   "codebase": {
     "totals": {
       "Python": {
         "files": 17,
-        "lines_of_code": 260,
-        "functions": 18,
+        "lines_of_code": 272,
+        "functions": 19,
         "hard_to_maintain": 0,
         "unmaintainable": 0
       }
@@ -18,7 +18,7 @@
           "__init__.py",
           "analyser/"
         ],
-        "profile": [139, 25, 0, 0]
+        "profile": [149, 25, 0, 0]
       },
       "analyser/": {
         "entries": [
@@ -29,7 +29,7 @@
           "file_analysis/",
           "utils/"
         ],
-        "profile": [139, 25, 0, 0]
+        "profile": [149, 25, 0, 0]
       },
       "analyser/commits/": {
         "entries": [
@@ -88,13 +88,14 @@
         ]
       },
       "analyser/statistics.py": {
-        "checksum": "8434c89dc2cf81f844d84f3904c25fad",
+        "checksum": "405f06750429d75b38db591479a06404",
         "language": "Python",
-        "loc": 51,
-        "profile": [15, 25, 0, 0],
+        "loc": 63,
+        "profile": [25, 25, 0, 0],
         "measurements": [
-          {"unit_name": "create_statistics", "start": {"line": 16, "column": 1}, "end": {"line": 47, "column": 21}, "value": 25},
-          {"unit_name": "create_repository_statistics", "start": {"line": 50, "column": 1}, "end": {"line": 77, "column": 6}, "value": 15}
+          {"unit_name": "create_statistics", "start": {"line": 19, "column": 1}, "end": {"line": 50, "column": 21}, "value": 25},
+          {"unit_name": "create_repository_statistics", "start": {"line": 53, "column": 1}, "end": {"line": 80, "column": 6}, "value": 15},
+          {"unit_name": "generate_output_file", "start": {"line": 83, "column": 1}, "end": {"line": 97, "column": 10}, "value": 10}
         ]
       },
       "analyser/commits/__init__.py": {
