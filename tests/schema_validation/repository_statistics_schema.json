@@ -1,34 +1,42 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "additionalProperties": false,
-  "type": "array",
-  "items": [
-    {
-      "type": "object",
-      "properties": {
-        "repository": {
-          "type": "string"
-        },
-        "total_files": {
-          "type": "integer"
-        },
-        "total_commits": {
-          "type": "integer"
-        },
-        "commits": {
-          "type": "object"
-        },
-        "languages": {
-          "type": "object"
+  "type": "object",
+  "properties": {
+    "repository_owner": {
+      "type": "string"
+    },
+    "repositories": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "repository": {
+              "type": "string"
+            },
+            "total_files": {
+              "type": "integer"
+            },
+            "total_commits": {
+              "type": "integer"
+            },
+            "commits": {
+              "type": "object"
+            },
+            "languages": {
+              "type": "object"
+            }
+          },
+          "required": [
+            "repository",
+            "total_files",
+            "total_commits",
+            "commits",
+            "languages"
+          ]
         }
-      },
-      "required": [
-        "repository",
-        "total_files",
-        "total_commits",
-        "commits",
-        "languages"
       ]
     }
-  ]
+  }
 }
