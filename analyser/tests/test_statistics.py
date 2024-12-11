@@ -1,10 +1,15 @@
 from unittest.mock import MagicMock, patch
 
-from analyser.statistics import create_repository_statistics, create_statistics
+from analyser.statistics import (
+    create_repository_statistics,
+    create_statistics,
+    generate_output_file,
+)
 
 FILE_PATH = "analyser.statistics"
 
 
+@patch(f"{FILE_PATH}.generate_output_file")
 @patch(f"{FILE_PATH}.retrieve_repositories")
 @patch(f"{FILE_PATH}.clone_repo")
 @patch(f"{FILE_PATH}.remove_excluded_files")
@@ -16,6 +21,7 @@ def test_create_statistics(
     _mock_remove_excluded_files: MagicMock,
     mock_clone_repo: MagicMock,
     mock_retrieve_repositories: MagicMock,
+    mock_generate_output_file: MagicMock,
 ) -> None:
     # Arrange
     repository = MagicMock()
@@ -44,11 +50,16 @@ def test_create_statistics(
             }
         ]
     )
+    mock_generate_output_file.assert_called_once_with(
+        configuration, mock_data_frame.return_value
+    )
 
 
 @patch(f"{FILE_PATH}.get_commits")
 @patch(f"{FILE_PATH}.git.Repo")
-def test_create_repository_statistics(_mock_repo: MagicMock, mock_get_commits: MagicMock) -> None:
+def test_create_repository_statistics(
+    _mock_repo: MagicMock, mock_get_commits: MagicMock
+) -> None:
     # Arrange
     repository_name = "Test1"
     path_to_repo = "TestPath"
@@ -59,3 +70,23 @@ def test_create_repository_statistics(_mock_repo: MagicMock, mock_get_commits: M
     assert catalogued_repository.total_files == 0
     assert catalogued_repository.total_commits == 1
     assert catalogued_repository.commits == mock_get_commits.return_value
+
+
+@patch(f"{FILE_PATH}.dump")
+@patch(f"{FILE_PATH}.Path")
+def test_generate_output_file(mock_path: MagicMock, mock_dump: MagicMock) -> None:
+    # Arrange
+    configuration = MagicMock()
+    data_frame = MagicMock()
+    # Act
+    generate_output_file(configuration, data_frame)
+    # Assert
+    mock_path.assert_called_once_with("statistics/repository_statistics.json")
+    mock_path.return_value.open.assert_called_once_with("w")
+    mock_dump.assert_called_once_with(
+        {
+            "repository_owner": configuration.repository_owner,
+            "repositories": data_frame.to_dict(orient="records"),
+        },
+        mock_path.return_value.open.return_value.__enter__.return_value,
+    )
