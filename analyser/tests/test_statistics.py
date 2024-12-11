@@ -50,16 +50,12 @@ def test_create_statistics(
             }
         ]
     )
-    mock_generate_output_file.assert_called_once_with(
-        configuration, mock_data_frame.return_value
-    )
+    mock_generate_output_file.assert_called_once_with(configuration, mock_data_frame.return_value)
 
 
 @patch(f"{FILE_PATH}.get_commits")
 @patch(f"{FILE_PATH}.git.Repo")
-def test_create_repository_statistics(
-    _mock_repo: MagicMock, mock_get_commits: MagicMock
-) -> None:
+def test_create_repository_statistics(_mock_repo: MagicMock, mock_get_commits: MagicMock) -> None:
     # Arrange
     repository_name = "Test1"
     path_to_repo = "TestPath"
