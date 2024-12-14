@@ -24,7 +24,7 @@ jobs:
           persist-credentials: false
       # Lint and Format everything but Python
       - name: Lint Code Base
-        uses: super-linter/super-linter/slim@v7.1.0
+        uses: super-linter/super-linter/slim@v7.2.1
         env:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
@@ -86,7 +86,7 @@ jobs:
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
       - name: Upload Ruff analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v3.27.5
+        uses: github/codeql-action/upload-sarif@v3.27.9
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
@@ -104,12 +104,12 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3.27.5
+        uses: github/codeql-action/init@v3.27.9
         with:
           languages: python
           queries: security-and-quality
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3.27.5
+        uses: github/codeql-action/analyze@v3.27.9
 
   check-markdown-links:
     name: Check Markdown links
