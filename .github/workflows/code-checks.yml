@@ -162,7 +162,7 @@ jobs:
         run: just docker-build
 
   run-code-limit:
-    name: Run Code Limit
+    name: Run CodeLimit
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -173,7 +173,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: "Run Code Limit"
+      - name: "Run CodeLimit"
         uses: getcodelimit/codelimit-action@v1
 
   unit-test:
