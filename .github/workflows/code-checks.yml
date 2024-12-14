@@ -160,35 +160,6 @@ jobs:
       - name: Build Docker Image
         run: just docker-build
 
-  run-scorecard-analysis:
-    name: Scorecard Analysis
-    runs-on: ubuntu-latest
-    permissions:
-      security-events: write
-      id-token: write
-      contents: read
-      actions: read
-      issues: read
-      pull-requests: read
-      checks: read
-    steps:
-      - name: "Checkout code"
-        uses: actions/checkout@v4.2.2
-        with:
-          persist-credentials: false
-
-      - name: "Run analysis"
-        uses: ossf/scorecard-action@v2.4.0
-        with:
-          results_file: results.sarif
-          results_format: sarif
-          publish_results: true
-
-      - name: "Upload to code-scanning"
-        uses: github/codeql-action/upload-sarif@v3.27.5
-        with:
-          sarif_file: results.sarif
-
   run-code-limit:
     name: Run Code Limit
     runs-on: ubuntu-latest
