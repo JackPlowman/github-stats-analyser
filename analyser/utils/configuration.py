@@ -37,4 +37,4 @@ class Configuration:
         Returns:
             str: The action summary table.
         """
-        return f"| Key | Repository Owner |\n| --- | ---------------- |\n| Value Owner | {self.repository_owner} |"
+        return f"| Key | Repository Owner |\n| --- | ---------------- |\n| Value | {self.repository_owner} |"
