@@ -203,7 +203,7 @@ jobs:
     permissions:
       security-events: write
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0

@@ -9,16 +9,19 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write
+  pull-requests: read
 
 jobs:
   configure-labels:
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0
+          persist-credentials: false
       - uses: micnncim/action-label-syncer@v1.3.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
