@@ -54,4 +54,4 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Dependency Review
-        uses: actions/dependency-review-action@v4.4.0
+        uses: actions/dependency-review-action@v4.5.0
