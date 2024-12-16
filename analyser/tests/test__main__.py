@@ -23,7 +23,9 @@ def test_main(
     # Assert
     mock_configuration.assert_called_once_with()
     mock_create_statistics.assert_called_once_with(mock_configuration.return_value)
-    mock_generate_action_summary.assert_called_once_with(mock_create_statistics.return_value)
+    mock_generate_action_summary.assert_called_once_with(
+        mock_configuration.return_value, mock_create_statistics.return_value
+    )
     # Clean Up
     del environ["INPUT_REPOSITORY_OWNER"]
 
