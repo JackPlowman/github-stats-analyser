@@ -1,7 +1,7 @@
 ## Codebase totals
 | **Language** | **Files** | **Lines of Code** | **Functions** | ⚠ | ❌ |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Python | 17 | 287 | 20 | 0 | 0 |
+| Python | 17 | 283 | 20 | 0 | 0 |
 
 
 ## Refactoring report
