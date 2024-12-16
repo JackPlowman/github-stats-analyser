@@ -1,12 +1,12 @@
 {
   "version": "0.14.3",
-  "uuid": "f3fc5a0a-fd0f-47d1-8b6e-4cad8cbce996",
+  "uuid": "f7f53231-db54-4aa9-9fd9-9e20d9ee6e93",
   "root": "/github/workspace",
   "codebase": {
     "totals": {
       "Python": {
         "files": 17,
-        "lines_of_code": 287,
+        "lines_of_code": 283,
         "functions": 20,
         "hard_to_maintain": 0,
         "unmaintainable": 0
@@ -163,14 +163,14 @@
         ]
       },
       "analyser/utils/configuration.py": {
-        "checksum": "b6b296ef716875cda00887d0455a5e4d",
+        "checksum": "01bd57de6454b79992e9e26379c85f60",
         "language": "Python",
-        "loc": 27,
+        "loc": 23,
         "profile": [15, 0, 0, 0],
         "measurements": [
           {"unit_name": "__init__", "start": {"line": 13, "column": 5}, "end": {"line": 16, "column": 79}, "value": 4},
           {"unit_name": "get_and_check_for_value", "start": {"line": 18, "column": 5}, "end": {"line": 32, "column": 30}, "value": 8},
-          {"unit_name": "generate_action_summary_table", "start": {"line": 34, "column": 5}, "end": {"line": 40, "column": 20}, "value": 3}
+          {"unit_name": "generate_action_summary_table", "start": {"line": 34, "column": 5}, "end": {"line": 40, "column": 115}, "value": 3}
         ]
       },
       "analyser/utils/action_summary.py": {
