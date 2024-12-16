@@ -19,7 +19,7 @@ def main() -> None:
         set_up_custom_logging()
         configuration = Configuration()
         statistics = create_statistics(configuration)
-        generate_action_summary(statistics)
+        generate_action_summary(configuration, statistics)
     except Exception as error:
         logger.exception("An error occurred during the execution of the analyser.", error=error)
         raise
