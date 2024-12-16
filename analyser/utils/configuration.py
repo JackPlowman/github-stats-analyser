@@ -30,3 +30,11 @@ class Configuration:
         updated_variable_key = key.removeprefix("INPUT_") if "INPUT_" in key else key
         msg = f"Configuration value for {updated_variable_key} is not set"
         raise ValueError(msg)
+
+    def generate_action_summary_table(self: Self) -> str:
+        """Generate the action summary table.
+
+        Returns:
+            str: The action summary table.
+        """
+        return f"| Key | Repository Owner |\n| --- | ---------------- |\n| Value | {self.repository_owner} |"
