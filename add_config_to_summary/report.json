@@ -1,6 +1,6 @@
 {
   "version": "0.14.3",
-  "uuid": "da2b6710-2250-40aa-8637-b17b47a3c72c",
+  "uuid": "5ff60e24-1c2e-4fd0-8c20-703806bb48e4",
   "root": "/github/workspace",
   "codebase": {
     "totals": {
@@ -174,12 +174,12 @@
         ]
       },
       "analyser/utils/action_summary.py": {
-        "checksum": "72667b93fd4aa3277d093bc84594c2af",
+        "checksum": "df3a5f670eeca320519fd41c615cbc3f",
         "language": "Python",
         "loc": 17,
         "profile": [4, 0, 0, 0],
         "measurements": [
-          {"unit_name": "generate_action_summary", "start": {"line": 11, "column": 1}, "end": {"line": 19, "column": 30}, "value": 4}
+          {"unit_name": "generate_action_summary", "start": {"line": 12, "column": 1}, "end": {"line": 20, "column": 30}, "value": 4}
         ]
       },
       "analyser/utils/github_interactions.py": {
