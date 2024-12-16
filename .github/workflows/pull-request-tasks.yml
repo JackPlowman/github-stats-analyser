@@ -5,7 +5,7 @@ on:
     types: [opened, edited, synchronize]
 
 permissions:
-  pull-requests: write
+  pull-requests: read
 
 jobs:
   check-pull-request-title:
@@ -20,6 +20,8 @@ jobs:
   labeller:
     name: Label Pull Request
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: Label Pull Request
         uses: actions/labeler@v5.0.0
@@ -27,7 +29,6 @@ jobs:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           configuration-path: .github/other-configurations/labeller.yml
           sync-labels: true
-
       - name: Add Size Labels
         uses: pascalgn/size-label-action@v0.5.5
         env:
@@ -47,7 +48,10 @@ jobs:
     name: Dependency Review
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
+      - name: Checkout
         uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
       - name: Dependency Review
-        uses: actions/dependency-review-action@v4.4.0
+        uses: actions/dependency-review-action@v4.5.0
