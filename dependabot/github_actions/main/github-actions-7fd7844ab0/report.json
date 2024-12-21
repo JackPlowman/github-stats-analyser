@@ -1,0 +1,226 @@
+{
+  "version": "0.15.1",
+  "uuid": "e1dc5ea1-dc5d-441f-97ff-ada69a384b24",
+  "root": "/github/workspace",
+  "repository": {
+    "owner": "JackPlowman",
+    "name": "github-stats-analyser",
+    "branch": "HEAD"
+  },
+  "codebase": {
+    "totals": {
+      "Python": {
+        "files": 17,
+        "lines_of_code": 272,
+        "functions": 19,
+        "hard_to_maintain": 0,
+        "unmaintainable": 0
+      }
+    },
+    "tree": {
+      "./": {
+        "entries": [
+          "__init__.py",
+          "analyser/"
+        ],
+        "profile": [149, 25, 0, 0]
+      },
+      "analyser/": {
+        "entries": [
+          "__init__.py",
+          "__main__.py",
+          "statistics.py",
+          "commits/",
+          "file_analysis/",
+          "utils/"
+        ],
+        "profile": [149, 25, 0, 0]
+      },
+      "analyser/commits/": {
+        "entries": [
+          "__init__.py",
+          "commits.py"
+        ],
+        "profile": [11, 0, 0, 0]
+      },
+      "analyser/file_analysis/": {
+        "entries": [
+          "repository_languages.py",
+          "programming_language_analysis.py",
+          "repository_analysis.py",
+          "__init__.py"
+        ],
+        "profile": [44, 0, 0, 0]
+      },
+      "analyser/utils/": {
+        "entries": [
+          "repository_actions.py",
+          "configuration.py",
+          "action_summary.py",
+          "github_interactions.py",
+          "__init__.py",
+          "custom_logging.py",
+          "catalogued_repository.py"
+        ],
+        "profile": [50, 0, 0, 0]
+      }
+    },
+    "files": {
+      "__init__.py": {
+        "checksum": "d41d8cd98f00b204e9800998ecf8427e",
+        "language": "Python",
+        "loc": 0,
+        "profile": [0, 0, 0, 0],
+        "measurements": [
+        ]
+      },
+      "analyser/__init__.py": {
+        "checksum": "d41d8cd98f00b204e9800998ecf8427e",
+        "language": "Python",
+        "loc": 0,
+        "profile": [0, 0, 0, 0],
+        "measurements": [
+        ]
+      },
+      "analyser/__main__.py": {
+        "checksum": "d90900a95ef34658c7470969686eaeed",
+        "language": "Python",
+        "loc": 30,
+        "profile": [19, 0, 0, 0],
+        "measurements": [
+          {"unit_name": "main", "start": {"line": 16, "column": 1}, "end": {"line": 27, "column": 39}, "value": 12},
+          {"unit_name": "clean_up_cloned_repositories", "start": {"line": 30, "column": 1}, "end": {"line": 36, "column": 27}, "value": 7}
+        ]
+      },
+      "analyser/statistics.py": {
+        "checksum": "405f06750429d75b38db591479a06404",
+        "language": "Python",
+        "loc": 63,
+        "profile": [25, 25, 0, 0],
+        "measurements": [
+          {"unit_name": "create_statistics", "start": {"line": 19, "column": 1}, "end": {"line": 50, "column": 21}, "value": 25},
+          {"unit_name": "create_repository_statistics", "start": {"line": 53, "column": 1}, "end": {"line": 80, "column": 6}, "value": 15},
+          {"unit_name": "generate_output_file", "start": {"line": 83, "column": 1}, "end": {"line": 97, "column": 10}, "value": 10}
+        ]
+      },
+      "analyser/commits/__init__.py": {
+        "checksum": "d41d8cd98f00b204e9800998ecf8427e",
+        "language": "Python",
+        "loc": 0,
+        "profile": [0, 0, 0, 0],
+        "measurements": [
+        ]
+      },
+      "analyser/commits/commits.py": {
+        "checksum": "a17084d5bf59f6c5d0f2bf756fa28072",
+        "language": "Python",
+        "loc": 13,
+        "profile": [11, 0, 0, 0],
+        "measurements": [
+          {"unit_name": "get_commits", "start": {"line": 6, "column": 1}, "end": {"line": 25, "column": 24}, "value": 11}
+        ]
+      },
+      "analyser/file_analysis/repository_languages.py": {
+        "checksum": "fdc7fabfa0f85b62cfc8313fedcbb711",
+        "language": "Python",
+        "loc": 22,
+        "profile": [16, 0, 0, 0],
+        "measurements": [
+          {"unit_name": "add_file", "start": {"line": 15, "column": 5}, "end": {"line": 27, "column": 70}, "value": 8},
+          {"unit_name": "__repr__", "start": {"line": 29, "column": 5}, "end": {"line": 33, "column": 67}, "value": 5},
+          {"unit_name": "get_data", "start": {"line": 35, "column": 5}, "end": {"line": 37, "column": 97}, "value": 3}
+        ]
+      },
+      "analyser/file_analysis/programming_language_analysis.py": {
+        "checksum": "90ed1059c2ce90d054dc1d77cefac2c8",
+        "language": "Python",
+        "loc": 25,
+        "profile": [16, 0, 0, 0],
+        "measurements": [
+          {"unit_name": "analyse_programming_languages", "start": {"line": 15, "column": 1}, "end": {"line": 29, "column": 32}, "value": 7},
+          {"unit_name": "guess_language_from_file", "start": {"line": 32, "column": 1}, "end": {"line": 47, "column": 20}, "value": 9}
+        ]
+      },
+      "analyser/file_analysis/repository_analysis.py": {
+        "checksum": "2e975f3c5f65fe5a0227a96fd73c6035",
+        "language": "Python",
+        "loc": 23,
+        "profile": [12, 0, 0, 0],
+        "measurements": [
+          {"unit_name": "analyse_repository", "start": {"line": 20, "column": 1}, "end": {"line": 37, "column": 53}, "value": 12}
+        ]
+      },
+      "analyser/file_analysis/__init__.py": {
+        "checksum": "d41d8cd98f00b204e9800998ecf8427e",
+        "language": "Python",
+        "loc": 0,
+        "profile": [0, 0, 0, 0],
+        "measurements": [
+        ]
+      },
+      "analyser/utils/repository_actions.py": {
+        "checksum": "b0e3daaad3569d236cd99b0f401c6c56",
+        "language": "Python",
+        "loc": 17,
+        "profile": [10, 0, 0, 0],
+        "measurements": [
+          {"unit_name": "remove_excluded_files", "start": {"line": 14, "column": 1}, "end": {"line": 28, "column": 72}, "value": 10}
+        ]
+      },
+      "analyser/utils/configuration.py": {
+        "checksum": "5bc03b4a026d175674df34f7fb66a080",
+        "language": "Python",
+        "loc": 20,
+        "profile": [12, 0, 0, 0],
+        "measurements": [
+          {"unit_name": "__init__", "start": {"line": 13, "column": 5}, "end": {"line": 16, "column": 79}, "value": 4},
+          {"unit_name": "get_and_check_for_value", "start": {"line": 18, "column": 5}, "end": {"line": 32, "column": 30}, "value": 8}
+        ]
+      },
+      "analyser/utils/action_summary.py": {
+        "checksum": "2f13c35f249cf597510eb8c9e2adb852",
+        "language": "Python",
+        "loc": 9,
+        "profile": [4, 0, 0, 0],
+        "measurements": [
+          {"unit_name": "generate_action_summary", "start": {"line": 10, "column": 1}, "end": {"line": 17, "column": 55}, "value": 4}
+        ]
+      },
+      "analyser/utils/github_interactions.py": {
+        "checksum": "5cabea3b1b98351edabc0764bda14fc0",
+        "language": "Python",
+        "loc": 27,
+        "profile": [18, 0, 0, 0],
+        "measurements": [
+          {"unit_name": "clone_repo", "start": {"line": 16, "column": 1}, "end": {"line": 33, "column": 21}, "value": 8},
+          {"unit_name": "retrieve_repositories", "start": {"line": 36, "column": 1}, "end": {"line": 49, "column": 24}, "value": 10}
+        ]
+      },
+      "analyser/utils/__init__.py": {
+        "checksum": "d41d8cd98f00b204e9800998ecf8427e",
+        "language": "Python",
+        "loc": 0,
+        "profile": [0, 0, 0, 0],
+        "measurements": [
+        ]
+      },
+      "analyser/utils/custom_logging.py": {
+        "checksum": "30c4784bd5938c3b9025cab1e7ead5f6",
+        "language": "Python",
+        "loc": 10,
+        "profile": [6, 0, 0, 0],
+        "measurements": [
+          {"unit_name": "set_up_custom_logging", "start": {"line": 9, "column": 1}, "end": {"line": 14, "column": 64}, "value": 6}
+        ]
+      },
+      "analyser/utils/catalogued_repository.py": {
+        "checksum": "2321aabe30c30c06ff501e82e8e0c352",
+        "language": "Python",
+        "loc": 13,
+        "profile": [0, 0, 0, 0],
+        "measurements": [
+        ]
+      }
+    }
+  }
+}
