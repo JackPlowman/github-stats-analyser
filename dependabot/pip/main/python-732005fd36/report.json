@@ -1,6 +1,7 @@
 {
-  "version": "0.15.1",
-  "uuid": "6717cd09-548a-49cb-95a0-26d39ca14d53",
+  "version": "0.16.0",
+  "uuid": "6d56f0c6-597d-4783-b4cc-876bde187af4",
+  "timestamp": "2024-12-25T10:18:21+00:00",
   "root": "/github/workspace",
   "repository": {
     "owner": "JackPlowman",
@@ -11,7 +12,7 @@
     "totals": {
       "Python": {
         "files": 17,
-        "lines_of_code": 272,
+        "lines_of_code": 174,
         "functions": 19,
         "hard_to_maintain": 0,
         "unmaintainable": 0
@@ -85,7 +86,7 @@
       "analyser/__main__.py": {
         "checksum": "d90900a95ef34658c7470969686eaeed",
         "language": "Python",
-        "loc": 30,
+        "loc": 19,
         "profile": [19, 0, 0, 0],
         "measurements": [
           {"unit_name": "main", "start": {"line": 16, "column": 1}, "end": {"line": 27, "column": 39}, "value": 12},
@@ -95,7 +96,7 @@
       "analyser/statistics.py": {
         "checksum": "405f06750429d75b38db591479a06404",
         "language": "Python",
-        "loc": 63,
+        "loc": 50,
         "profile": [25, 25, 0, 0],
         "measurements": [
           {"unit_name": "create_statistics", "start": {"line": 19, "column": 1}, "end": {"line": 50, "column": 21}, "value": 25},
@@ -114,7 +115,7 @@
       "analyser/commits/commits.py": {
         "checksum": "a17084d5bf59f6c5d0f2bf756fa28072",
         "language": "Python",
-        "loc": 13,
+        "loc": 11,
         "profile": [11, 0, 0, 0],
         "measurements": [
           {"unit_name": "get_commits", "start": {"line": 6, "column": 1}, "end": {"line": 25, "column": 24}, "value": 11}
@@ -123,7 +124,7 @@
       "analyser/file_analysis/repository_languages.py": {
         "checksum": "fdc7fabfa0f85b62cfc8313fedcbb711",
         "language": "Python",
-        "loc": 22,
+        "loc": 16,
         "profile": [16, 0, 0, 0],
         "measurements": [
           {"unit_name": "add_file", "start": {"line": 15, "column": 5}, "end": {"line": 27, "column": 70}, "value": 8},
@@ -134,7 +135,7 @@
       "analyser/file_analysis/programming_language_analysis.py": {
         "checksum": "90ed1059c2ce90d054dc1d77cefac2c8",
         "language": "Python",
-        "loc": 25,
+        "loc": 16,
         "profile": [16, 0, 0, 0],
         "measurements": [
           {"unit_name": "analyse_programming_languages", "start": {"line": 15, "column": 1}, "end": {"line": 29, "column": 32}, "value": 7},
@@ -144,7 +145,7 @@
       "analyser/file_analysis/repository_analysis.py": {
         "checksum": "2e975f3c5f65fe5a0227a96fd73c6035",
         "language": "Python",
-        "loc": 23,
+        "loc": 12,
         "profile": [12, 0, 0, 0],
         "measurements": [
           {"unit_name": "analyse_repository", "start": {"line": 20, "column": 1}, "end": {"line": 37, "column": 53}, "value": 12}
@@ -161,7 +162,7 @@
       "analyser/utils/repository_actions.py": {
         "checksum": "b0e3daaad3569d236cd99b0f401c6c56",
         "language": "Python",
-        "loc": 17,
+        "loc": 10,
         "profile": [10, 0, 0, 0],
         "measurements": [
           {"unit_name": "remove_excluded_files", "start": {"line": 14, "column": 1}, "end": {"line": 28, "column": 72}, "value": 10}
@@ -170,7 +171,7 @@
       "analyser/utils/configuration.py": {
         "checksum": "5bc03b4a026d175674df34f7fb66a080",
         "language": "Python",
-        "loc": 20,
+        "loc": 12,
         "profile": [12, 0, 0, 0],
         "measurements": [
           {"unit_name": "__init__", "start": {"line": 13, "column": 5}, "end": {"line": 16, "column": 79}, "value": 4},
@@ -180,7 +181,7 @@
       "analyser/utils/action_summary.py": {
         "checksum": "2f13c35f249cf597510eb8c9e2adb852",
         "language": "Python",
-        "loc": 9,
+        "loc": 4,
         "profile": [4, 0, 0, 0],
         "measurements": [
           {"unit_name": "generate_action_summary", "start": {"line": 10, "column": 1}, "end": {"line": 17, "column": 55}, "value": 4}
@@ -189,7 +190,7 @@
       "analyser/utils/github_interactions.py": {
         "checksum": "5cabea3b1b98351edabc0764bda14fc0",
         "language": "Python",
-        "loc": 27,
+        "loc": 18,
         "profile": [18, 0, 0, 0],
         "measurements": [
           {"unit_name": "clone_repo", "start": {"line": 16, "column": 1}, "end": {"line": 33, "column": 21}, "value": 8},
@@ -207,7 +208,7 @@
       "analyser/utils/custom_logging.py": {
         "checksum": "30c4784bd5938c3b9025cab1e7ead5f6",
         "language": "Python",
-        "loc": 10,
+        "loc": 6,
         "profile": [6, 0, 0, 0],
         "measurements": [
           {"unit_name": "set_up_custom_logging", "start": {"line": 9, "column": 1}, "end": {"line": 14, "column": 64}, "value": 6}
@@ -216,7 +217,7 @@
       "analyser/utils/catalogued_repository.py": {
         "checksum": "2321aabe30c30c06ff501e82e8e0c352",
         "language": "Python",
-        "loc": 13,
+        "loc": 0,
         "profile": [0, 0, 0, 0],
         "measurements": [
         ]
