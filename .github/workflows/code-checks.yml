@@ -86,7 +86,7 @@ jobs:
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
       - name: Upload Ruff analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v3.27.9
+        uses: github/codeql-action/upload-sarif@v3.28.0
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
@@ -104,12 +104,12 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3.27.9
+        uses: github/codeql-action/init@v3.28.0
         with:
           languages: python
           queries: security-and-quality
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3.27.9
+        uses: github/codeql-action/analyze@v3.28.0
 
   check-markdown-links:
     name: Check Markdown links
@@ -192,7 +192,7 @@ jobs:
       - name: Override Coverage Source Path for SonarCloud
         run: sed -i "s/<source>\/home\/runner\/work\/github-stats-analyser\/github-stats-analyser<\/source>/<source>\/github\/workspace<\/source>/g" /home/runner/work/github-stats-analyser/github-stats-analyser/coverage.xml
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v3.1.0
+        uses: SonarSource/sonarqube-scan-action@v4.2.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -217,7 +217,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3.27.9
+        uses: github/codeql-action/upload-sarif@v3.28.0
         with:
           sarif_file: results.sarif
           category: zizmor
