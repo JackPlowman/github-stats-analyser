@@ -13,5 +13,10 @@ def generate_action_summary(statistics_dataframe: DataFrame) -> None:
     Args:
         statistics_dataframe (DataFrame): The statistics data frame.
     """
-    with Path(environ["GITHUB_STEP_SUMMARY"]).open("w") as file:
-        file.write(statistics_dataframe.to_markdown())
+    summary = statistics_dataframe.to_markdown()
+    if "GITHUB_STEP_SUMMARY" in environ:
+        logger.debug("Running in GitHub Actions, generating action summary")
+        with Path(environ["GITHUB_STEP_SUMMARY"]).open("w") as file:
+            file.write(summary)
+    else:
+        logger.debug("Not running in GitHub Actions, skipping generating action summary")
