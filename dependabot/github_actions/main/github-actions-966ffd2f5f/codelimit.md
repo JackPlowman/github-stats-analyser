@@ -3,7 +3,7 @@
 ### Overview
 | **Language** | **Files** | **Lines of Code** | **Functions** | **⚠** | **❌** |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Python | 17 | 174 | 19 | 0 | 0 |
+| Python | 17 | 179 | 19 | 0 | 0 |
 
 ### Summary
 | **Easy / Verbose** | **Hard-to-maintain ⚠** | **Unmaintainable ❌** |
