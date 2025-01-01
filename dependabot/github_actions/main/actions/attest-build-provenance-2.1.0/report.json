@@ -1,7 +1,7 @@
 {
-  "version": "0.16.0",
-  "uuid": "94174e2e-38da-4eff-b40b-50a89d7b0de5",
-  "timestamp": "2024-12-25T10:16:52+00:00",
+  "version": "0.17.0",
+  "uuid": "2d129609-072c-4b53-82e4-b52009df3e76",
+  "timestamp": "2025-01-01T11:28:11+00:00",
   "root": "/github/workspace",
   "repository": {
     "owner": "JackPlowman",
@@ -12,7 +12,7 @@
     "totals": {
       "Python": {
         "files": 17,
-        "lines_of_code": 174,
+        "lines_of_code": 179,
         "functions": 19,
         "hard_to_maintain": 0,
         "unmaintainable": 0
@@ -24,7 +24,7 @@
           "__init__.py",
           "analyser/"
         ],
-        "profile": [149, 25, 0, 0]
+        "profile": [154, 25, 0, 0]
       },
       "analyser/": {
         "entries": [
@@ -35,7 +35,7 @@
           "file_analysis/",
           "utils/"
         ],
-        "profile": [149, 25, 0, 0]
+        "profile": [154, 25, 0, 0]
       },
       "analyser/commits/": {
         "entries": [
@@ -63,7 +63,7 @@
           "custom_logging.py",
           "catalogued_repository.py"
         ],
-        "profile": [50, 0, 0, 0]
+        "profile": [55, 0, 0, 0]
       }
     },
     "files": {
@@ -179,12 +179,12 @@
         ]
       },
       "analyser/utils/action_summary.py": {
-        "checksum": "2f13c35f249cf597510eb8c9e2adb852",
+        "checksum": "5e86d21eb886fec8540025d6c73d532f",
         "language": "Python",
-        "loc": 4,
-        "profile": [4, 0, 0, 0],
+        "loc": 9,
+        "profile": [9, 0, 0, 0],
         "measurements": [
-          {"unit_name": "generate_action_summary", "start": {"line": 10, "column": 1}, "end": {"line": 17, "column": 55}, "value": 4}
+          {"unit_name": "generate_action_summary", "start": {"line": 10, "column": 1}, "end": {"line": 22, "column": 90}, "value": 9}
         ]
       },
       "analyser/utils/github_interactions.py": {
