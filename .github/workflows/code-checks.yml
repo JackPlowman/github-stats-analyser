@@ -41,32 +41,8 @@ jobs:
           VALIDATE_NATURAL_LANGUAGE: false
           GITHUB_ACTIONS_COMMAND_ARGS: "-ignore '.branding.icon.'"
 
-  check-python-code-format-and-quality:
-    name: Check Python Code Format and Quality
-    runs-on: ubuntu-latest
-    permissions:
-      statuses: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4.2.2
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Setup Dependencies
-        uses: ./.github/actions/setup-dependencies
-      - name: Check Python Code Quality (Ruff)
-        run: just ruff-lint
-        env:
-          RUFF_OUTPUT_FORMAT: "github"
-      - name: Check Python Code Format (Ruff)
-        run: just ruff-format
-        env:
-          RUFF_OUTPUT_FORMAT: "github"
-      - name: Check Python Code for Dead Code (Vulture)
-        run: just vulture
-
-  upload-ruff-analysis-results:
-    name: Upload Ruff Analysis Results
+  run-python-code-checks:
+    name: Run Python Code Checks
     runs-on: ubuntu-latest
     permissions:
       statuses: write
@@ -77,10 +53,10 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Setup Python Dependencies
+      - name: Set up dependencies
         uses: ./.github/actions/setup-dependencies
-      - name: Check Python Code Quality (Ruff)
-        run: just ruff-lint
+      - name: Generate Ruff Sarif
+        run: just ruff-lint-check
         env:
           RUFF_OUTPUT_FORMAT: "sarif"
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
@@ -90,6 +66,16 @@ jobs:
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
+      - name: Check Python Code Format (Ruff)
+        run: just ruff-format-check
+        env:
+          RUFF_OUTPUT_FORMAT: "github"
+      - name: Check Python Code Linting (Ruff)
+        run: just ruff-lint-check
+        env:
+          RUFF_OUTPUT_FORMAT: "github"
+      - name: Check Python Code for Dead Code (Vulture)
+        run: just vulture
 
   run-codeql-analysis:
     name: CodeQL Analysis
@@ -208,12 +194,10 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Install the latest version of uv
-        uses: astral-sh/setup-uv@v4.2.0
-        with:
-          version: "latest"
+      - name: Setup Dependencies
+        uses: ./.github/actions/setup-dependencies
       - name: Run zizmor 🌈
-        run: uvx zizmor --format sarif . > results.sarif
+        run: poetry run zizmor --format sarif . > results.sarif
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload SARIF file
