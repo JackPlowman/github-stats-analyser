@@ -2,10 +2,6 @@ name: "GitHub Stats Analyser"
 description: "Analyse GitHub and generate statistics for a user's repositories"
 author: "Jack Plowman"
 
-branding:
-  color: black
-  icon: code
-
 runs:
   using: "docker"
   image: "../../../Dockerfile"
