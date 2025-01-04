@@ -15,7 +15,7 @@ pytest = "8.3.4"
 pytest-cov = "6.0.0"
 ruff = "0.8.4"
 vulture = "2.14"
-zizmor = "0.10.0"
+zizmor = "1.0.0"
 
 [tool.poetry.group.test.dependencies]
 check-jsonschema = "0.30.0"
