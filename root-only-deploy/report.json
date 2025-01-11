@@ -1,7 +1,7 @@
 {
   "version": "0.18.1",
-  "uuid": "7cddf795-f1c8-44ca-b277-9dfc81fa3b9f",
-  "timestamp": "2025-01-11T08:46:35+00:00",
+  "uuid": "abb68f6c-2c6f-4200-9d2d-747334a9add6",
+  "timestamp": "2025-01-11T08:47:29+00:00",
   "root": "/github/workspace",
   "repository": {
     "owner": "JackPlowman",
@@ -12,7 +12,7 @@
     "totals": {
       "Python": {
         "files": 17,
-        "lines_of_code": 181,
+        "lines_of_code": 179,
         "functions": 19,
         "hard_to_maintain": 0,
         "unmaintainable": 0
@@ -24,7 +24,7 @@
           "__init__.py",
           "analyser/"
         ],
-        "profile": [156, 25, 0, 0]
+        "profile": [154, 25, 0, 0]
       },
       "analyser/": {
         "entries": [
@@ -35,7 +35,7 @@
           "file_analysis/",
           "utils/"
         ],
-        "profile": [156, 25, 0, 0]
+        "profile": [154, 25, 0, 0]
       },
       "analyser/commits/": {
         "entries": [
@@ -95,13 +95,13 @@
         ]
       },
       "analyser/__main__.py": {
-        "checksum": "98dec322ba33a50d6981698e27a93f2e",
+        "checksum": "0b543824b260205229817ee6bbd11e59",
         "language": "Python",
-        "loc": 21,
-        "profile": [21, 0, 0, 0],
+        "loc": 19,
+        "profile": [19, 0, 0, 0],
         "measurements": [
-          {"unit_name": "main", "start": {"line": 16, "column": 1}, "end": {"line": 29, "column": 39}, "value": 14},
-          {"unit_name": "clean_up_cloned_repositories", "start": {"line": 32, "column": 1}, "end": {"line": 38, "column": 27}, "value": 7}
+          {"unit_name": "main", "start": {"line": 16, "column": 1}, "end": {"line": 27, "column": 39}, "value": 12},
+          {"unit_name": "clean_up_cloned_repositories", "start": {"line": 30, "column": 1}, "end": {"line": 36, "column": 27}, "value": 7}
         ]
       },
       "analyser/commits/__init__.py": {
