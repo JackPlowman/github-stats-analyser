@@ -6,7 +6,7 @@ from analyser.stats import (
     generate_output_file,
 )
 
-FILE_PATH = "analyser.statistics"
+FILE_PATH = "analyser.stats"
 
 
 @patch(f"{FILE_PATH}.generate_output_file")
