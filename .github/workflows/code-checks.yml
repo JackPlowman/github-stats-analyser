@@ -83,8 +83,11 @@ jobs:
     permissions:
       statuses: write
       security-events: write
+    strategy:
+      matrix:
+        language: [python, actions]
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v4.2.2
         with:
           fetch-depth: 0
@@ -92,7 +95,7 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3.28.1
         with:
-          languages: python
+          languages: ${{ matrix.language }}
           queries: security-and-quality
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3.28.1
