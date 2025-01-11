@@ -1,6 +1,6 @@
 from unittest.mock import MagicMock, patch
 
-from analyser.statistics import (
+from analyser.stats import (
     create_repository_statistics,
     create_statistics,
     generate_output_file,

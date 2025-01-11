@@ -5,7 +5,7 @@ from shutil import rmtree
 
 from structlog import get_logger, stdlib
 
-from .statistics import create_statistics
+from .stats import create_statistics
 from .utils.action_summary import generate_action_summary
 from .utils.configuration import Configuration
 from .utils.custom_logging import set_up_custom_logging
@@ -21,7 +21,9 @@ def main() -> None:
         statistics = create_statistics(configuration)
         generate_action_summary(statistics)
     except Exception as error:
-        logger.exception("An error occurred during the execution of the analyser.", error=error)
+        logger.exception(
+            "An error occurred during the execution of the analyser.", error=error
+        )
         raise
     finally:
         clean_up_cloned_repositories()
