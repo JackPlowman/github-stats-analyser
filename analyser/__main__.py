@@ -5,7 +5,7 @@ from shutil import rmtree
 
 from structlog import get_logger, stdlib
 
-from .statistics import create_statistics
+from .stats import create_statistics
 from .utils.action_summary import generate_action_summary
 from .utils.configuration import Configuration
 from .utils.custom_logging import set_up_custom_logging
