@@ -6,6 +6,10 @@
 install:
     poetry install
 
+# Install application python dependencies only
+install-root-only:
+    poetry install --only-root
+
 # Run the analyser
 run:
     poetry run python -m analyser
