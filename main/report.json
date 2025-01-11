@@ -1,7 +1,7 @@
 {
-  "version": "0.17.0",
-  "uuid": "c4dd13de-299c-4cd0-b9f4-09b2a8f96c18",
-  "timestamp": "2025-01-01T13:39:15+00:00",
+  "version": "0.18.1",
+  "uuid": "c49b3616-e33a-44d9-8bc5-dafecadb53a9",
+  "timestamp": "2025-01-11T08:55:29+00:00",
   "root": "/github/workspace",
   "repository": {
     "owner": "JackPlowman",
@@ -28,9 +28,9 @@
       },
       "analyser/": {
         "entries": [
+          "stats.py",
           "__init__.py",
           "__main__.py",
-          "statistics.py",
           "commits/",
           "file_analysis/",
           "utils/"
@@ -75,6 +75,17 @@
         "measurements": [
         ]
       },
+      "analyser/stats.py": {
+        "checksum": "405f06750429d75b38db591479a06404",
+        "language": "Python",
+        "loc": 50,
+        "profile": [25, 25, 0, 0],
+        "measurements": [
+          {"unit_name": "create_statistics", "start": {"line": 19, "column": 1}, "end": {"line": 50, "column": 21}, "value": 25},
+          {"unit_name": "create_repository_statistics", "start": {"line": 53, "column": 1}, "end": {"line": 80, "column": 6}, "value": 15},
+          {"unit_name": "generate_output_file", "start": {"line": 83, "column": 1}, "end": {"line": 97, "column": 10}, "value": 10}
+        ]
+      },
       "analyser/__init__.py": {
         "checksum": "d41d8cd98f00b204e9800998ecf8427e",
         "language": "Python",
@@ -84,24 +95,13 @@
         ]
       },
       "analyser/__main__.py": {
-        "checksum": "d90900a95ef34658c7470969686eaeed",
+        "checksum": "0b543824b260205229817ee6bbd11e59",
         "language": "Python",
         "loc": 19,
         "profile": [19, 0, 0, 0],
         "measurements": [
           {"unit_name": "main", "start": {"line": 16, "column": 1}, "end": {"line": 27, "column": 39}, "value": 12},
           {"unit_name": "clean_up_cloned_repositories", "start": {"line": 30, "column": 1}, "end": {"line": 36, "column": 27}, "value": 7}
-        ]
-      },
-      "analyser/statistics.py": {
-        "checksum": "405f06750429d75b38db591479a06404",
-        "language": "Python",
-        "loc": 50,
-        "profile": [25, 25, 0, 0],
-        "measurements": [
-          {"unit_name": "create_statistics", "start": {"line": 19, "column": 1}, "end": {"line": 50, "column": 21}, "value": 25},
-          {"unit_name": "create_repository_statistics", "start": {"line": 53, "column": 1}, "end": {"line": 80, "column": 6}, "value": 15},
-          {"unit_name": "generate_output_file", "start": {"line": 83, "column": 1}, "end": {"line": 97, "column": 10}, "value": 10}
         ]
       },
       "analyser/commits/__init__.py": {
