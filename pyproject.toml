@@ -1,27 +1,34 @@
+
+[project]
+name = "github-stats-analyser"
+dynamic = ["version"]
+requires-python = ">=3.13"
+dependencies = [
+  "gitpython==3.1.44",
+  "pygithub==2.5.0",
+  "structlog==24.4.0",
+  "pygments==2.19.1",
+  "pandas==2.2.3",
+  "tabulate==0.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.3.4",
+  "pytest-cov==6.0.0",
+  "ruff==0.9.1",
+  "vulture==2.14",
+  "zizmor==1.0.1",
+]
+test = [
+  "check-jsonschema==0.31.0",
+  "requests==2.32.3",
+  "Markdown==3.7",
+  "beautifulsoup4==4.12.3",
+]
+
 [tool.poetry]
 package-mode = false
-
-[tool.poetry.dependencies]
-python = "^3.13"
-gitpython = "3.1.44"
-pygithub = "2.5.0"
-structlog = "24.4.0"
-pygments = "2.19.1"
-pandas = "2.2.3"
-tabulate = "0.9.0"
-
-[tool.poetry.group.dev.dependencies]
-pytest = "8.3.4"
-pytest-cov = "6.0.0"
-ruff = "0.9.1"
-vulture = "2.14"
-zizmor = "1.0.1"
-
-[tool.poetry.group.test.dependencies]
-check-jsonschema = "0.31.0"
-requests = "2.32.3"
-Markdown = "3.7"
-beautifulsoup4 = "4.12.3"
 
 [build-system]
 requires = ["poetry-core"]
@@ -32,7 +39,6 @@ line-length = 120
 target-version = "py313"
 
 [tool.ruff.lint]
-# Add the `line-too-long` rule to the enforced rule set.
 extend-select = ["E501"]
 select = ["ALL"]
 
@@ -46,11 +52,9 @@ ignore = [
   "SIM112",  # Ignore Lowercase environment variables (used for GitHub actions)
 ]
 
-# Allow autofix for all enabled rules (when `--fix`) is provided.
 fixable = ["ALL"]
 unfixable = []
 
-# Exclude a variety of commonly ignored directories.
 exclude = [
   ".bzr",
   ".direnv",
@@ -69,15 +73,14 @@ exclude = [
   "_build",
 ]
 
-# Allow unused variables when underscore-prefixed.
-dummy-variable-rgx = "(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [tool.ruff.lint.per-file-ignores]
 "**test_*.py" = ["S101", "D102", "D103", "SLF001", "PT019"]
 "python_scripts/*.py" = ["T201"]
 
 [tool.ruff.lint.pydocstyle]
-convention = "google" # Use Google docstring convention.
+convention = "google"
 
 [tool.ruff.lint.isort]
 known-first-party = ["analyser"]
