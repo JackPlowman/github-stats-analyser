@@ -104,7 +104,7 @@ jobs:
 
   check-markdown-links:
     name: Check Markdown links
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4.2.2
@@ -112,7 +112,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Check Markdown links
-        uses: UmbrellaDocs/action-linkspector@v1.2.4
+        uses: UmbrellaDocs/action-linkspector@v1.2.5
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           config_file: .github/other-configurations/.linkspector.yml
