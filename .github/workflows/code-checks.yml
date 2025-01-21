@@ -66,6 +66,8 @@ jobs:
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
+      - name: Validates Pyproject
+        run: just pyproject-check
       - name: Check Python Code Format (Ruff)
         run: just ruff-format-check
         env:
