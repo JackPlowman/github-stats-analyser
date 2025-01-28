@@ -24,8 +24,10 @@ def analyse_programming_languages(file_path: str, repository_languages: Reposito
     """
     guess = guess_language_from_file(file_path)
     if guess:
-        logger.debug("Guessed language", guess=guess, file_path=file_path)
         repository_languages.add_file(language_name=guess, file_path=file_path)
+        sloc = count_sloc(file_path)
+        repository_languages.add_sloc(language_name=guess, sloc=sloc)
+        logger.debug("Added file to repository languages", file_path=file_path, language=guess, sloc=sloc)
     return repository_languages
 
 
@@ -45,3 +47,94 @@ def guess_language_from_file(file_path: str) -> str | None:
     except (ClassNotFound, UnicodeDecodeError):
         logger.debug("Could not guess language from file", file_path=file_path)
         return None
+
+
+def get_language_patterns(language: str | None) -> tuple[list[str], list[tuple[str, str]]]:
+    """Get the comment patterns for a given language.
+
+    Args:
+        language (str | None): The programming language name
+
+    Returns:
+        tuple[list[str], list[tuple[str, str]]]: Single-line and multi-line comment patterns
+    """
+    # Default patterns (C-style)
+    single_line = ["//", "#"]
+    multi_line = [("/*", "*/"), ('"""', '"""'), ("'''", "'''")]
+
+    patterns = {
+        "Python": (["#"], [('"""', '"""'), ("'''", "'''")]),
+        "JavaScript": (["//"], [("/*", "*/"), ("//", "\n")]),
+        "HTML": ([], [("<!--", "-->")]),
+        "CSS": ([], [("/*", "*/")]),
+        "Ruby": (["#"], [("=begin", "=end")]),
+        "PHP": (["//", "#"], [("/*", "*/")]),
+        "Rust": (["//"], [("/*", "*/")]),
+        "Go": (["//"], [("/*", "*/")]),
+        "Swift": (["//"], [("/*", "*/")]),
+    }
+
+    return patterns.get(language, (single_line, multi_line))
+
+
+def count_sloc(file_path: str) -> int:
+    """Count source lines of code excluding comments and blank lines.
+
+    Args:
+        file_path (str): Path to the source file
+
+    Returns:
+        int: Number of source lines of code
+    """
+    language = guess_language_from_file(file_path)
+    single_line_patterns, multi_line_patterns = get_language_patterns(language)
+
+    sloc = 0
+    in_multiline_comment = False
+    current_multi_pattern = None
+
+    try:
+        with open(file_path, encoding="utf-8") as file:
+            content = file.readlines()
+
+            i = 0
+            while i < len(content):
+                line = content[i].strip()
+
+                # Skip empty lines
+                if not line:
+                    i += 1
+                    continue
+
+                # Handle multi-line comments
+                if not in_multiline_comment:
+                    for start, end in multi_line_patterns:
+                        if line.startswith(start) or start in line:
+                            in_multiline_comment = True
+                            current_multi_pattern = end
+                            break
+
+                if in_multiline_comment:
+                    if current_multi_pattern in line:
+                        in_multiline_comment = False
+                        current_multi_pattern = None
+                    i += 1
+                    continue
+
+                # Handle single-line comments
+                is_comment = False
+                for pattern in single_line_patterns:
+                    if line.lstrip().startswith(pattern):
+                        is_comment = True
+                        break
+
+                if not is_comment:
+                    sloc += 1
+
+                i += 1
+
+    except (OSError, UnicodeDecodeError) as e:
+        logger.error("Error reading file", file_path=file_path, error=str(e))
+        return 0
+
+    return sloc
