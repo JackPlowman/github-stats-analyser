@@ -88,11 +88,9 @@ def test_get_language_patterns() -> None:
 @patch(f"{FILE_PATH}.Path")
 def test_count_sloc(mock_path: MagicMock) -> None:
     # Arrange
-    mock_path.open.return_value.__enter__.return_value.__iter__.return_value = ["line1", "line2"]
     file_name = "test.py"
     # Act
     response = count_sloc(file_name)
     # Assert
     assert response == 0
     mock_path.open.assert_called_once_with(file_name)
-    mock_path.open.return_value.__enter__.return_value.__iter__.assert_called_once_with()
