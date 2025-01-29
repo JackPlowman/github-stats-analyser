@@ -89,4 +89,4 @@ known-first-party = ["analyser"]
 norecursedirs = "cloned_repositories"
 
 [tool.vulture]
-ignore_names = ["side_effect"]
+ignore_names = ["side_effect", "file_paths"]
