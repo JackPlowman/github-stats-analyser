@@ -1,7 +1,7 @@
 {
   "version": "0.18.1",
-  "uuid": "a4d3b5eb-1c08-42bf-881a-4d331f4a263e",
-  "timestamp": "2025-01-29T08:13:58+00:00",
+  "uuid": "33204e28-ddda-4d6d-9ecb-fc21f71ab460",
+  "timestamp": "2025-01-29T08:16:58+00:00",
   "root": "/github/workspace",
   "repository": {
     "owner": "JackPlowman",
@@ -12,7 +12,7 @@
     "totals": {
       "Python": {
         "files": 17,
-        "lines_of_code": 247,
+        "lines_of_code": 250,
         "functions": 23,
         "hard_to_maintain": 1,
         "unmaintainable": 0
@@ -24,7 +24,7 @@
           "__init__.py",
           "analyser/"
         ],
-        "profile": [150, 57, 40, 0]
+        "profile": [153, 57, 40, 0]
       },
       "analyser/": {
         "entries": [
@@ -35,7 +35,7 @@
           "file_analysis/",
           "utils/"
         ],
-        "profile": [150, 57, 40, 0]
+        "profile": [153, 57, 40, 0]
       },
       "analyser/commits/": {
         "entries": [
@@ -51,7 +51,7 @@
           "repository_languages.py",
           "__init__.py"
         ],
-        "profile": [55, 16, 40, 0]
+        "profile": [58, 16, 40, 0]
       },
       "analyser/utils/": {
         "entries": [
@@ -143,16 +143,16 @@
         ]
       },
       "analyser/file_analysis/repository_languages.py": {
-        "checksum": "907b135709424f6d3d12befc4ce8244e",
+        "checksum": "d09e9ad91287a156967db1e5ac53c28b",
         "language": "Python",
-        "loc": 25,
-        "profile": [25, 0, 0, 0],
+        "loc": 28,
+        "profile": [28, 0, 0, 0],
         "measurements": [
           {"unit_name": "add_file", "start": {"line": 22, "column": 5}, "end": {"line": 34, "column": 70}, "value": 8},
-          {"unit_name": "add_sloc", "start": {"line": 36, "column": 5}, "end": {"line": 46, "column": 57}, "value": 6},
-          {"unit_name": "__repr__", "start": {"line": 48, "column": 5}, "end": {"line": 52, "column": 67}, "value": 5},
-          {"unit_name": "get_data", "start": {"line": 54, "column": 5}, "end": {"line": 56, "column": 97}, "value": 3},
-          {"unit_name": "get_sloc", "start": {"line": 58, "column": 5}, "end": {"line": 60, "column": 91}, "value": 3}
+          {"unit_name": "add_sloc", "start": {"line": 36, "column": 5}, "end": {"line": 49, "column": 59}, "value": 9},
+          {"unit_name": "__repr__", "start": {"line": 51, "column": 5}, "end": {"line": 55, "column": 67}, "value": 5},
+          {"unit_name": "get_data", "start": {"line": 57, "column": 5}, "end": {"line": 59, "column": 97}, "value": 3},
+          {"unit_name": "get_sloc", "start": {"line": 61, "column": 5}, "end": {"line": 63, "column": 91}, "value": 3}
         ]
       },
       "analyser/file_analysis/__init__.py": {
