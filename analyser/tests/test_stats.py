@@ -46,7 +46,10 @@ def test_create_statistics(
                 "total_files": 10,
                 "total_commits": 0,
                 "commits": [],
-                "languages": mock_create_repository_statistics.return_value.languages,
+                "languages": {
+                    "count": mock_create_repository_statistics.return_value.language_count,
+                    "sloc": mock_create_repository_statistics.return_value.language_sloc,
+                },
             }
         ]
     )

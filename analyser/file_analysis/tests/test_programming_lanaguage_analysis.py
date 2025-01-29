@@ -23,8 +23,11 @@ def test_analyse_programming_languages__no_guess(mock_guess_language_from_file: 
     assert response == repository_languages
 
 
+@patch(f"{FILE_PATH}.count_sloc")
 @patch(f"{FILE_PATH}.guess_language_from_file")
-def test_analyse_programming_languages__with_guess(mock_guess_language_from_file: MagicMock) -> None:
+def test_analyse_programming_languages__with_guess(
+    mock_guess_language_from_file: MagicMock, mock_count_sloc: MagicMock
+) -> None:
     # Arrange
     mock_guess_language_from_file.return_value = language = "Python"
     file_name = "test.py"
@@ -34,6 +37,7 @@ def test_analyse_programming_languages__with_guess(mock_guess_language_from_file
     # Assert
     mock_guess_language_from_file.assert_called_once_with(file_name)
     repository_languages.add_file.assert_called_once_with(language_name=language, file_path=file_name)
+    repository_languages.add_sloc.assert_called_once_with(language_name=language, sloc=mock_count_sloc.return_value)
     assert response == repository_languages
 
 
