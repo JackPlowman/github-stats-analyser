@@ -29,14 +29,14 @@
               "type": "object",
               "additionalProperties": false,
               "properties": {
-                "language_count": {
+                "count": {
                   "type": "integer"
                 },
-                "language_sloc": {
+                "sloc": {
                   "type": "object"
                 }
               },
-              "required": ["language_count", "language_sloc"]
+              "required": ["count", "sloc"]
             }
           },
           "required": [
