@@ -25,11 +25,18 @@
             "commits": {
               "type": "object"
             },
-            "language_count": {
-              "type": "object"
-            },
-            "language_sloc": {
-              "type": "object"
+            "languages": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "language_count": {
+                  "type": "integer"
+                },
+                "language_sloc": {
+                  "type": "object"
+                }
+              },
+              "required": ["language_count", "language_sloc"]
             }
           },
           "required": [
@@ -37,8 +44,7 @@
             "total_files",
             "total_commits",
             "commits",
-            "language_count",
-            "language_sloc"
+            "languages"
           ]
         }
       ]
