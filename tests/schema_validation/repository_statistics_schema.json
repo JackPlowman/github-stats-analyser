@@ -30,7 +30,7 @@
               "additionalProperties": false,
               "properties": {
                 "count": {
-                  "type": "integer"
+                  "type": "object"
                 },
                 "sloc": {
                   "type": "object"
