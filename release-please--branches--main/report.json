@@ -1,7 +1,7 @@
 {
   "version": "0.18.1",
-  "uuid": "b84a8117-78c4-4a1f-9e00-2c41f0fb2d46",
-  "timestamp": "2025-01-26T16:42:15+00:00",
+  "uuid": "2b3d9fe9-443e-4a54-8bcc-a4331749022c",
+  "timestamp": "2025-01-29T08:37:18+00:00",
   "root": "/github/workspace",
   "repository": {
     "owner": "JackPlowman",
@@ -12,9 +12,9 @@
     "totals": {
       "Python": {
         "files": 17,
-        "lines_of_code": 179,
-        "functions": 19,
-        "hard_to_maintain": 0,
+        "lines_of_code": 250,
+        "functions": 23,
+        "hard_to_maintain": 1,
         "unmaintainable": 0
       }
     },
@@ -24,7 +24,7 @@
           "__init__.py",
           "analyser/"
         ],
-        "profile": [154, 25, 0, 0]
+        "profile": [153, 57, 40, 0]
       },
       "analyser/": {
         "entries": [
@@ -35,7 +35,7 @@
           "file_analysis/",
           "utils/"
         ],
-        "profile": [154, 25, 0, 0]
+        "profile": [153, 57, 40, 0]
       },
       "analyser/commits/": {
         "entries": [
@@ -51,7 +51,7 @@
           "repository_languages.py",
           "__init__.py"
         ],
-        "profile": [44, 0, 0, 0]
+        "profile": [58, 16, 40, 0]
       },
       "analyser/utils/": {
         "entries": [
@@ -86,14 +86,14 @@
         ]
       },
       "analyser/stats.py": {
-        "checksum": "405f06750429d75b38db591479a06404",
+        "checksum": "6d1c6952cd1e9766e4fc5134748c82c7",
         "language": "Python",
-        "loc": 50,
-        "profile": [25, 25, 0, 0],
+        "loc": 51,
+        "profile": [10, 41, 0, 0],
         "measurements": [
           {"unit_name": "create_statistics", "start": {"line": 19, "column": 1}, "end": {"line": 50, "column": 21}, "value": 25},
-          {"unit_name": "create_repository_statistics", "start": {"line": 53, "column": 1}, "end": {"line": 80, "column": 6}, "value": 15},
-          {"unit_name": "generate_output_file", "start": {"line": 83, "column": 1}, "end": {"line": 97, "column": 10}, "value": 10}
+          {"unit_name": "create_repository_statistics", "start": {"line": 53, "column": 1}, "end": {"line": 81, "column": 6}, "value": 16},
+          {"unit_name": "generate_output_file", "start": {"line": 84, "column": 1}, "end": {"line": 98, "column": 10}, "value": 10}
         ]
       },
       "analyser/__init__.py": {
@@ -122,13 +122,15 @@
         ]
       },
       "analyser/file_analysis/programming_language_analysis.py": {
-        "checksum": "90ed1059c2ce90d054dc1d77cefac2c8",
+        "checksum": "48f08037609752da83a4049d98273a34",
         "language": "Python",
-        "loc": 16,
-        "profile": [16, 0, 0, 0],
+        "loc": 74,
+        "profile": [18, 16, 40, 0],
         "measurements": [
-          {"unit_name": "analyse_programming_languages", "start": {"line": 15, "column": 1}, "end": {"line": 29, "column": 32}, "value": 7},
-          {"unit_name": "guess_language_from_file", "start": {"line": 32, "column": 1}, "end": {"line": 47, "column": 20}, "value": 9}
+          {"unit_name": "analyse_programming_languages", "start": {"line": 15, "column": 1}, "end": {"line": 31, "column": 32}, "value": 9},
+          {"unit_name": "guess_language_from_file", "start": {"line": 34, "column": 1}, "end": {"line": 49, "column": 20}, "value": 9},
+          {"unit_name": "get_language_patterns", "start": {"line": 52, "column": 1}, "end": {"line": 77, "column": 61}, "value": 16},
+          {"unit_name": "count_sloc", "start": {"line": 80, "column": 1}, "end": {"line": 142, "column": 16}, "value": 40}
         ]
       },
       "analyser/file_analysis/repository_analysis.py": {
@@ -141,14 +143,16 @@
         ]
       },
       "analyser/file_analysis/repository_languages.py": {
-        "checksum": "fdc7fabfa0f85b62cfc8313fedcbb711",
+        "checksum": "d09e9ad91287a156967db1e5ac53c28b",
         "language": "Python",
-        "loc": 16,
-        "profile": [16, 0, 0, 0],
+        "loc": 28,
+        "profile": [28, 0, 0, 0],
         "measurements": [
-          {"unit_name": "add_file", "start": {"line": 15, "column": 5}, "end": {"line": 27, "column": 70}, "value": 8},
-          {"unit_name": "__repr__", "start": {"line": 29, "column": 5}, "end": {"line": 33, "column": 67}, "value": 5},
-          {"unit_name": "get_data", "start": {"line": 35, "column": 5}, "end": {"line": 37, "column": 97}, "value": 3}
+          {"unit_name": "add_file", "start": {"line": 22, "column": 5}, "end": {"line": 34, "column": 70}, "value": 8},
+          {"unit_name": "add_sloc", "start": {"line": 36, "column": 5}, "end": {"line": 49, "column": 59}, "value": 9},
+          {"unit_name": "__repr__", "start": {"line": 51, "column": 5}, "end": {"line": 55, "column": 67}, "value": 5},
+          {"unit_name": "get_data", "start": {"line": 57, "column": 5}, "end": {"line": 59, "column": 97}, "value": 3},
+          {"unit_name": "get_sloc", "start": {"line": 61, "column": 5}, "end": {"line": 63, "column": 91}, "value": 3}
         ]
       },
       "analyser/file_analysis/__init__.py": {
@@ -169,7 +173,7 @@
         ]
       },
       "analyser/utils/catalogued_repository.py": {
-        "checksum": "2321aabe30c30c06ff501e82e8e0c352",
+        "checksum": "81e44d9706f2b3571b2679df9045dc69",
         "language": "Python",
         "loc": 0,
         "profile": [0, 0, 0, 0],
