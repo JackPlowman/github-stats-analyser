@@ -4,6 +4,8 @@ from pygments.util import ClassNotFound
 
 from analyser.file_analysis.programming_language_analysis import (
     analyse_programming_languages,
+    count_sloc,
+    get_language_patterns,
     guess_language_from_file,
 )
 
@@ -71,3 +73,26 @@ def test_guess_language_from_file__no_language(mock_lexers: MagicMock, mock_path
         file_name, mock_path.open.return_value.__enter__.return_value.read.return_value
     )
     assert response is None
+
+
+def test_get_language_patterns() -> None:
+    # Arrange
+    language = "Python"
+    # Act
+    single_line, multi_line = get_language_patterns(language)
+    # Assert
+    assert single_line == ["#"]
+    assert multi_line == [('"""', '"""'), ("'''", "'''")]
+
+
+@patch(f"{FILE_PATH}.Path")
+def test_count_sloc(mock_path: MagicMock) -> None:
+    # Arrange
+    mock_path.open.return_value.__enter__.return_value.__iter__.return_value = ["line1", "line2"]
+    file_name = "test.py"
+    # Act
+    response = count_sloc(file_name)
+    # Assert
+    assert response == 0
+    mock_path.open.assert_called_once_with(file_name)
+    mock_path.open.return_value.__enter__.return_value.__iter__.assert_called_once_with()
