@@ -5,6 +5,8 @@ from typing import TypedDict
 
 
 class LanguageAnalysis(TypedDict):
+    """The analysis of a programming language used in repository."""
+
     file_count: int
     file_paths: list[str]
     sloc: int = 0
@@ -38,7 +40,7 @@ class RepositoryLanguages:
             language_name (str): The language name.
             sloc (int): The source lines of code.
         """
-        if "sloc" in self.languages[language_name]:
+        if language_name in self.languages and "sloc" in self.languages[language_name]:
             self.languages[language_name]["sloc"] += sloc
         else:
             self.languages[language_name]["sloc"] = sloc

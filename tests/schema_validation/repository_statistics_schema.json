@@ -8,6 +8,7 @@
     },
     "repositories": {
       "type": "array",
+      "additionalProperties": false,
       "items": [
         {
           "type": "object",
@@ -24,7 +25,10 @@
             "commits": {
               "type": "object"
             },
-            "languages": {
+            "language_count": {
+              "type": "object"
+            },
+            "language_sloc": {
               "type": "object"
             }
           },
@@ -33,7 +37,8 @@
             "total_files",
             "total_commits",
             "commits",
-            "languages"
+            "language_count",
+            "language_sloc"
           ]
         }
       ]

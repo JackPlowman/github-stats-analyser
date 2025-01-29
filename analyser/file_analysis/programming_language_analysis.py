@@ -77,8 +77,10 @@ def get_language_patterns(language: str | None) -> tuple[list[str], list[tuple[s
     return patterns.get(language, (single_line, multi_line))
 
 
-def count_sloc(file_path: str) -> int:
+def count_sloc(file_path: str) -> int:  # noqa: C901
     """Count source lines of code excluding comments and blank lines.
+
+    Update to use Pygount when it supports Python 3.13.
 
     Args:
         file_path (str): Path to the source file
@@ -94,7 +96,7 @@ def count_sloc(file_path: str) -> int:
     current_multi_pattern = None
 
     try:
-        with open(file_path, encoding="utf-8") as file:
+        with Path(file_path).open() as file:
             content = file.readlines()
 
             i = 0
@@ -133,8 +135,8 @@ def count_sloc(file_path: str) -> int:
 
                 i += 1
 
-    except (OSError, UnicodeDecodeError) as e:
-        logger.error("Error reading file", file_path=file_path, error=str(e))
+    except (OSError, UnicodeDecodeError):
+        logger.exception("Error reading file", file_path=file_path)
         return 0
 
     return sloc
