@@ -8,6 +8,7 @@
     },
     "repositories": {
       "type": "array",
+      "additionalProperties": false,
       "items": [
         {
           "type": "object",
@@ -25,7 +26,17 @@
               "type": "object"
             },
             "languages": {
-              "type": "object"
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "count": {
+                  "type": "object"
+                },
+                "sloc": {
+                  "type": "object"
+                }
+              },
+              "required": ["count", "sloc"]
             }
           },
           "required": [
