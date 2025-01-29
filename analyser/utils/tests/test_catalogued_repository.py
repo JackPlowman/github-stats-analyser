@@ -12,7 +12,9 @@ def test_catalogued_repository() -> None:
     languages.add_sloc(language_name="Python", sloc=100)
     commits = []
     # Act
-    catalogued_repository = CataloguedRepository(repository_name, total_files, commits, total_commits, languages.get_data(),languages.get_sloc() )
+    catalogued_repository = CataloguedRepository(
+        repository_name, total_files, commits, total_commits, languages.get_data(), languages.get_sloc()
+    )
     # Assert
     assert catalogued_repository.repository_name == repository_name
     assert catalogued_repository.total_files == total_files

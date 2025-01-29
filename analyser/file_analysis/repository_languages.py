@@ -40,10 +40,13 @@ class RepositoryLanguages:
             language_name (str): The language name.
             sloc (int): The source lines of code.
         """
-        if language_name in self.languages and "sloc" in self.languages[language_name]:
-            self.languages[language_name]["sloc"] += sloc
+        if language_name in self.languages:
+            if "sloc" in self.languages[language_name]:
+                self.languages[language_name]["sloc"] += sloc
+            else:
+                self.languages[language_name]["sloc"] = sloc
         else:
-            self.languages[language_name]["sloc"] = sloc
+            self.languages[language_name] = {"sloc": sloc}
 
     def __repr__(self) -> str:
         """Return a string representation of the repository languages."""
