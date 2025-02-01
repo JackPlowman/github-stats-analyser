@@ -64,7 +64,7 @@ jobs:
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
       - name: Upload Ruff analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v3.28.6
+        uses: github/codeql-action/upload-sarif@v3.28.8
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
@@ -97,12 +97,12 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3.28.6
+        uses: github/codeql-action/init@v3.28.8
         with:
           languages: ${{ matrix.language }}
           queries: security-and-quality
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3.28.6
+        uses: github/codeql-action/analyze@v3.28.8
 
   check-markdown-links:
     name: Check Markdown links
@@ -208,7 +208,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3.28.6
+        uses: github/codeql-action/upload-sarif@v3.28.8
         with:
           sarif_file: results.sarif
           category: zizmor
