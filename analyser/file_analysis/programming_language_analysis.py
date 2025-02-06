@@ -99,7 +99,6 @@ def count_sloc(file_path: str) -> int:  # noqa: C901
         with Path(file_path).open() as file:
             content = file.readlines()
             i = 0
-            logger.warning("Reading file", file_path=content, file_type=type(content))
             while i < len(content):
                 logger.warning("Reading line", line=content[i].strip())
                 line = content[i].strip()
