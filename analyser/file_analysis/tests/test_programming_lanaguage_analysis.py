@@ -1,5 +1,6 @@
 from unittest.mock import MagicMock, patch
 
+import pytest
 from pygments.util import ClassNotFound
 
 from analyser.file_analysis.programming_language_analysis import (
@@ -85,12 +86,21 @@ def test_get_language_patterns() -> None:
     assert multi_line == [('"""', '"""'), ("'''", "'''")]
 
 
+@pytest.mark.parametrize(
+    ("lines", "expected_sloc"),
+    [
+        (["print('Hello, world!')", "print('Another line')"], 2),
+        (["print('Hello, world!')"], 1),
+        (["# This is a comment\n"], 0),
+        ([], 0),
+    ],
+)
 @patch(f"{FILE_PATH}.Path")
-def test_count_sloc(mock_path: MagicMock) -> None:
+def test_count_sloc(mock_path: MagicMock, lines: list, expected_sloc: int) -> None:
     # Arrange
     file_name = "test.py"
+    mock_path.return_value.open.return_value.__enter__.return_value.readlines.return_value = lines
     # Act
     response = count_sloc(file_name)
     # Assert
-    assert response == 0
-    mock_path.open.assert_called_once_with(file_name)
+    assert response == expected_sloc
