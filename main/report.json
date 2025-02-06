@@ -1,7 +1,7 @@
 {
   "version": "0.18.1",
-  "uuid": "4b6c9002-1c27-4199-bd55-7031c4ee9b47",
-  "timestamp": "2025-02-02T15:50:25+00:00",
+  "uuid": "8dd556cf-6e82-46ba-ba01-76cf1b68a771",
+  "timestamp": "2025-02-06T22:05:28+00:00",
   "root": "/github/workspace",
   "repository": {
     "owner": "JackPlowman",
@@ -12,7 +12,7 @@
     "totals": {
       "Python": {
         "files": 17,
-        "lines_of_code": 250,
+        "lines_of_code": 251,
         "functions": 23,
         "hard_to_maintain": 1,
         "unmaintainable": 0
@@ -24,7 +24,7 @@
           "__init__.py",
           "analyser/"
         ],
-        "profile": [153, 57, 40, 0]
+        "profile": [153, 57, 41, 0]
       },
       "analyser/": {
         "entries": [
@@ -35,7 +35,7 @@
           "file_analysis/",
           "utils/"
         ],
-        "profile": [153, 57, 40, 0]
+        "profile": [153, 57, 41, 0]
       },
       "analyser/commits/": {
         "entries": [
@@ -51,7 +51,7 @@
           "repository_languages.py",
           "__init__.py"
         ],
-        "profile": [58, 16, 40, 0]
+        "profile": [58, 16, 41, 0]
       },
       "analyser/utils/": {
         "entries": [
@@ -122,15 +122,15 @@
         ]
       },
       "analyser/file_analysis/programming_language_analysis.py": {
-        "checksum": "48f08037609752da83a4049d98273a34",
+        "checksum": "e6b112fc79cf8176cd053dac483f7d9d",
         "language": "Python",
-        "loc": 74,
-        "profile": [18, 16, 40, 0],
+        "loc": 75,
+        "profile": [18, 16, 41, 0],
         "measurements": [
           {"unit_name": "analyse_programming_languages", "start": {"line": 15, "column": 1}, "end": {"line": 31, "column": 32}, "value": 9},
           {"unit_name": "guess_language_from_file", "start": {"line": 34, "column": 1}, "end": {"line": 49, "column": 20}, "value": 9},
           {"unit_name": "get_language_patterns", "start": {"line": 52, "column": 1}, "end": {"line": 77, "column": 61}, "value": 16},
-          {"unit_name": "count_sloc", "start": {"line": 80, "column": 1}, "end": {"line": 142, "column": 16}, "value": 40}
+          {"unit_name": "count_sloc", "start": {"line": 80, "column": 1}, "end": {"line": 142, "column": 16}, "value": 41}
         ]
       },
       "analyser/file_analysis/repository_analysis.py": {
