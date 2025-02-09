@@ -1,0 +1,24 @@
+name: Clean Caches
+
+on:
+  schedule:
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  clean-caches:
+    name: Clean GitHub Action Caches
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Delete caches
+        run: gh cache delete --all --repo ${{ github.repository }}
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
