@@ -1,13 +1,38 @@
 #!/bin/bash
 set -e +x
 
-# shellcheck disable=SC2045,SC2028,SC2086,SC2206,SC2128
-for script in $(ls -1 githooks/pre-commit-scripts/*.sh 2>/dev/null); do
-  ts=$SECONDS
-  echo "Running githook: $script"
-  bash $script
-  te=($SECONDS - $ts)
-  echo "Script Took (${te}s)"
-done
+echo "Running pre-commit hooks checks"
 
-printf "pre-commit completed successfully"
+# Run gitleaks checks
+if ! just -q gitleaks-detect; then
+  echo "Warning: gitleaks-detect command failed"
+  exit 1
+else
+  echo "gitleaks checks passed"
+fi
+
+# Run prettier checks
+if ! just -q prettier-check; then
+  echo "Warning: prettier-check command failed"
+  exit 1
+else
+  echo "prettier checks passed"
+fi
+
+# Run just format checks
+if ! just -q format-check; then
+  echo "Warning: format-check command failed"
+  exit 1
+else
+  echo "just format checks passed"
+fi
+
+# Python checks
+if ! just -q ruff-checks; then
+  echo "Warning: ruff-checks command failed"
+  exit 1
+else
+  echo "ruff checks passed"
+fi
+
+echo "All pre-commit hooks checks passed"
