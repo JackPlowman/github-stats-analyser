@@ -205,7 +205,7 @@ jobs:
       - name: Setup Dependencies
         uses: ./.github/actions/setup-dependencies
       - name: Run zizmor 🌈
-        run: poetry run zizmor --format sarif . > results.sarif
+        run: uv run zizmor --format sarif . > results.sarif
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload SARIF file
