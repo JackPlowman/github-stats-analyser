@@ -6,7 +6,7 @@ WORKDIR /
 
 COPY pyproject.toml uv.lock ./
 RUN pip install --no-cache-dir uv==0.6.2 && \
-  uv export --format=requirements.txt
+  uv export --format=requirements-txt
 
 FROM python:3.13-alpine AS analyser
 
