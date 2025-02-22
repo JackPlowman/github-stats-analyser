@@ -4,23 +4,15 @@
 
 # Install python dependencies
 install:
-    poetry install -E dev -E test
-
-# Install application python dependencies only
-install-root-only:
-    poetry install --only-root
+    uv sync --extra dev --extra test
 
 # Run the analyser
 run:
-    poetry run python -m analyser
+    uv run python -m analyser
 
 # Run the analyser with default values
 run-with-defaults:
-    INPUT_DEBUG=true INPUT_REPOSITORY_OWNER=JackPlowman poetry run python -m analyser
-
-# Validates Pyproject
-pyproject-check:
-    poetry check
+    INPUT_DEBUG=true INPUT_REPOSITORY_OWNER=JackPlowman uv run python -m analyser
 
 # ------------------------------------------------------------------------------
 # Test Commands
@@ -28,18 +20,18 @@ pyproject-check:
 
 # Run unit tests
 unit-test:
-    poetry run pytest analyser --cov=. --cov-report=xml
+    uv run pytest analyser --cov=. --cov-report=xml
 
 # Run unit tests with debug output
 unit-test-debug:
-    poetry run pytest analyser --cov=. --cov-report=xml -vvvv
+    uv run pytest analyser --cov=. --cov-report=xml -vvvv
 
 test-github-summary:
-    poetry run pytest tests/github_summary
+    uv run pytest tests/github_summary
 
 # Validate the schema of the generated statistics file
 validate-schema:
-    poetry run check-jsonschema --schemafile tests/schema_validation/repository_statistics_schema.json tests/schema_validation/repository_statistics.json
+    uv run check-jsonschema --schemafile tests/schema_validation/repository_statistics_schema.json tests/schema_validation/repository_statistics.json
 
 # ------------------------------------------------------------------------------
 # Cleaning Commands
@@ -105,19 +97,19 @@ ruff-checks:
 
 # Check for Ruff issues
 ruff-lint-check:
-    poetry run ruff check .
+    uv run ruff check .
 
 # Fix Ruff lint issues
 ruff-lint-fix:
-    poetry run ruff check . --fix
+    uv run ruff check . --fix
 
 # Check for Ruff format issues
 ruff-format-check:
-    poetry run ruff format --check .
+    uv run ruff format --check .
 
 # Fix Ruff format issues
 ruff-format-fix:
-    poetry run ruff format .
+    uv run ruff format .
 
 # ------------------------------------------------------------------------------
 # Other Python Tools
@@ -125,7 +117,7 @@ ruff-format-fix:
 
 # Check for unused code
 vulture:
-    poetry run vulture analyser
+    uv run vulture analyser
 
 # ------------------------------------------------------------------------------
 # Prettier - File Formatting
