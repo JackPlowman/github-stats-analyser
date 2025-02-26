@@ -237,7 +237,7 @@ jobs:
           create-md: true
           create-md-artifact: true
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4.6.0
+        uses: actions/upload-artifact@v4.6.1
         with:
           name: repository_statistics
           path: repository_statistics.json
@@ -255,7 +255,7 @@ jobs:
       - name: Setup Dependencies
         uses: ./.github/actions/setup-dependencies
       - name: Download Artifact
-        uses: actions/download-artifact@v4.1.8
+        uses: actions/download-artifact@v4.1.9
         with:
           name: repository_statistics
           path: tests/schema_validation
@@ -275,7 +275,7 @@ jobs:
       - name: Setup Dependencies
         uses: ./.github/actions/setup-dependencies
       - name: Download Artifact
-        uses: actions/download-artifact@v4.1.8
+        uses: actions/download-artifact@v4.1.9
         with:
           name: md
           path: tests/github_summary
