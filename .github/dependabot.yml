@@ -9,8 +9,7 @@ updates:
     commit-message:
       prefix: "deps(github-actions)"
     schedule:
-      interval: "weekly"
-      day: "saturday"
+      interval: "daily"
       time: "01:00"
       timezone: "Europe/London"
     target-branch: "main"
@@ -27,8 +26,7 @@ updates:
     commit-message:
       prefix: "deps(python)"
     schedule:
-      interval: "weekly"
-      day: "saturday"
+      interval: "daily"
       time: "01:00"
       timezone: "Europe/London"
     target-branch: "main"
