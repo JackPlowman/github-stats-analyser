@@ -2,6 +2,9 @@
 - color: d73a4a
   name: bug
   description: Something isn't working
+- color: fef2c0
+  name: configurations
+  description: Pull requests that update configuration files
 - color: 0075ca
   name: documentation
   description: Improvements or additions to documentation
@@ -46,31 +49,34 @@
   name: "autorelease: published"
   description:
 # Languages
-- color: 2b67c6
-  name: python
-  description: Pull requests that update Python code
 - color: 000000
   name: github_actions
   description: Pull requests that update GitHub Actions code
-- color: 66A615
-  name: just
-  description: Pull requests that update Just code
 - color: 00ff44
   name: shell
   description: Pull requests that update Shell code
-- color: 0373fc
-  name: docker
-  description: Pull requests that update Docker code
 - color: 1900ff
   name: markdown
   description: Pull requests that update Markdown documentation
+- color: 66A615
+  name: just
+  description: Pull requests that update Just code
+- color: 2b67c6
+  name: python
+  description: Pull requests that update Python code
+- color: 00ff1e
+  name: typescript
+  description: Pull requests that update TypeScript code
+- color: 0373fc
+  name: docker
+  description: Pull requests that update Docker code
 # Components
-- color: f200f2
-  name: analyser
-  description: Pull requests that update analyser code
 - color: ff0073
   name: git_hooks
   description: Pull requests that update git hooks
+- color: f200f2
+  name: analyser
+  description: Pull requests that update analyser code
 # Sizes
 - color: 00ff22
   name: size/XS
