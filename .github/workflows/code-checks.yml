@@ -149,7 +149,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up Just
-        uses: extractions/setup-just@v2
+        uses: extractions/setup-just@v3
       - name: Check Justfile Format
         run: just format-check
 
@@ -165,7 +165,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up Just
-        uses: extractions/setup-just@v2
+        uses: extractions/setup-just@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3.9.0
       - name: Build Docker Image
