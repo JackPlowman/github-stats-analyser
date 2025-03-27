@@ -1,0 +1,20 @@
+# https://github.com/evilmartians/lefthook
+min_version: 1.11.4
+colors: true
+
+output:
+  - summary
+
+pre-commit:
+  parallel: true
+  commands:
+    Git Leaks Detection:
+      run: just gitleaks-detect
+    Prettier Checks:
+      run: just prettier-check
+    Justfile Format Checks:
+      run: just format-check
+    Lefthook Validate:
+      run: just lefthook-validate
+    Zizmor Checks:
+      run: just zizmor-check
