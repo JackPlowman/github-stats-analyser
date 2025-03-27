@@ -10,7 +10,7 @@ runs:
         pyproject-file: "pyproject.toml"
         enable-cache: true
     - name: Set up Just
-      uses: extractions/setup-just@v2
+      uses: extractions/setup-just@v3
     - name: Install Python Dependencies
       shell: bash
       run: just install
