@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check Pull Request Title
-        uses: deepakputhraya/action-pr-title@v1.0.2
+        uses: deepakputhraya/action-pr-title@3864bebc79c5f829d25dd42d3c6579d040b0ef16 # v1.0.2
         with:
           allowed_prefixes: "feat: ,fix: ,bug: ,ci: ,refactor: ,docs: ,build: ,chore(,deps(,chore: ,feat!: ,fix!: ,refactor!: ,test: ,build(deps): " # title should start with the given prefix
 
@@ -30,7 +30,7 @@ jobs:
           configuration-path: .github/other-configurations/labeller.yml
           sync-labels: true
       - name: Add Size Labels
-        uses: pascalgn/size-label-action@v0.5.5
+        uses: pascalgn/size-label-action@f8edde36b3be04b4f65dcfead05dc8691b374348 # v0.5.5
         env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
         with:
