@@ -26,7 +26,7 @@ jobs:
           persist-credentials: false
       # Lint and Format everything but Python
       - name: Lint Code Base
-        uses: super-linter/super-linter/slim@v7.3.0
+        uses: super-linter/super-linter/slim@4e8a7c2bf106c4c766c816b35ec612638dc9b6b2 # v7.3.0
         env:
           VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
@@ -65,7 +65,7 @@ jobs:
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
       - name: Upload Ruff analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v3.28.10
+        uses: github/codeql-action/upload-sarif@b56ba49b26e50535fa1e7f7db0f4f7b4bf65d80d # v3.28.10
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
@@ -90,7 +90,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Install the latest version of uv
-        uses: astral-sh/setup-uv@v5.4.0
+        uses: astral-sh/setup-uv@22695119d769bdb6f7032ad67b9bca0ef8c4a174 # v5.4.0
         with:
           version: "latest"
       - name: Run Lefthook Validate
@@ -112,12 +112,12 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v3.28.15
+        uses: github/codeql-action/init@45775bd8235c68ba998cffa5171334d58593da47 # v3.28.15
         with:
           languages: ${{ matrix.language }}
           queries: security-and-quality
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v3.28.15
+        uses: github/codeql-action/analyze@45775bd8235c68ba998cffa5171334d58593da47 # v3.28.15
 
   check-markdown-links:
     name: Check Markdown links
@@ -129,7 +129,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Check Markdown links
-        uses: UmbrellaDocs/action-linkspector@v1.3.4
+        uses: UmbrellaDocs/action-linkspector@a0567ce1c7c13de4a2358587492ed43cab5d0102 # v1.3.4
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           config_file: .github/other-configurations/.linkspector.yml
@@ -148,7 +148,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up Just
-        uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2
+        uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2.0.0
       - name: Check Justfile Format
         run: just format-check
 
@@ -164,9 +164,9 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up Just
-        uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2
+        uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2.0.0
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3.9.0
+        uses: docker/setup-buildx-action@f7ce87c1d6bead3e36075b2ce75da1f6cc28aaca # v3.9.0
       - name: Build Docker Image
         run: just docker-build
 
@@ -183,7 +183,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: "Run CodeLimit"
-        uses: getcodelimit/codelimit-action@v1
+        uses: getcodelimit/codelimit-action@a036c6897be9ccf69cde9dfe50eafa8cd79c98f8 # v1
 
   unit-test:
     name: Run Unit Tests
@@ -224,7 +224,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@v3.28.15
+        uses: github/codeql-action/upload-sarif@45775bd8235c68ba998cffa5171334d58593da47 # v3.28.15
         with:
           sarif_file: results.sarif
           category: zizmor
@@ -246,7 +246,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           REPOSITORY_OWNER: ${{ github.REPOSITORY_OWNER }}
       - name: Download GitHub Action Summary
-        uses: austenstone/job-summary@v2.0
+        uses: austenstone/job-summary@67b7e1f68ee55e44d073ab7354e7b580cd09567c # v2.0
         with:
           name: GITHUB_ACTION_SUMMARY
           create-pdf: false
