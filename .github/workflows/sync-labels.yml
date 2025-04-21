@@ -22,7 +22,8 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - uses: micnncim/action-label-syncer@v1.3.0
+      - name: Sync labels
+        uses: micnncim/action-label-syncer@v1.3.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.repository }}
