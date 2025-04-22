@@ -18,3 +18,5 @@ pre-commit:
       run: just lefthook-validate
     Zizmor Checks:
       run: just zizmor-check
+    Pinact Checks:
+      run: just pinact-check
