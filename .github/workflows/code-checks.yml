@@ -129,7 +129,11 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Check Markdown links
+<<<<<<< HEAD
         uses: UmbrellaDocs/action-linkspector@a0567ce1c7c13de4a2358587492ed43cab5d0102 # v1.3.4
+=======
+        uses: UmbrellaDocs/action-linkspector@c6d4525e9f50b27a0e78fc42b537141058d034ef # v1.3.1
+>>>>>>> d84ca4b (update)
         with:
           github_token: ${{ secrets.GH_TOKEN }}
           config_file: .github/other-configurations/.linkspector.yml
