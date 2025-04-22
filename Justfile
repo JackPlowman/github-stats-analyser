@@ -179,6 +179,10 @@ pinact-run:
 pinact-check:
     pinact run -c .github/other-configurations/pinact.yml --verify --check
 
+# Run pinact update
+pinact-update:
+    pinact run -c .github/other-configurations/pinact.yml --update
+
 # ------------------------------------------------------------------------------
 # Git Hooks
 # ------------------------------------------------------------------------------
