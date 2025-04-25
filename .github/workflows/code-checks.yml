@@ -65,7 +65,7 @@ jobs:
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
       - name: Upload Ruff analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@b56ba49b26e50535fa1e7f7db0f4f7b4bf65d80d # v3.28.10
+        uses: github/codeql-action/upload-sarif@28deaeda66b76a05916b6923827895f2b14ab387 # v3.28.16
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
@@ -112,12 +112,12 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@45775bd8235c68ba998cffa5171334d58593da47 # v3.28.15
+        uses: github/codeql-action/init@28deaeda66b76a05916b6923827895f2b14ab387 # v3.28.16
         with:
           languages: ${{ matrix.language }}
           queries: security-and-quality
       - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@45775bd8235c68ba998cffa5171334d58593da47 # v3.28.15
+        uses: github/codeql-action/analyze@28deaeda66b76a05916b6923827895f2b14ab387 # v3.28.16
 
   check-markdown-links:
     name: Check Markdown links
@@ -224,7 +224,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@45775bd8235c68ba998cffa5171334d58593da47 # v3.28.15
+        uses: github/codeql-action/upload-sarif@28deaeda66b76a05916b6923827895f2b14ab387 # v3.28.16
         with:
           sarif_file: results.sarif
           category: zizmor
@@ -254,7 +254,7 @@ jobs:
           create-md: true
           create-md-artifact: true
       - name: Upload Artifact
-        uses: actions/upload-artifact@v4.6.0
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: repository_statistics
           path: repository_statistics.json
@@ -272,7 +272,7 @@ jobs:
       - name: Setup Dependencies
         uses: ./.github/actions/setup-dependencies
       - name: Download Artifact
-        uses: actions/download-artifact@v4.1.8
+        uses: actions/download-artifact@v4.3.0
         with:
           name: repository_statistics
           path: tests/schema_validation
@@ -292,7 +292,7 @@ jobs:
       - name: Setup Dependencies
         uses: ./.github/actions/setup-dependencies
       - name: Download Artifact
-        uses: actions/download-artifact@v4.1.8
+        uses: actions/download-artifact@v4.3.0
         with:
           name: md
           path: tests/github_summary
