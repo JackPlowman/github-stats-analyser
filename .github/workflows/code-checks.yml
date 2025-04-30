@@ -198,8 +198,6 @@ jobs:
         run: uv pip install pytest-github-actions-annotate-failures
       - name: Run Unit Tests
         run: just unit-test
-      - name: Override Coverage Source Path for SonarCloud
-        run: sed -i "s/<source>\/home\/runner\/work\/github-stats-analyser\/github-stats-analyser<\/source>/<source>\/github\/workspace<\/source>/g" /home/runner/work/github-stats-analyser/github-stats-analyser/coverage.xml
       - name: SonarCloud Scan
         uses: SonarSource/sonarqube-scan-action@aa494459d7c39c106cc77b166de8b4250a32bb97 # v5.1.0
         env:
