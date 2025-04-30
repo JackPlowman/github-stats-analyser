@@ -194,6 +194,8 @@ jobs:
           persist-credentials: false
       - name: Setup Dependencies
         uses: ./.github/actions/setup-dependencies
+      - name: Install pytest-github-actions-annotate-failures
+        run: uv pip install pytest-github-actions-annotate-failures
       - name: Run Unit Tests
         run: just unit-test
       - name: Override Coverage Source Path for SonarCloud
