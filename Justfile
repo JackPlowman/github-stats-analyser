@@ -173,15 +173,15 @@ zizmor-check:
 
 # Run pinact
 pinact-run:
-    pinact run -c .github/other-configurations/pinact.yml
+    pinact run
 
 # Run pinact checking
 pinact-check:
-    pinact run -c .github/other-configurations/pinact.yml --verify --check
+    pinact run --verify --check
 
 # Run pinact update
 pinact-update:
-    pinact run -c .github/other-configurations/pinact.yml --update
+    pinact run --update
 
 # ------------------------------------------------------------------------------
 # Git Hooks
