@@ -215,14 +215,16 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Setup Dependencies
-        uses: ./.github/actions/setup-dependencies
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca # v6.0.1
+      - name: Set up Just
+        uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff # v3
       - name: Run zizmor 🌈
-        run: uv run zizmor --format sarif . > results.sarif
+        run: just zizmor-check-sarif
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload SARIF file
-        uses: github/codeql-action/upload-sarif@45775bd8235c68ba998cffa5171334d58593da47 # v3.28.15
+        uses: github/codeql-action/upload-sarif@v3.28.17
         with:
           sarif_file: results.sarif
           category: zizmor
