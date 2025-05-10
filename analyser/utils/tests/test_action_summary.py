@@ -20,7 +20,9 @@ def test_generate_action_summary_github_actions(mock_path: MagicMock) -> None:
     # Assert
     mock_path.assert_called_once_with(summary_file)
     mock_path.return_value.open.assert_called_once_with("w")
-    mock_path.return_value.open.return_value.__enter__.return_value.write.assert_called_once_with(expected_summary)
+    mock_path.return_value.open.return_value.__enter__.return_value.write.assert_called_once_with(
+        expected_summary
+    )
     # Cleanup
     if Path(summary_file).exists():
         Path(summary_file).unlink()

@@ -34,7 +34,6 @@ package = false
 py-modules = ["analyser", "tests"]
 
 [tool.ruff]
-line-length = 120
 target-version = "py313"
 
 [tool.ruff.lint]

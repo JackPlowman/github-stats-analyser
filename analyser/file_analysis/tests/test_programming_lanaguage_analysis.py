@@ -14,13 +14,17 @@ FILE_PATH = "analyser.file_analysis.programming_language_analysis"
 
 
 @patch(f"{FILE_PATH}.guess_language_from_file")
-def test_analyse_programming_languages__no_guess(mock_guess_language_from_file: MagicMock) -> None:
+def test_analyse_programming_languages__no_guess(
+    mock_guess_language_from_file: MagicMock,
+) -> None:
     # Arrange
     mock_guess_language_from_file.return_value = None
     file_name = "test.py"
     repository_languages = MagicMock()
     # Act
-    response = analyse_programming_languages(file_path=file_name, repository_languages=repository_languages)
+    response = analyse_programming_languages(
+        file_path=file_name, repository_languages=repository_languages
+    )
     # Assert
     mock_guess_language_from_file.assert_called_once_with(file_name)
     assert response == repository_languages
@@ -36,11 +40,17 @@ def test_analyse_programming_languages__with_guess(
     file_name = "test.py"
     repository_languages = MagicMock()
     # Act
-    response = analyse_programming_languages(file_path=file_name, repository_languages=repository_languages)
+    response = analyse_programming_languages(
+        file_path=file_name, repository_languages=repository_languages
+    )
     # Assert
     mock_guess_language_from_file.assert_called_once_with(file_name)
-    repository_languages.add_file.assert_called_once_with(language_name=language, file_path=file_name)
-    repository_languages.add_sloc.assert_called_once_with(language_name=language, sloc=mock_count_sloc.return_value)
+    repository_languages.add_file.assert_called_once_with(
+        language_name=language, file_path=file_name
+    )
+    repository_languages.add_sloc.assert_called_once_with(
+        language_name=language, sloc=mock_count_sloc.return_value
+    )
     assert response == repository_languages
 
 
@@ -62,7 +72,9 @@ def test_guess_language_from_file(mock_lexers: MagicMock, mock_path: MagicMock) 
 
 @patch(f"{FILE_PATH}.Path")
 @patch(f"{FILE_PATH}.lexers")
-def test_guess_language_from_file__no_language(mock_lexers: MagicMock, mock_path: MagicMock) -> None:
+def test_guess_language_from_file__no_language(
+    mock_lexers: MagicMock, mock_path: MagicMock
+) -> None:
     # Arrange
     mock_path.open.return_value = MagicMock()
     mock_lexers.guess_lexer_for_filename.side_effect = ClassNotFound()
@@ -99,7 +111,10 @@ def test_get_language_patterns() -> None:
 def test_count_sloc(mock_path: MagicMock, lines: list, expected_sloc: int) -> None:
     # Arrange
     file_name = "test.py"
-    mock_path.return_value.open.return_value.__enter__.return_value.readlines.return_value = lines
+    readlines = (
+        mock_path.return_value.open.return_value.__enter__.return_value.readlines
+    )
+    readlines.return_value = lines
     # Act
     response = count_sloc(file_name)
     # Assert

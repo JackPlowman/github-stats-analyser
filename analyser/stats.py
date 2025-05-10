@@ -40,7 +40,10 @@ def create_statistics(configuration: Configuration) -> DataFrame:
                 "total_files": repository.total_files,
                 "total_commits": repository.total_commits,
                 "commits": repository.commits,
-                "languages": {"count": repository.language_count, "sloc": repository.language_sloc},
+                "languages": {
+                    "count": repository.language_count,
+                    "sloc": repository.language_sloc,
+                },
             }
             for repository in list_of_repositories
         ]
@@ -50,7 +53,9 @@ def create_statistics(configuration: Configuration) -> DataFrame:
     return dataframe
 
 
-def create_repository_statistics(repository_name: str, path_to_repo: str) -> CataloguedRepository:
+def create_repository_statistics(
+    repository_name: str, path_to_repo: str
+) -> CataloguedRepository:
     """Create statistics for a repository.
 
     Args:

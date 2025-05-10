@@ -13,7 +13,14 @@ def test_github_summary() -> None:
     headers = bs4_html.find_all("th")
     # Assert Headers
     headers_text = [header.text for header in headers]
-    assert headers_text == ["", "repository", "total_files", "total_commits", "commits", "languages"]
+    assert headers_text == [
+        "",
+        "repository",
+        "total_files",
+        "total_commits",
+        "commits",
+        "languages",
+    ]
     # Assert row count
     rows = bs4_html.find_all("tr")
     assert len(rows) > 3

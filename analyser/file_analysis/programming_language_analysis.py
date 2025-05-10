@@ -12,7 +12,9 @@ if TYPE_CHECKING:
 logger: stdlib.BoundLogger = get_logger()
 
 
-def analyse_programming_languages(file_path: str, repository_languages: RepositoryLanguages) -> RepositoryLanguages:
+def analyse_programming_languages(
+    file_path: str, repository_languages: RepositoryLanguages
+) -> RepositoryLanguages:
     """Analyse the programming languages in a file.
 
     Args:
@@ -27,7 +29,12 @@ def analyse_programming_languages(file_path: str, repository_languages: Reposito
         repository_languages.add_file(language_name=guess, file_path=file_path)
         sloc = count_sloc(file_path)
         repository_languages.add_sloc(language_name=guess, sloc=sloc)
-        logger.debug("Added file to repository languages", file_path=file_path, language=guess, sloc=sloc)
+        logger.debug(
+            "Added file to repository languages",
+            file_path=file_path,
+            language=guess,
+            sloc=sloc,
+        )
     return repository_languages
 
 
@@ -49,14 +56,16 @@ def guess_language_from_file(file_path: str) -> str | None:
         return None
 
 
-def get_language_patterns(language: str | None) -> tuple[list[str], list[tuple[str, str]]]:
+def get_language_patterns(
+    language: str | None,
+) -> tuple[list[str], list[tuple[str, str]]]:
     """Get the comment patterns for a given language.
 
     Args:
         language (str | None): The programming language name
 
     Returns:
-        tuple[list[str], list[tuple[str, str]]]: Single-line and multi-line comment patterns
+        tuple[list[str], list: One-line and multi-line comment patterns
     """
     # Default patterns (C-style)
     single_line = ["//", "#"]

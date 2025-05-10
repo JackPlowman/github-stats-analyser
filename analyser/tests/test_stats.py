@@ -29,7 +29,7 @@ def test_create_statistics(
     repository.name = repo_name = "github-stats-prototype"
     mock_retrieve_repositories.return_value = [repository]
     mock_clone_repo.return_value = "TestPath"
-    mock_create_repository_statistics.return_value = MagicMock(
+    mock_create_repository_statistics.return_value = catalogued_repository = MagicMock(
         repository_name="Test1", total_files=10, commits=[], total_commits=0
     )
     configuration = MagicMock(repository_owner="test")
@@ -47,18 +47,22 @@ def test_create_statistics(
                 "total_commits": 0,
                 "commits": [],
                 "languages": {
-                    "count": mock_create_repository_statistics.return_value.language_count,
-                    "sloc": mock_create_repository_statistics.return_value.language_sloc,
+                    "count": catalogued_repository.language_count,
+                    "sloc": catalogued_repository.language_sloc,
                 },
             }
         ]
     )
-    mock_generate_output_file.assert_called_once_with(configuration, mock_data_frame.return_value)
+    mock_generate_output_file.assert_called_once_with(
+        configuration, mock_data_frame.return_value
+    )
 
 
 @patch(f"{FILE_PATH}.get_commits")
 @patch(f"{FILE_PATH}.git.Repo")
-def test_create_repository_statistics(_mock_repo: MagicMock, mock_get_commits: MagicMock) -> None:
+def test_create_repository_statistics(
+    _mock_repo: MagicMock, mock_get_commits: MagicMock
+) -> None:
     # Arrange
     repository_name = "Test1"
     path_to_repo = "TestPath"

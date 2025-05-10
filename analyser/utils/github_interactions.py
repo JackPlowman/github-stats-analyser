@@ -29,7 +29,9 @@ def clone_repo(owner_name: str, repository_name: str) -> str:
     if not Path.exists(Path(file_path)):
         repo_url = f"https://github.com/{owner_name}/{repository_name}.git"
         Repo.clone_from(repo_url, Path(file_path))
-        logger.debug("Cloned repository", owner_name=owner_name, repository_name=repository_name)
+        logger.debug(
+            "Cloned repository", owner_name=owner_name, repository_name=repository_name
+        )
     return file_path
 
 
@@ -40,7 +42,9 @@ def retrieve_repositories(configuration: Configuration) -> PaginatedList[Reposit
         PaginatedList[Repository]: The list of repositories.
     """
     github = Github(configuration.github_token)
-    repositories = github.search_repositories(query=f"user:{configuration.repository_owner} archived:false")
+    repositories = github.search_repositories(
+        query=f"user:{configuration.repository_owner} archived:false"
+    )
     logger.info(
         "Retrieved repositories to analyse",
         repositories_count=repositories.totalCount,

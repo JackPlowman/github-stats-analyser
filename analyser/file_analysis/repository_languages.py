@@ -50,14 +50,22 @@ class RepositoryLanguages:
 
     def __repr__(self) -> str:
         """Return a string representation of the repository languages."""
-        languages_strings = [f"{language}: {self.languages[language]['file_count']}" for language in self.languages]
+        languages_strings = [
+            f"{language}: {self.languages[language]['file_count']}"
+            for language in self.languages
+        ]
         language_string = ", ".join(languages_strings)
         return f"RepositoryLanguages(languages={language_string})"
 
     def get_data(self) -> dict[str, int]:
         """Return the data for the repository languages."""
-        return {language: self.languages[language]["file_count"] for language in self.languages}
+        return {
+            language: self.languages[language]["file_count"]
+            for language in self.languages
+        }
 
     def get_sloc(self) -> dict[str, int]:
         """Return the SLOC for the repository languages."""
-        return {language: self.languages[language]["sloc"] for language in self.languages}
+        return {
+            language: self.languages[language]["sloc"] for language in self.languages
+        }
