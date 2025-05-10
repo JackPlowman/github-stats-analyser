@@ -13,7 +13,12 @@ def test_catalogued_repository() -> None:
     commits = []
     # Act
     catalogued_repository = CataloguedRepository(
-        repository_name, total_files, commits, total_commits, languages.get_data(), languages.get_sloc()
+        repository_name,
+        total_files,
+        commits,
+        total_commits,
+        languages.get_data(),
+        languages.get_sloc(),
     )
     # Assert
     assert catalogued_repository.repository_name == repository_name

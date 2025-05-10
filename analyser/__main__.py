@@ -21,7 +21,9 @@ def main() -> None:
         statistics = create_statistics(configuration)
         generate_action_summary(statistics)
     except Exception as error:
-        logger.exception("An error occurred during the execution of the analyser.", error=error)
+        logger.exception(
+            "An error occurred during the execution of the analyser.", error=error
+        )
         raise
     finally:
         clean_up_cloned_repositories()

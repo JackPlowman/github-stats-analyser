@@ -19,4 +19,6 @@ def generate_action_summary(statistics_dataframe: DataFrame) -> None:
         with Path(environ["GITHUB_STEP_SUMMARY"]).open("w") as file:
             file.write(summary)
     else:
-        logger.debug("Not running in GitHub Actions, skipping generating action summary")
+        logger.debug(
+            "Not running in GitHub Actions, skipping generating action summary"
+        )
