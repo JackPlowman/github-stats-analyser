@@ -15,10 +15,9 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
   "pytest==8.3.5",
-  "pytest-cov==6.1.0",
-  "ruff==0.11.8",
+  "pytest-cov==6.1.1",
+  "ruff==0.11.9",
   "vulture==2.14",
-  "zizmor==1.6.0",
 ]
 test = [
   "check-jsonschema==0.33.0",
@@ -28,7 +27,7 @@ test = [
 ]
 
 [tool.uv]
-required-version = "0.7.2"
+required-version = "0.7.3"
 package = false
 
 [tool.setuptools]
