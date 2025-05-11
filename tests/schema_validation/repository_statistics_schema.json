@@ -1,10 +1,25 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Repository Statistics",
   "additionalProperties": false,
   "type": "object",
+  "required": ["repository_owner", "overall_statistics", "repositories"],
   "properties": {
     "repository_owner": {
       "type": "string"
+    },
+    "overall_statistics": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "total_files": {
+          "type": "integer"
+        },
+        "total_commits": {
+          "type": "integer"
+        }
+      },
+      "required": ["total_files", "total_commits"]
     },
     "repositories": {
       "type": "array",
