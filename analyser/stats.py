@@ -107,8 +107,8 @@ def generate_output_file(
 
     Args:
         configuration (Configuration): The configuration.
-        overall_statistics (dict[str, int]): The overall statistics.
         repositories_dataframe (DataFrame): The data frame.
+        overall_statistics (dict[str, int]): The overall statistics.
     """
     with Path(DEFAULT_FILE_LOCATION).open("w") as file:
         dump(
