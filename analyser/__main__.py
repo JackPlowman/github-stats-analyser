@@ -7,6 +7,7 @@ from structlog import get_logger, stdlib
 
 from .stats import (
     generate_output_file,
+    generate_overall_statistics,
     generate_statistics,
 )
 from .utils.action_summary import generate_action_summary
@@ -22,7 +23,8 @@ def main() -> None:
         set_up_custom_logging()
         configuration = Configuration()
         repositories_statistics = generate_statistics(configuration)
-        generate_output_file(configuration, repositories_statistics)
+        overall_statistics = generate_overall_statistics(repositories_statistics)
+        generate_output_file(configuration, repositories_statistics, overall_statistics)
         generate_action_summary(repositories_statistics)
     except Exception as error:
         logger.exception(

@@ -93,8 +93,8 @@ def generate_overall_statistics(repositories_dataframe: DataFrame) -> dict[str, 
         dict[str, int]: The overall statistics.
     """
     return {
-        "total_files": repositories_dataframe["total_files"].sum(),
-        "total_commits": repositories_dataframe["total_commits"].sum(),
+        "total_files": int(repositories_dataframe["total_files"].sum()),
+        "total_commits": int(repositories_dataframe["total_commits"].sum()),
     }
 
 
