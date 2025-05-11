@@ -2,26 +2,24 @@ from unittest.mock import MagicMock, patch
 
 from analyser.stats import (
     create_repository_statistics,
-    create_statistics,
     generate_output_file,
+    generate_statistics,
 )
 
 FILE_PATH = "analyser.stats"
 
 
-@patch(f"{FILE_PATH}.generate_output_file")
 @patch(f"{FILE_PATH}.retrieve_repositories")
 @patch(f"{FILE_PATH}.clone_repo")
 @patch(f"{FILE_PATH}.remove_excluded_files")
 @patch(f"{FILE_PATH}.create_repository_statistics")
 @patch(f"{FILE_PATH}.DataFrame")
-def test_create_statistics(
+def test_generate_statistics(
     mock_data_frame: MagicMock,
     mock_create_repository_statistics: MagicMock,
     _mock_remove_excluded_files: MagicMock,
     mock_clone_repo: MagicMock,
     mock_retrieve_repositories: MagicMock,
-    mock_generate_output_file: MagicMock,
 ) -> None:
     # Arrange
     repository = MagicMock()
@@ -34,8 +32,9 @@ def test_create_statistics(
     )
     configuration = MagicMock(repository_owner="test")
     # Act
-    create_statistics(configuration)
+    output = generate_statistics(configuration)
     # Assert
+    assert output == mock_data_frame.return_value
     mock_retrieve_repositories.assert_called_once_with(configuration)
     mock_clone_repo.assert_called_once_with(owner, repo_name)
     mock_create_repository_statistics.assert_called_once_with(repo_name, "TestPath")
@@ -52,9 +51,6 @@ def test_create_statistics(
                 },
             }
         ]
-    )
-    mock_generate_output_file.assert_called_once_with(
-        configuration, mock_data_frame.return_value
     )
 
 
@@ -81,14 +77,16 @@ def test_generate_output_file(mock_path: MagicMock, mock_dump: MagicMock) -> Non
     # Arrange
     configuration = MagicMock()
     data_frame = MagicMock()
+    overall_statistics = MagicMock()
     # Act
-    generate_output_file(configuration, data_frame)
+    generate_output_file(configuration, data_frame, overall_statistics)
     # Assert
     mock_path.assert_called_once_with("statistics/repository_statistics.json")
     mock_path.return_value.open.assert_called_once_with("w")
     mock_dump.assert_called_once_with(
         {
             "repository_owner": configuration.repository_owner,
+            "overall_statistics": overall_statistics,
             "repositories": data_frame.to_dict(orient="records"),
         },
         mock_path.return_value.open.return_value.__enter__.return_value,
