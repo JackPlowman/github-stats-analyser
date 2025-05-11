@@ -1,7 +1,7 @@
 {
   "version": "0.18.1",
-  "uuid": "056726f5-810f-47d2-88eb-17cfc540fd48",
-  "timestamp": "2025-05-11T10:17:42+00:00",
+  "uuid": "1e287a9a-0722-4528-8d22-6baa8e08b94b",
+  "timestamp": "2025-05-11T10:26:13+00:00",
   "root": "/github/workspace",
   "repository": {
     "owner": "JackPlowman",
@@ -12,7 +12,7 @@
     "totals": {
       "Python": {
         "files": 17,
-        "lines_of_code": 296,
+        "lines_of_code": 297,
         "functions": 24,
         "hard_to_maintain": 1,
         "unmaintainable": 0
@@ -24,7 +24,7 @@
           "__init__.py",
           "analyser/"
         ],
-        "profile": [159, 97, 40, 0]
+        "profile": [144, 113, 40, 0]
       },
       "analyser/": {
         "entries": [
@@ -35,7 +35,7 @@
           "utils/",
           "file_analysis/"
         ],
-        "profile": [159, 97, 40, 0]
+        "profile": [144, 113, 40, 0]
       },
       "analyser/commits/": {
         "entries": [
@@ -76,7 +76,7 @@
         ]
       },
       "analyser/stats.py": {
-        "checksum": "6418e3d5d7e7416f6df13320d85af26f",
+        "checksum": "f734b74a8cf83c81257795694211b52f",
         "language": "Python",
         "loc": 69,
         "profile": [6, 63, 0, 0],
@@ -96,13 +96,13 @@
         ]
       },
       "analyser/__main__.py": {
-        "checksum": "c0eeda2b611fa983a0847ced9d7721cb",
+        "checksum": "375abdd3c909e7a89f81e6348950b060",
         "language": "Python",
-        "loc": 22,
-        "profile": [22, 0, 0, 0],
+        "loc": 23,
+        "profile": [7, 16, 0, 0],
         "measurements": [
-          {"unit_name": "main", "start": {"line": 19, "column": 1}, "end": {"line": 33, "column": 39}, "value": 15},
-          {"unit_name": "clean_up_cloned_repositories", "start": {"line": 36, "column": 1}, "end": {"line": 42, "column": 27}, "value": 7}
+          {"unit_name": "main", "start": {"line": 20, "column": 1}, "end": {"line": 35, "column": 39}, "value": 16},
+          {"unit_name": "clean_up_cloned_repositories", "start": {"line": 38, "column": 1}, "end": {"line": 44, "column": 27}, "value": 7}
         ]
       },
       "analyser/commits/__init__.py": {
