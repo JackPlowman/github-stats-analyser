@@ -23,4 +23,4 @@ pre-commit:
     Ruff Format Checks:
       run: just ruff-checks
     Vulture Checks:
-      run: just vulture-check
+      run: just vulture
