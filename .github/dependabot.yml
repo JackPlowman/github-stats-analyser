@@ -6,6 +6,8 @@ updates:
       - "/"
       - ".github/actions/setup-dependencies"
       - ".github/actions/local"
+    commit-message:
+      prefix: "deps(github-actions)"
     schedule:
       interval: "cron"
       cronjob: "30 7 * * *"
