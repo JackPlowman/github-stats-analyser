@@ -1,5 +1,100 @@
 # Changelog
 
+## [2.0.0](https://github.com/JackPlowman/github-stats-analyser/compare/v1.3.0...v2.0.0) (2025-05-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Change Analyser Output Format ([#410](https://github.com/JackPlowman/github-stats-analyser/issues/410))
+* Reformat JSON Output and Add Repository Owner ([#265](https://github.com/JackPlowman/github-stats-analyser/issues/265))
+
+### 🚀 Features
+
+* Change Analyser Output Format ([#410](https://github.com/JackPlowman/github-stats-analyser/issues/410)) ([ec8ff55](https://github.com/JackPlowman/github-stats-analyser/commit/ec8ff55151228fb0b10ee8bf409d96990af51117))
+* Count File Sloc ([#314](https://github.com/JackPlowman/github-stats-analyser/issues/314)) ([a60dc95](https://github.com/JackPlowman/github-stats-analyser/commit/a60dc95010e5df991d11793c9fa145265d2d3742)), closes [#313](https://github.com/JackPlowman/github-stats-analyser/issues/313)
+* Reformat JSON Output and Add Repository Owner ([#265](https://github.com/JackPlowman/github-stats-analyser/issues/265)) ([a4a1f2b](https://github.com/JackPlowman/github-stats-analyser/commit/a4a1f2b686dde8939d859765650a039d68183167)), closes [#264](https://github.com/JackPlowman/github-stats-analyser/issues/264)
+
+
+### ⬆️ Dependency updates
+
+* **github-actions:** Bump astral-sh/setup-uv to 6.0.0 ([#390](https://github.com/JackPlowman/github-stats-analyser/issues/390)) ([8ce24e6](https://github.com/JackPlowman/github-stats-analyser/commit/8ce24e69c2a2793ab64cf23c1b218788c944af23))
+* **github-actions:** Bump GitHub Actions ([#413](https://github.com/JackPlowman/github-stats-analyser/issues/413)) ([f754f24](https://github.com/JackPlowman/github-stats-analyser/commit/f754f2439924ecd2e18212dfc1b61e9ea67169f6))
+* **github-actions:** Bump the github-actions group across 1 directory with 4 updates ([#321](https://github.com/JackPlowman/github-stats-analyser/issues/321)) ([59abdbd](https://github.com/JackPlowman/github-stats-analyser/commit/59abdbd91ea8e14949d160bdbce5ee9cb1d68970))
+* **python:** Bump UV Version and Python Dependencies ([#395](https://github.com/JackPlowman/github-stats-analyser/issues/395)) ([edefd48](https://github.com/JackPlowman/github-stats-analyser/commit/edefd489161e471052917da6c07c36654c17de39))
+* **python:** Fix Security Vulnerabilities ([#263](https://github.com/JackPlowman/github-stats-analyser/issues/263)) ([14f667c](https://github.com/JackPlowman/github-stats-analyser/commit/14f667c13e706f0bdc82608e18aedd0088dd405d))
+
+
+### 📝 Documentation
+
+* Add PROJECT_TECHNOLOGIES.md file ([#240](https://github.com/JackPlowman/github-stats-analyser/issues/240)) ([2078ae8](https://github.com/JackPlowman/github-stats-analyser/commit/2078ae8007ec280c53c6fedcbf8a35f647cf3bd0)), closes [#200](https://github.com/JackPlowman/github-stats-analyser/issues/200)
+
+
+### 🧰 Maintenance
+
+* Add Code of Conduct ([#288](https://github.com/JackPlowman/github-stats-analyser/issues/288)) ([7d49de6](https://github.com/JackPlowman/github-stats-analyser/commit/7d49de68a8c85b72d224a795e25fc3cc6f17e6c5)), closes [#289](https://github.com/JackPlowman/github-stats-analyser/issues/289)
+* Add CodeQL configuration ([#324](https://github.com/JackPlowman/github-stats-analyser/issues/324)) ([3c1d88a](https://github.com/JackPlowman/github-stats-analyser/commit/3c1d88ae5559a05bc5a1a4aaadae88b6f5dfeacd))
+* Add Contributing File ([#334](https://github.com/JackPlowman/github-stats-analyser/issues/334)) ([07e188f](https://github.com/JackPlowman/github-stats-analyser/commit/07e188f21604486130a19c57cb1ea9da9d22dd70))
+* Add Example of Repository Statistics ([#290](https://github.com/JackPlowman/github-stats-analyser/issues/290)) ([330c038](https://github.com/JackPlowman/github-stats-analyser/commit/330c038593ee0478f0d39a993466eef466d59c85))
+* Add GitHub Action Step Name ([#372](https://github.com/JackPlowman/github-stats-analyser/issues/372)) ([3b2913b](https://github.com/JackPlowman/github-stats-analyser/commit/3b2913b574ac2d783329a824a87c9cabb096367b))
+* Add GitHub Summary Tests Job ([#251](https://github.com/JackPlowman/github-stats-analyser/issues/251)) ([f775c98](https://github.com/JackPlowman/github-stats-analyser/commit/f775c98c3ba86f8a877af776c95a8f40bae4ffff)), closes [#242](https://github.com/JackPlowman/github-stats-analyser/issues/242)
+* Add Pinact Check ([#379](https://github.com/JackPlowman/github-stats-analyser/issues/379)) ([ba3f35f](https://github.com/JackPlowman/github-stats-analyser/commit/ba3f35fbef71b0b471ccf280c433535d26ebbb19))
+* Add Pinact Update Command ([#383](https://github.com/JackPlowman/github-stats-analyser/issues/383)) ([6e0a260](https://github.com/JackPlowman/github-stats-analyser/commit/6e0a26080947d57674aa2df1604212db0e2302cd))
+* Add Pyproject Checks ([#307](https://github.com/JackPlowman/github-stats-analyser/issues/307)) ([4f2c38c](https://github.com/JackPlowman/github-stats-analyser/commit/4f2c38c8db0ffa0b8c57f9b0fa55e0aca49ab2f3))
+* Add Zizmor Configuration ([#404](https://github.com/JackPlowman/github-stats-analyser/issues/404)) ([2a6dafc](https://github.com/JackPlowman/github-stats-analyser/commit/2a6dafcd89ad709f626491215048b0b8f7d48aa1))
+* Add Zizmor Job ([#272](https://github.com/JackPlowman/github-stats-analyser/issues/272)) ([46cdcee](https://github.com/JackPlowman/github-stats-analyser/commit/46cdcee4f8f2b90b8293ee99338ed3081a4c9bde)), closes [#270](https://github.com/JackPlowman/github-stats-analyser/issues/270)
+* Annotate Unit Test Failures ([#393](https://github.com/JackPlowman/github-stats-analyser/issues/393)) ([6121ab7](https://github.com/JackPlowman/github-stats-analyser/commit/6121ab77f852e0a732da558115e52c982b68a93d))
+* Bump Poetry to 2.0.0 ([#304](https://github.com/JackPlowman/github-stats-analyser/issues/304)) ([4b36c93](https://github.com/JackPlowman/github-stats-analyser/commit/4b36c93851c7a81249c437ed4ecd7f1b2e30def9)), closes [#298](https://github.com/JackPlowman/github-stats-analyser/issues/298)
+* Fix dependabot pull request titles ([#414](https://github.com/JackPlowman/github-stats-analyser/issues/414)) ([4bb5bf0](https://github.com/JackPlowman/github-stats-analyser/commit/4bb5bf074f9d9c20a93651d6a37c7a9a13a2a1a4))
+* Fix Local Action Timeouts ([#267](https://github.com/JackPlowman/github-stats-analyser/issues/267)) ([a553765](https://github.com/JackPlowman/github-stats-analyser/commit/a5537659c917fd9e47da9ecf04d40d0243515427))
+* Fix Unit Test Coverage ([#320](https://github.com/JackPlowman/github-stats-analyser/issues/320)) ([995a9b2](https://github.com/JackPlowman/github-stats-analyser/commit/995a9b267c5d567af71426f4c9ddf922761ae8c4))
+* Fix Zizmor SARIF Command ([#406](https://github.com/JackPlowman/github-stats-analyser/issues/406)) ([3019faa](https://github.com/JackPlowman/github-stats-analyser/commit/3019faa9dcdb858a3209839f6dd592038e9072df))
+* Fix Zizmor Warnings ([#279](https://github.com/JackPlowman/github-stats-analyser/issues/279)) ([a64be13](https://github.com/JackPlowman/github-stats-analyser/commit/a64be1363aa8fb2ad053765258798c4c1d295f0f)), closes [#280](https://github.com/JackPlowman/github-stats-analyser/issues/280)
+* Fix Zizmor Warnings ([#338](https://github.com/JackPlowman/github-stats-analyser/issues/338)) ([e7ee1c3](https://github.com/JackPlowman/github-stats-analyser/commit/e7ee1c336905bf502adff9a61a523b7117763eb1))
+* Improve Git Hooks ([#326](https://github.com/JackPlowman/github-stats-analyser/issues/326)) ([8e0a078](https://github.com/JackPlowman/github-stats-analyser/commit/8e0a0785982dc830a25a26adc320e34830328de1))
+* Improve Git Hooks ([#389](https://github.com/JackPlowman/github-stats-analyser/issues/389)) ([52c1149](https://github.com/JackPlowman/github-stats-analyser/commit/52c11497833b2e1fc2961590bd0773ebd6cccfda))
+* Install only root dependencies ([#301](https://github.com/JackPlowman/github-stats-analyser/issues/301)) ([50ccd6d](https://github.com/JackPlowman/github-stats-analyser/commit/50ccd6d5bd3ac7297a6edb153affa8e416d0fa8a))
+* Merge GitHub Workflows ([#247](https://github.com/JackPlowman/github-stats-analyser/issues/247)) ([b401dc9](https://github.com/JackPlowman/github-stats-analyser/commit/b401dc91c3a04e8ce82914a6e28a3b88b9edcf19)), closes [#246](https://github.com/JackPlowman/github-stats-analyser/issues/246)
+* Migrate Git Hooks to Lefthook ([#362](https://github.com/JackPlowman/github-stats-analyser/issues/362)) ([15fbd61](https://github.com/JackPlowman/github-stats-analyser/commit/15fbd61a8d5792591011f936b86cb132463148e5))
+* Migrate Poetry to UV ([#331](https://github.com/JackPlowman/github-stats-analyser/issues/331)) ([938a61f](https://github.com/JackPlowman/github-stats-analyser/commit/938a61f3234bd9521783db962882440eb8e01fb1)), closes [#330](https://github.com/JackPlowman/github-stats-analyser/issues/330)
+* Migrate SonarCloud GitHub Action to SonarQube ([#285](https://github.com/JackPlowman/github-stats-analyser/issues/285)) ([13af875](https://github.com/JackPlowman/github-stats-analyser/commit/13af875eff0e693f500c9024036cd1b55ab8fda7)), closes [#262](https://github.com/JackPlowman/github-stats-analyser/issues/262)
+* Only Write GitHub Action Summary when Action is run in GitHub Actions ([#287](https://github.com/JackPlowman/github-stats-analyser/issues/287)) ([dbda73b](https://github.com/JackPlowman/github-stats-analyser/commit/dbda73bff5f65242b859e0952b4d528775ab0864)), closes [#257](https://github.com/JackPlowman/github-stats-analyser/issues/257)
+* Pin all GitHub Actions ([#409](https://github.com/JackPlowman/github-stats-analyser/issues/409)) ([cfe820d](https://github.com/JackPlowman/github-stats-analyser/commit/cfe820d55490b3581453b3f170bd02a30647ac17))
+* Pin GitHub Actions ([#373](https://github.com/JackPlowman/github-stats-analyser/issues/373)) ([d455581](https://github.com/JackPlowman/github-stats-analyser/commit/d455581e7c69e3969e9fd9ee633eb11aaeac9267))
+* Pin GitHub Actions 2 ([#378](https://github.com/JackPlowman/github-stats-analyser/issues/378)) ([26adf20](https://github.com/JackPlowman/github-stats-analyser/commit/26adf20b0f3c37bab8bf0dd54a150b380caa8a63))
+* Prettier Ignore Output File ([#411](https://github.com/JackPlowman/github-stats-analyser/issues/411)) ([f9d3beb](https://github.com/JackPlowman/github-stats-analyser/commit/f9d3beb18f41020b17b20ea1e73b3afd074bb9a3))
+* Refactor Python Actions ([#291](https://github.com/JackPlowman/github-stats-analyser/issues/291)) ([8845b45](https://github.com/JackPlowman/github-stats-analyser/commit/8845b45494ff3afdcec12607cb8d64e0c39a5dc6))
+* Regularly Clear Caches ([#323](https://github.com/JackPlowman/github-stats-analyser/issues/323)) ([b6e5970](https://github.com/JackPlowman/github-stats-analyser/commit/b6e597079ae3f7e4178ca8fb34791266912af7b7))
+* Remove Check Environment Variables Script ([#237](https://github.com/JackPlowman/github-stats-analyser/issues/237)) ([c36e5d2](https://github.com/JackPlowman/github-stats-analyser/commit/c36e5d2c850f0a1b8f3475d07d221d2f08a955f0))
+* Remove CodeQL Configuration ([#374](https://github.com/JackPlowman/github-stats-analyser/issues/374)) ([79712a1](https://github.com/JackPlowman/github-stats-analyser/commit/79712a13286ef6a969a0fc60dec26367bc976dec))
+* Remove custom line length ([#408](https://github.com/JackPlowman/github-stats-analyser/issues/408)) ([930fbb9](https://github.com/JackPlowman/github-stats-analyser/commit/930fbb9b0a91d984dc22de96d076b5fe73ddf10e))
+* Remove Pinact Configuration ([#403](https://github.com/JackPlowman/github-stats-analyser/issues/403)) ([fba21eb](https://github.com/JackPlowman/github-stats-analyser/commit/fba21eb72b350dd9fcacd92f05c4864a44647865))
+* Remove Pinact Verify Job ([#388](https://github.com/JackPlowman/github-stats-analyser/issues/388)) ([83f9bd9](https://github.com/JackPlowman/github-stats-analyser/commit/83f9bd99dd70966a3509c0edf6799f934c62bb51))
+* Remove Scorecard Analysis ([#274](https://github.com/JackPlowman/github-stats-analyser/issues/274)) ([26e386b](https://github.com/JackPlowman/github-stats-analyser/commit/26e386be95c0a88d5a596543eea8738a065b965f)), closes [#273](https://github.com/JackPlowman/github-stats-analyser/issues/273)
+* Remove SonarCloud Path Override ([#394](https://github.com/JackPlowman/github-stats-analyser/issues/394)) ([86998f3](https://github.com/JackPlowman/github-stats-analyser/commit/86998f35509049cd426a960f6514360b0df9a054))
+* Remove Zizmor ([#407](https://github.com/JackPlowman/github-stats-analyser/issues/407)) ([a3eb31d](https://github.com/JackPlowman/github-stats-analyser/commit/a3eb31d5b47b5be66ffeb2e308b203399fe410b2))
+* Rename CodeLimit Job ([#275](https://github.com/JackPlowman/github-stats-analyser/issues/275)) ([a53b4cd](https://github.com/JackPlowman/github-stats-analyser/commit/a53b4cd87c738b25940b129cf756cddc5508c017))
+* Rename GitHub Actions Steps ([#319](https://github.com/JackPlowman/github-stats-analyser/issues/319)) ([2a56bd0](https://github.com/JackPlowman/github-stats-analyser/commit/2a56bd063b4fdd65ec726ab07721ad13ae8f2ce1))
+* Run Ruff on All Python Code ([#256](https://github.com/JackPlowman/github-stats-analyser/issues/256)) ([e6e6d35](https://github.com/JackPlowman/github-stats-analyser/commit/e6e6d35c863e0e5624b75cc71b5da33a47a6f451))
+* Scan GitHub Actions with CodeQL ([#303](https://github.com/JackPlowman/github-stats-analyser/issues/303)) ([07dc5e0](https://github.com/JackPlowman/github-stats-analyser/commit/07dc5e07b4cce6e49d6e16d91c6f11383d5a9d94)), closes [#302](https://github.com/JackPlowman/github-stats-analyser/issues/302)
+* Schedule Code Checks to Run Daily ([#312](https://github.com/JackPlowman/github-stats-analyser/issues/312)) ([01c0a10](https://github.com/JackPlowman/github-stats-analyser/commit/01c0a10bf2dc6320e8f8e43ca19d33a6e4e0fcfc))
+* Set markdown-link-checker job runner to ubuntu-22.04 ([#306](https://github.com/JackPlowman/github-stats-analyser/issues/306)) ([48c9698](https://github.com/JackPlowman/github-stats-analyser/commit/48c96982c42bab27d3d45be801da573fa8c69fac))
+* Ungroup Major Application Dependencies ([#253](https://github.com/JackPlowman/github-stats-analyser/issues/253)) ([c5cf9cf](https://github.com/JackPlowman/github-stats-analyser/commit/c5cf9cf96a0928f088927c1944f25eae2ea3f0fd)), closes [#254](https://github.com/JackPlowman/github-stats-analyser/issues/254)
+* Update CodeLimit Action and Permissions ([#260](https://github.com/JackPlowman/github-stats-analyser/issues/260)) ([9123098](https://github.com/JackPlowman/github-stats-analyser/commit/9123098029cbafca8e8010ae7ff6a796490be02d)), closes [#261](https://github.com/JackPlowman/github-stats-analyser/issues/261)
+* Update Dependabot Configuration ([#342](https://github.com/JackPlowman/github-stats-analyser/issues/342)) ([ef4517b](https://github.com/JackPlowman/github-stats-analyser/commit/ef4517bebad8d5c3500252b9fb80bb48df525f99))
+* Update Dependabot Configuration to UV ([#375](https://github.com/JackPlowman/github-stats-analyser/issues/375)) ([618841f](https://github.com/JackPlowman/github-stats-analyser/commit/618841ffa7ded38a14c55eb0373117d072e6dcaf))
+* Update Dependabot Groups and Configuration ([#398](https://github.com/JackPlowman/github-stats-analyser/issues/398)) ([4bc6a13](https://github.com/JackPlowman/github-stats-analyser/commit/4bc6a13a47177125b60c5e8b2d77a6d28d015288))
+* Update Dependabot Schedule ([#397](https://github.com/JackPlowman/github-stats-analyser/issues/397)) ([699f3aa](https://github.com/JackPlowman/github-stats-analyser/commit/699f3aa0d94954ca48d5b90f6642de3f3f11eff6))
+* Update Dependency Review ([#333](https://github.com/JackPlowman/github-stats-analyser/issues/333)) ([aeaaf34](https://github.com/JackPlowman/github-stats-analyser/commit/aeaaf3434e4b3a3fbf394e8d355c3742e6a95896))
+* Update Labels ([#347](https://github.com/JackPlowman/github-stats-analyser/issues/347)) ([9368072](https://github.com/JackPlowman/github-stats-analyser/commit/93680723e55d1c13a31d8c2af92faa5fb52f1124))
+* Update license to 2025 ([#293](https://github.com/JackPlowman/github-stats-analyser/issues/293)) ([232ff24](https://github.com/JackPlowman/github-stats-analyser/commit/232ff24ab995abb840d2406f14718f65eb2deea3)), closes [#294](https://github.com/JackPlowman/github-stats-analyser/issues/294)
+* Update Markdown Link Checker ([#353](https://github.com/JackPlowman/github-stats-analyser/issues/353)) ([3693e34](https://github.com/JackPlowman/github-stats-analyser/commit/3693e34e1ed2241bf0656d853b1391189d6e612c))
+* Update SuperLinter EditorConfig Checker ([#355](https://github.com/JackPlowman/github-stats-analyser/issues/355)) ([e3bfe34](https://github.com/JackPlowman/github-stats-analyser/commit/e3bfe34428a85ad12f9d8a4457c6be064f2c394b))
+* Update SuperLinter Permissions ([#345](https://github.com/JackPlowman/github-stats-analyser/issues/345)) ([e1c96bb](https://github.com/JackPlowman/github-stats-analyser/commit/e1c96bb3fdc4cb253815a2dd4bd39ca12c0e5255))
+* Update Visual Studio Code Settings ([#415](https://github.com/JackPlowman/github-stats-analyser/issues/415)) ([dea41d3](https://github.com/JackPlowman/github-stats-analyser/commit/dea41d35e3764874b1950544db1fb615f52fe8fc))
+* Upgrade Markdown Link Checker ([#309](https://github.com/JackPlowman/github-stats-analyser/issues/309)) ([5eeccc8](https://github.com/JackPlowman/github-stats-analyser/commit/5eeccc8a97630bb9400b5ced38f2c2c2377e549c))
+* Upgrade Python Package Verisons ([#328](https://github.com/JackPlowman/github-stats-analyser/issues/328)) ([278e876](https://github.com/JackPlowman/github-stats-analyser/commit/278e876c025f2b8e46a87da757295a5158399601))
+* Upgrade SonarCloud ([#325](https://github.com/JackPlowman/github-stats-analyser/issues/325)) ([f8a13ce](https://github.com/JackPlowman/github-stats-analyser/commit/f8a13ced19eb3219a8e720e34d0f27111d5adab1))
+
 ## [1.3.0](https://github.com/JackPlowman/github-stats-analyser/compare/v1.2.0...v1.3.0) (2024-11-24)
 
 
