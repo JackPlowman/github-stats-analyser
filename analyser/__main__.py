@@ -5,7 +5,10 @@ from shutil import rmtree
 
 from structlog import get_logger, stdlib
 
-from .stats import create_statistics
+from .stats import (
+    generate_output_file,
+    generate_statistics,
+)
 from .utils.action_summary import generate_action_summary
 from .utils.configuration import Configuration
 from .utils.custom_logging import set_up_custom_logging
@@ -18,8 +21,9 @@ def main() -> None:
     try:
         set_up_custom_logging()
         configuration = Configuration()
-        statistics = create_statistics(configuration)
-        generate_action_summary(statistics)
+        repositories_statistics = generate_statistics(configuration)
+        generate_output_file(configuration, repositories_statistics)
+        generate_action_summary(repositories_statistics)
     except Exception as error:
         logger.exception(
             "An error occurred during the execution of the analyser.", error=error

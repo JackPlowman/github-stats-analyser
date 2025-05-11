@@ -16,7 +16,7 @@ logger: stdlib.BoundLogger = get_logger()
 DEFAULT_FILE_LOCATION = "statistics/repository_statistics.json"
 
 
-def create_statistics(configuration: Configuration) -> DataFrame:
+def generate_statistics(configuration: Configuration) -> DataFrame:
     """Create statistics."""
     # Retrieve the list of repositories to analyse
     repositories = retrieve_repositories(configuration)
@@ -33,7 +33,7 @@ def create_statistics(configuration: Configuration) -> DataFrame:
 
     logger.debug("List of repositories", list_of_repositories=list_of_repositories)
 
-    dataframe = DataFrame(
+    return DataFrame(
         [
             {
                 "repository": repository.repository_name,
@@ -48,9 +48,6 @@ def create_statistics(configuration: Configuration) -> DataFrame:
             for repository in list_of_repositories
         ]
     )
-    generate_output_file(configuration, dataframe)
-    logger.debug("Saved statistics to file", file_location=DEFAULT_FILE_LOCATION)
-    return dataframe
 
 
 def create_repository_statistics(
@@ -86,18 +83,44 @@ def create_repository_statistics(
     )
 
 
-def generate_output_file(configuration: Configuration, dataframe: DataFrame) -> None:
+def generate_overall_statistics(repositories_dataframe: DataFrame) -> dict[str, int]:
+    """Generate overall statistics.
+
+    Args:
+        repositories_dataframe (DataFrame): The data frame.
+
+    Returns:
+        dict[str, int]: The overall statistics.
+    """
+    return {
+        "total_files": repositories_dataframe["total_files"].sum(),
+        "total_commits": repositories_dataframe["total_commits"].sum(),
+    }
+
+
+def generate_output_file(
+    configuration: Configuration,
+    repositories_dataframe: DataFrame,
+    overall_statistics: dict[str, int],
+) -> None:
     """Generate an output file.
 
     Args:
         configuration (Configuration): The configuration.
-        dataframe (DataFrame): The data frame.
+        overall_statistics (dict[str, int]): The overall statistics.
+        repositories_dataframe (DataFrame): The data frame.
     """
     with Path(DEFAULT_FILE_LOCATION).open("w") as file:
         dump(
             {
                 "repository_owner": configuration.repository_owner,
-                "repositories": dataframe.to_dict(orient="records"),
+                "overall_statistics": overall_statistics,
+                "repositories": repositories_dataframe.to_dict(orient="records"),
             },
             file,
         )
+    logger.info(
+        "Generated output file",
+        file_path=DEFAULT_FILE_LOCATION,
+        repository_owner=configuration.repository_owner,
+    )
