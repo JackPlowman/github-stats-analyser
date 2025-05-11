@@ -14,6 +14,12 @@
     ".coverage": true,
     "coverage.xml": true
   },
+  "search.exclude": {
+    "**/.venv": true,
+    "**/.ruff_cache": true,
+    "**/.pytest_cache": true,
+    "**/__pycache__": true
+  },
   "python.analysis.autoIndent": true,
   "python.analysis.autoFormatStrings": true,
   "python.analysis.typeCheckingMode": "standard",
@@ -22,11 +28,6 @@
     "editor.defaultFormatter": "charliermarsh.ruff",
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
-    // "editor.codeActionsOnSave": {
-    //   "source.fixAll.ruff": "always",
-    //   "source.convertImportFormat": "always",
-    //   "ruff.codeAction.fixViolation.enable": "always"
-    // },
     "editor.wordBasedSuggestions": "allDocuments"
   },
   "[markdown]": {
