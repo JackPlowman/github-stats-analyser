@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.1](https://github.com/JackPlowman/github-stats-analyser/compare/v2.0.0...v2.0.1) (2025-05-17)
+
+
+### ⬆️ Dependency updates
+
+* **github-actions:** Bump super-linter/super-linter to 7.4.0 ([#428](https://github.com/JackPlowman/github-stats-analyser/issues/428)) ([5822e95](https://github.com/JackPlowman/github-stats-analyser/commit/5822e95106718b7e84d85c43356bdf2d5d1ebe4a))
+
+
+### 🧰 Maintenance
+
+* Change Jobs to Common Code Checks ([#426](https://github.com/JackPlowman/github-stats-analyser/issues/426)) ([7f07e76](https://github.com/JackPlowman/github-stats-analyser/commit/7f07e76d8c174e69c4f2a54c95db73da7356f059))
+* Change Jobs to Common Pull Request Tasks ([#427](https://github.com/JackPlowman/github-stats-analyser/issues/427)) ([5e88220](https://github.com/JackPlowman/github-stats-analyser/commit/5e8822025efff652f690f5887f066ef99d4a8511))
+* Remove `.editorconfig-checker.json` ([#429](https://github.com/JackPlowman/github-stats-analyser/issues/429)) ([5a591aa](https://github.com/JackPlowman/github-stats-analyser/commit/5a591aa9b928bda62d7e8d08b024f6b605c443bb))
+* Swap SuperLinter to Full Version ([#425](https://github.com/JackPlowman/github-stats-analyser/issues/425)) ([68b2fe8](https://github.com/JackPlowman/github-stats-analyser/commit/68b2fe824220efebbb4916b53ddbcf82457b15d8))
+* Update Dependabot Configuration for Reusable Workflows ([#421](https://github.com/JackPlowman/github-stats-analyser/issues/421)) ([1201292](https://github.com/JackPlowman/github-stats-analyser/commit/12012926f4ff0b5caa3da37f21faf3dda3cc97f2))
+
 ## [2.0.0](https://github.com/JackPlowman/github-stats-analyser/compare/v1.3.0...v2.0.0) (2025-05-11)
 
 
