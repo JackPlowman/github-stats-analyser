@@ -5,20 +5,13 @@ on:
     - cron: "0 0 1 * *"
   workflow_dispatch:
 
-permissions:
-  contents: read
+permissions: {}
 
 jobs:
   clean-caches:
-    name: Clean GitHub Action Caches
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Delete caches
-        run: gh cache delete --all --repo ${{ github.repository }}
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    name: Clean Caches
+    permissions:
+      contents: read
+    uses: JackPlowman/reusable-workflows/.github/workflows/common-clean-caches.yml@1fc46e17341e1306bfff74123efac880aff16d48 # v2025.05.17.04
+    secrets:
+      workflow_github_token: ${{ secrets.GH_TOKEN }}
