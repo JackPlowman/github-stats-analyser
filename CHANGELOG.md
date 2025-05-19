@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.0.1](https://github.com/JackPlowman/github-stats-analyser/compare/v2.0.0...v2.0.1) (2025-05-19)
+
+
+### ⬆️ Dependency updates
+
+* **github-actions:** Bump super-linter/super-linter to 7.4.0 ([#428](https://github.com/JackPlowman/github-stats-analyser/issues/428)) ([5822e95](https://github.com/JackPlowman/github-stats-analyser/commit/5822e95106718b7e84d85c43356bdf2d5d1ebe4a))
+
+
+### 🧰 Maintenance
+
+* Change Jobs to Common Code Checks ([#426](https://github.com/JackPlowman/github-stats-analyser/issues/426)) ([7f07e76](https://github.com/JackPlowman/github-stats-analyser/commit/7f07e76d8c174e69c4f2a54c95db73da7356f059))
+* Change Jobs to Common Pull Request Tasks ([#427](https://github.com/JackPlowman/github-stats-analyser/issues/427)) ([5e88220](https://github.com/JackPlowman/github-stats-analyser/commit/5e8822025efff652f690f5887f066ef99d4a8511))
+* Migrate Clear Caches to Common Clear Caches ([#432](https://github.com/JackPlowman/github-stats-analyser/issues/432)) ([46d82e6](https://github.com/JackPlowman/github-stats-analyser/commit/46d82e640aaa3127597be54adfe8e4853b9961ad))
+* Migrate Sync Labels to Common Sync Labels ([#430](https://github.com/JackPlowman/github-stats-analyser/issues/430)) ([a978813](https://github.com/JackPlowman/github-stats-analyser/commit/a97881397d746acee645f0335493bc4d731a529f))
+* Remove `.editorconfig-checker.json` ([#429](https://github.com/JackPlowman/github-stats-analyser/issues/429)) ([5a591aa](https://github.com/JackPlowman/github-stats-analyser/commit/5a591aa9b928bda62d7e8d08b024f6b605c443bb))
+* Set Python Version ([#436](https://github.com/JackPlowman/github-stats-analyser/issues/436)) ([7299871](https://github.com/JackPlowman/github-stats-analyser/commit/72998710cbd232b9ca264562e6ae01af4a7a12d6))
+* Swap SuperLinter to Full Version ([#425](https://github.com/JackPlowman/github-stats-analyser/issues/425)) ([68b2fe8](https://github.com/JackPlowman/github-stats-analyser/commit/68b2fe824220efebbb4916b53ddbcf82457b15d8))
+* Update Dependabot Configuration for Reusable Workflows ([#421](https://github.com/JackPlowman/github-stats-analyser/issues/421)) ([1201292](https://github.com/JackPlowman/github-stats-analyser/commit/12012926f4ff0b5caa3da37f21faf3dda3cc97f2))
+* Update Dependabot for Reusable Workflows ([#433](https://github.com/JackPlowman/github-stats-analyser/issues/433)) ([08ebc54](https://github.com/JackPlowman/github-stats-analyser/commit/08ebc5483ec52a7ac0206fb02c231e5f2181c039))
+
 ## [2.0.0](https://github.com/JackPlowman/github-stats-analyser/compare/v1.3.0...v2.0.0) (2025-05-11)
 
 
