@@ -88,28 +88,17 @@ jobs:
     secrets:
       workflow_github_token: ${{ secrets.GITHUB_TOKEN }}
 
-  run-codeql-analysis:
+  codeql-checks:
     name: CodeQL Analysis
-    runs-on: ubuntu-latest
     permissions:
-      statuses: write
+      contents: read
       security-events: write
     strategy:
       matrix:
-        language: [python, actions]
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@ff0a06e83cb2de871e5a09832bc6a81e7276941f # v3.28.18
-        with:
-          languages: ${{ matrix.language }}
-          queries: security-and-quality
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@ff0a06e83cb2de871e5a09832bc6a81e7276941f # v3.28.18
+        language: [actions, python]
+    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@75ceb782a5815a98162de1321c852df74830a493 # v2025.05.24.01
+    with:
+      language: ${{ matrix.language }}
 
   docker-build:
     name: Build Docker Image
