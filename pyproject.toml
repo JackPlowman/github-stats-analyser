@@ -27,7 +27,7 @@ test = [
 ]
 
 [tool.uv]
-required-version = "0.7.5"
+required-version = "0.7.11"
 package = false
 
 [tool.setuptools]
