@@ -10,7 +10,7 @@ def test_catalogued_repository() -> None:
     languages = RepositoryLanguages()
     languages.add_file(language_name="Python", file_path="file.py")
     languages.add_sloc(language_name="Python", sloc=100)
-    commits = []
+    commits = {}
     # Act
     catalogued_repository = CataloguedRepository(
         repository_name,

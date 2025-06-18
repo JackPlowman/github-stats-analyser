@@ -4,10 +4,12 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 from git import Repo
-from github import Github, PaginatedList, Repository
+from github import Github, PaginatedList
 from structlog import get_logger, stdlib
 
 if TYPE_CHECKING:
+    from github.Repository import Repository
+
     from .configuration import Configuration
 
 logger: stdlib.BoundLogger = get_logger()
