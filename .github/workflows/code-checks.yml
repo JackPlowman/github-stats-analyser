@@ -88,6 +88,20 @@ jobs:
         env:
           RUFF_OUTPUT_FORMAT: "github"
 
+  run-python-type-checks:
+    name: Run Python Type Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up dependencies
+        uses: ./.github/actions/setup-dependencies
+      - name: Check Python Code Types (ty) Checks
+        run: just ty-check
+
   run-python-dead-code-checks:
     name: Run Python Dead Code Checks
     runs-on: ubuntu-latest
