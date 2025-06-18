@@ -1,7 +1,7 @@
 {
   "version": "0.18.1",
-  "uuid": "c11a8e32-dc0b-4397-a7ff-78be15e76b14",
-  "timestamp": "2025-06-18T12:48:35+00:00",
+  "uuid": "d0861d30-8d24-48fb-91f3-32e662a254c7",
+  "timestamp": "2025-06-18T12:57:34+00:00",
   "root": "/github/workspace",
   "repository": {
     "owner": "JackPlowman",
@@ -148,13 +148,13 @@
         ]
       },
       "analyser/utils/github_interactions.py": {
-        "checksum": "69abe9d0ade89396f37ab7356edbf460",
+        "checksum": "034e0cfcdbd277abbf88367243f33788",
         "language": "Python",
         "loc": 22,
         "profile": [22, 0, 0, 0],
         "measurements": [
-          {"unit_name": "clone_repo", "start": {"line": 16, "column": 1}, "end": {"line": 35, "column": 21}, "value": 10},
-          {"unit_name": "retrieve_repositories", "start": {"line": 38, "column": 1}, "end": {"line": 53, "column": 24}, "value": 12}
+          {"unit_name": "clone_repo", "start": {"line": 18, "column": 1}, "end": {"line": 37, "column": 21}, "value": 10},
+          {"unit_name": "retrieve_repositories", "start": {"line": 40, "column": 1}, "end": {"line": 55, "column": 24}, "value": 12}
         ]
       },
       "analyser/utils/repository_actions.py": {
