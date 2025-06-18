@@ -88,8 +88,8 @@ jobs:
         env:
           RUFF_OUTPUT_FORMAT: "github"
 
-  run-python-code-checks:
-    name: Run Python Code Checks
+  run-python-dead-code-checks:
+    name: Run Python Dead Code Checks
     runs-on: ubuntu-latest
     permissions:
       statuses: write
@@ -104,6 +104,23 @@ jobs:
         uses: ./.github/actions/setup-dependencies
       - name: Check Python Code for Dead Code (Vulture)
         run: just vulture
+
+  run-python-lockfile-checks:
+    name: Run Python Lockfile Checks
+    runs-on: ubuntu-latest
+    permissions:
+      statuses: write
+      security-events: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up dependencies
+        uses: ./.github/actions/setup-dependencies
+      - name: Check UV Lockfile
+        run: just uv-lock-check
 
   common-code-checks:
     name: Common Code Checks
