@@ -105,8 +105,8 @@ jobs:
       - name: Check Python Code for Dead Code (Vulture)
         run: just vulture
 
-  run-python-lockfile-checks:
-    name: Run Python Lockfile Checks
+  run-python-lockfile-check:
+    name: Run Python Lockfile Check
     runs-on: ubuntu-latest
     permissions:
       statuses: write
