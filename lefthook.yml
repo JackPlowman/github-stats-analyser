@@ -20,7 +20,9 @@ pre-commit:
       run: just zizmor-check
     Pinact Checks:
       run: just pinact-check
-    Ruff Format Checks:
+    Ruff Checks:
       run: just ruff-checks
+    UV Lock Check:
+      run: just uv-lock-check
     Vulture Checks:
       run: just vulture
