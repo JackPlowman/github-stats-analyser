@@ -12,6 +12,7 @@ permissions: {}
 
 jobs:
   configure-labels:
+    name: Configure Labels
     permissions:
       contents: read
       pull-requests: write
