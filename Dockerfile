@@ -14,7 +14,7 @@ WORKDIR /
 
 RUN mkdir -p /statistics && \
   mkdir -p /cloned_repositories && \
-  apk add --no-cache git-2.49.1
+  apk add --no-cache git-2.50.1
 
 COPY --chmod=755 run.sh run.sh
 COPY analyser analyser
