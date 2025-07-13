@@ -2,7 +2,7 @@
 [project]
 name = "github-stats-analyser"
 dynamic = ["version"]
-requires-python = "~=3.13"
+requires-python = "~=3.13.0"
 dependencies = [
   "gitpython==3.1.44",
   "pygithub==2.6.1",
@@ -28,7 +28,7 @@ test = [
 ]
 
 [tool.uv]
-required-version = "0.7.13"
+required-version = "0.7.20"
 package = false
 
 [tool.setuptools]
