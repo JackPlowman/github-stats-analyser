@@ -44,6 +44,7 @@ jobs:
           VALIDATE_PYTHON_PYINK: false
           VALIDATE_NATURAL_LANGUAGE: false
           GITHUB_ACTIONS_COMMAND_ARGS: "-ignore '.branding.icon.'"
+          FILTER_REGEX_EXCLUDE: .vscode/launch.json
 
   run-python-lint-checks:
     name: Run Python Lint Checks

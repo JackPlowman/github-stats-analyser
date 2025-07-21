@@ -16,19 +16,19 @@ dependencies = [
 dev = [
   "pytest==8.4.0",
   "pytest-cov==6.2.1",
-  "ruff==0.12.0",
+  "ruff==0.12.4",
   "vulture==2.14",
-  "ty==0.0.1a11",
+  "ty==0.0.1a15",
 ]
 test = [
-  "check-jsonschema==0.33.0",
+  "check-jsonschema==0.33.2",
   "requests==2.32.4",
-  "Markdown==3.8",
+  "Markdown==3.8.2",
   "beautifulsoup4==4.13.4",
 ]
 
 [tool.uv]
-required-version = "0.7.20"
+required-version = "~=0.8.0"
 package = false
 
 [tool.setuptools]
