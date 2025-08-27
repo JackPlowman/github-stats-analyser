@@ -8,7 +8,7 @@
   - [Usage](#usage)
     - [GitHub Action Example](#github-action-example)
     - [GitHub Action Inputs](#github-action-inputs)
-  - [License](#license)
+  - [📄 License](#-license)
 
 ## Introduction
 
@@ -39,6 +39,6 @@ The GitHub Action is designed to be used in a workflow.
 | `GITHUB_TOKEN`     | no       | A GitHub token to authenticate API requests.        | string | `${{ github.token }}` |
 | `DEBUG`            | no       | Enable debug logging.                               | string | `false`               |
 
-## License
+## 📄 License
 
-[MIT](https://github.com/jackplowman/github-stats-analyser/blob/master/LICENSE)
+This project is licensed under the MIT Licence - see the [LICENCE](LICENCE) file for details.
