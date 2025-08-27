@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - .github/other-configurations/labels.yml
+      - .github/tool-configurations/labels.yml
   workflow_dispatch:
 
 permissions: {}

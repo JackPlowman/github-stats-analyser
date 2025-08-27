@@ -12,7 +12,7 @@ dependencies:
 configurations:
   - any:
       - changed-files:
-          - any-glob-to-any-file: [".github/other-configurations/*"]
+          - any-glob-to-any-file: [".github/tool-configurations/*"]
 # Language
 markdown:
   - any:
