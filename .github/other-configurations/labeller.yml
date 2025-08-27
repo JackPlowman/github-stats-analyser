@@ -12,11 +12,7 @@ dependencies:
 configurations:
   - any:
       - changed-files:
-          - any-glob-to-any-file:
-              [
-                ".github/other-configurations/*",
-                ".github/super-linter-configurations/*",
-              ]
+          - any-glob-to-any-file: [".github/other-configurations/*"]
 # Language
 markdown:
   - any:
