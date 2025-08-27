@@ -30,6 +30,7 @@ test = [
 [tool.uv]
 required-version = "~=0.8.0"
 package = false
+override-dependencies = ["urllib3==2.5.0"]
 
 [tool.setuptools]
 py-modules = ["analyser", "tests"]
