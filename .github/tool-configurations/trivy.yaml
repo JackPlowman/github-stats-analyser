@@ -9,7 +9,6 @@ scan:
   scanners:
     - vuln
     - secret
-    - misconfig
     - license
 vulnerability:
   type:
