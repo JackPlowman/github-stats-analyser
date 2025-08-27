@@ -1,0 +1,29 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DavidAnson/markdownlint-cli2/refs/heads/main/schema/markdownlint-cli2-config-schema.json",
+  // Linter rules doc:
+  // - https://github.com/DavidAnson/markdownlint
+  "config": {
+    // ###############
+    // # Rules by id #
+    // ###############
+    "MD004": false, // Unordered list style
+    "MD007": {
+      "indent": 2, // Unordered list indentation
+    },
+    "MD013": {
+      "line_length": 600, // Line length 80 is far too short
+    },
+    "MD026": {
+      "punctuation": ".,;:!。，；:", // List of not allowed
+    },
+    "MD029": false, // Ordered list item prefix
+    "MD033": false, // Allow inline HTML
+    "MD036": false, // Emphasis used instead of a heading
+    "MD024": false, // Duplicate headings on the same level
+
+    // #################
+    // # Rules by tags #
+    // #################
+    "blank_lines": false, // Error on blank lines
+  },
+}
