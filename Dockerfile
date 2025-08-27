@@ -19,9 +19,6 @@ COPY analyser analyser
 
 COPY --from=builder requirements.txt requirements.txt
 
-RUN adduser -D -H -u 10001 appuser
 RUN pip install --no-cache-dir -r requirements.txt
-
-USER appuser
 
 ENTRYPOINT [ "/run.sh" ]
