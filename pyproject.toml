@@ -5,7 +5,7 @@ dynamic = ["version"]
 requires-python = "~=3.13.0"
 dependencies = [
   "gitpython==3.1.45",
-  "pygithub==2.7.0",
+  "pygithub==2.8.1",
   "structlog==25.4.0",
   "pygments==2.19.2",
   "pandas==2.3.2",
@@ -14,9 +14,9 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-  "pytest==8.4.1",
+  "pytest==8.4.2",
   "pytest-cov==6.2.1",
-  "ruff==0.12.10",
+  "ruff==0.13.0",
   "vulture==2.14",
   "ty==0.0.1a19",
 ]
