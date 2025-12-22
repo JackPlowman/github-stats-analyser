@@ -5,20 +5,20 @@ dynamic = ["version"]
 requires-python = "~=3.13.0"
 dependencies = [
   "gitpython==3.1.45",
-  "pygithub==2.7.0",
-  "structlog==25.4.0",
+  "pygithub==2.8.1",
+  "structlog==25.5.0",
   "pygments==2.19.2",
-  "pandas==2.3.2",
+  "pandas==2.3.3",
   "tabulate==0.9.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-  "pytest==8.4.1",
-  "pytest-cov==6.2.1",
-  "ruff==0.12.10",
+  "pytest==9.0.2",
+  "pytest-cov==7.0.0",
+  "ruff==0.14.8",
   "vulture==2.14",
-  "ty==0.0.1a19",
+  "ty==0.0.5",
 ]
 test = [
   "check-jsonschema==0.33.3",
@@ -53,27 +53,6 @@ ignore = [
 ]
 
 fixable = ["ALL"]
-unfixable = []
-
-exclude = [
-  ".bzr",
-  ".direnv",
-  ".eggs",
-  ".git",
-  ".hg",
-  ".mypy_cache",
-  ".nox",
-  ".pants.d",
-  ".pytype",
-  ".ruff_cache",
-  ".svn",
-  ".tox",
-  ".venv",
-  "__pypackages__",
-  "_build",
-]
-
-dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 
 [tool.ruff.lint.per-file-ignores]
 "**test_*.py" = ["S101", "D102", "D103", "SLF001", "PT019"]
