@@ -4,7 +4,8 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 from git import Repo
-from github import Github, PaginatedList
+from github import Github
+from github.PaginatedList import PaginatedList
 from structlog import get_logger, stdlib
 
 if TYPE_CHECKING:
@@ -41,7 +42,7 @@ def retrieve_repositories(configuration: Configuration) -> PaginatedList[Reposit
     """Retrieve the list of repositories to analyse.
 
     Returns:
-        PaginatedList[Repository]: The list of repositories.
+        PaginatedList: The list of repositories.
     """
     github = Github(configuration.github_token)
     repositories = github.search_repositories(
