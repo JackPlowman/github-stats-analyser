@@ -24,7 +24,7 @@ jobs:
       security-events: write
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -37,7 +37,7 @@ jobs:
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
       - name: Upload Ruff analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@4e94bd11f71e507f7f87df81788dff88d1dacbfb # v4.31.0
+        uses: github/codeql-action/upload-sarif@5d4e8d1aca955e8d8589aabd499c5cae939e33c7 # v4.31.9
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -67,7 +67,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -84,7 +84,7 @@ jobs:
       security-events: write
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -101,7 +101,7 @@ jobs:
       security-events: write
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -117,7 +117,7 @@ jobs:
       actions: read
       pull-requests: write
       security-events: write
-    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@6324ccca5dfacdedf7fa7d0b211245d06724b736 # v2025.10.25.01
+    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@3108e71d84bdf3f50512f378742e2602f1d74628 # v2025.12.19.03
     secrets:
       workflow_github_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -129,7 +129,7 @@ jobs:
     strategy:
       matrix:
         language: [actions, python]
-    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@6324ccca5dfacdedf7fa7d0b211245d06724b736 # v2025.10.25.01
+    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@3108e71d84bdf3f50512f378742e2602f1d74628 # v2025.12.19.03
     with:
       language: ${{ matrix.language }}
 
@@ -140,14 +140,14 @@ jobs:
       statuses: write
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up Just
         uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff # v3.0.0
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@e468171a9de216ec08956ac3ada2f0791b6bd435 # v3.11.1
+        uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3.12.0
       - name: Build Docker Image
         run: just docker-build
 
@@ -156,7 +156,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -167,7 +167,7 @@ jobs:
       - name: Run Unit Tests
         run: just unit-test
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@fd88b7d7ccbaefd23d8f36f73b59db7a3d246602 # v6.0.0
+        uses: SonarSource/sonarqube-scan-action@a31c9398be7ace6bbfaf30c0bd5d415f843d45e9 # v7.0.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -177,7 +177,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -189,7 +189,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           REPOSITORY_OWNER: ${{ github.REPOSITORY_OWNER }}
       - name: Download GitHub Action Summary
-        uses: austenstone/job-summary@67b7e1f68ee55e44d073ab7354e7b580cd09567c # v2.0
+        uses: austenstone/job-summary@996a8271f63c4cf68782155ca8dcb511d6347f0f # v3
         with:
           name: GITHUB_ACTION_SUMMARY
           create-pdf: false
@@ -197,7 +197,7 @@ jobs:
           create-md: true
           create-md-artifact: true
       - name: Upload Artifact
-        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
         with:
           name: repository_statistics
           path: repository_statistics.json
@@ -208,7 +208,7 @@ jobs:
     needs: run-local-action
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -228,7 +228,7 @@ jobs:
     needs: run-local-action
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
