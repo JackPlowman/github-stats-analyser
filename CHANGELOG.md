@@ -1,5 +1,62 @@
 # Changelog
 
+## [2.0.1](https://github.com/JackPlowman/github-stats-analyser/compare/v2.0.0...v2.0.1) (2025-12-22)
+
+
+### ⬆️ Dependency updates
+
+* **github-actions:** Bump GitHub Actions and Reusable Workflows ([#443](https://github.com/JackPlowman/github-stats-analyser/issues/443)) ([5e4d688](https://github.com/JackPlowman/github-stats-analyser/commit/5e4d68821b9571c03a456dcdff15acd49f2ab99f))
+* **github-actions:** Bump Reusable Workflows ([#446](https://github.com/JackPlowman/github-stats-analyser/issues/446)) ([3377e19](https://github.com/JackPlowman/github-stats-analyser/commit/3377e19336f6e5d4fe5680f9dc4734e38cc34730))
+* **github-actions:** Bump super-linter/super-linter to 7.4.0 ([#428](https://github.com/JackPlowman/github-stats-analyser/issues/428)) ([5822e95](https://github.com/JackPlowman/github-stats-analyser/commit/5822e95106718b7e84d85c43356bdf2d5d1ebe4a))
+* **github-actions:** Update GitHub Actions and Reusable Workflows ([#476](https://github.com/JackPlowman/github-stats-analyser/issues/476)) ([8b2c68e](https://github.com/JackPlowman/github-stats-analyser/commit/8b2c68e48df6693271712b6396363147f498d045))
+* **github-actions:** Update Reusable Workflows ([#528](https://github.com/JackPlowman/github-stats-analyser/issues/528)) ([b132580](https://github.com/JackPlowman/github-stats-analyser/commit/b1325802d586e3a9878ec7f96225eaf7beff296f))
+* **github-actions:** Update Reusable Workflows ([#550](https://github.com/JackPlowman/github-stats-analyser/issues/550)) ([57751a4](https://github.com/JackPlowman/github-stats-analyser/commit/57751a4beae20ff360a627db689a78e4c1001387))
+* **github-actions:** Update Reusable Workflows ([#587](https://github.com/JackPlowman/github-stats-analyser/issues/587)) ([bccf7a6](https://github.com/JackPlowman/github-stats-analyser/commit/bccf7a6ebee0bc787495e70edebaed2f813938e3))
+* **github-actions:** Update Reusable Workflows ([#596](https://github.com/JackPlowman/github-stats-analyser/issues/596)) ([7c4b7b9](https://github.com/JackPlowman/github-stats-analyser/commit/7c4b7b9cf7a487547798ef90db1b2c4dc6188d20))
+* **github-actions:** Update Reusable Workflows and GitHub Actions ([#471](https://github.com/JackPlowman/github-stats-analyser/issues/471)) ([e84d917](https://github.com/JackPlowman/github-stats-analyser/commit/e84d917bbb9b2b22c1cc1a4813ca53a9a15172a6))
+* **github-actions:** Update Reusable Workflows and GitHub Actions ([#500](https://github.com/JackPlowman/github-stats-analyser/issues/500)) ([08e1b0e](https://github.com/JackPlowman/github-stats-analyser/commit/08e1b0ed0000015583a785285f0e3d86674b338c))
+* **python:** Bump Python Dependencies ([#486](https://github.com/JackPlowman/github-stats-analyser/issues/486)) ([e6962fa](https://github.com/JackPlowman/github-stats-analyser/commit/e6962fa2f3a8a6044cec9858505385d25edfd00e))
+* **python:** Bump Python Versions ([#453](https://github.com/JackPlowman/github-stats-analyser/issues/453)) ([a4d79bf](https://github.com/JackPlowman/github-stats-analyser/commit/a4d79bf59e95ac314e9b23ba9f869382d5117eaa))
+* **python:** Bump Python Versions ([#530](https://github.com/JackPlowman/github-stats-analyser/issues/530)) ([193881d](https://github.com/JackPlowman/github-stats-analyser/commit/193881df33a0351a8b7ab8d99eeeb67239bcc4d2))
+* **python:** Bump UV Version ([#442](https://github.com/JackPlowman/github-stats-analyser/issues/442)) ([3473ddd](https://github.com/JackPlowman/github-stats-analyser/commit/3473ddd15e079f011ac78d1b29bd5f88f1c7d852))
+
+
+### 🧰 Maintenance
+
+* Add Lockfile Check ([#457](https://github.com/JackPlowman/github-stats-analyser/issues/457)) ([1555e67](https://github.com/JackPlowman/github-stats-analyser/commit/1555e674f9a03a6c4d2e8c99938b1840102e6824))
+* Add ty Just Command ([#454](https://github.com/JackPlowman/github-stats-analyser/issues/454)) ([f23a63d](https://github.com/JackPlowman/github-stats-analyser/commit/f23a63d438b4fcf3aa7722931f68c7fa42409118))
+* Add ty Type Checking Job ([#455](https://github.com/JackPlowman/github-stats-analyser/issues/455)) ([0617691](https://github.com/JackPlowman/github-stats-analyser/commit/0617691e77c81f8415725d9cd8c1ff7dcd1291d9))
+* Bump Git Version ([#444](https://github.com/JackPlowman/github-stats-analyser/issues/444)) ([409ad68](https://github.com/JackPlowman/github-stats-analyser/commit/409ad688d13f10449ad89a0f2030fe9f3f336e9f))
+* Change Jobs to Common Code Checks ([#426](https://github.com/JackPlowman/github-stats-analyser/issues/426)) ([7f07e76](https://github.com/JackPlowman/github-stats-analyser/commit/7f07e76d8c174e69c4f2a54c95db73da7356f059))
+* Change Jobs to Common Pull Request Tasks ([#427](https://github.com/JackPlowman/github-stats-analyser/issues/427)) ([5e88220](https://github.com/JackPlowman/github-stats-analyser/commit/5e8822025efff652f690f5887f066ef99d4a8511))
+* Fix Markdown Links ([#529](https://github.com/JackPlowman/github-stats-analyser/issues/529)) ([4c9d2f3](https://github.com/JackPlowman/github-stats-analyser/commit/4c9d2f360514f69489f3b01fe605b4fea8b5d52a))
+* Fix Python Dependencies ([#531](https://github.com/JackPlowman/github-stats-analyser/issues/531)) ([92f5419](https://github.com/JackPlowman/github-stats-analyser/commit/92f54196b1b5a80c4cfe733ae6ae5c0a0ab77ca5))
+* Fix Ty Warnings ([#458](https://github.com/JackPlowman/github-stats-analyser/issues/458)) ([ceeb18b](https://github.com/JackPlowman/github-stats-analyser/commit/ceeb18bf16e22ab3a929e6f2a8c0d508787aecf5))
+* Migrate Clear Caches to Common Clear Caches ([#432](https://github.com/JackPlowman/github-stats-analyser/issues/432)) ([46d82e6](https://github.com/JackPlowman/github-stats-analyser/commit/46d82e640aaa3127597be54adfe8e4853b9961ad))
+* Migrate Sync Labels to Common Sync Labels ([#430](https://github.com/JackPlowman/github-stats-analyser/issues/430)) ([a978813](https://github.com/JackPlowman/github-stats-analyser/commit/a97881397d746acee645f0335493bc4d731a529f))
+* Migrate to Reusable CodeQL Workflow ([#439](https://github.com/JackPlowman/github-stats-analyser/issues/439)) ([4abe6df](https://github.com/JackPlowman/github-stats-analyser/commit/4abe6dfe42eafcb9d6530b917b10387c85f39bc7))
+* Remove `.editorconfig-checker.json` ([#429](https://github.com/JackPlowman/github-stats-analyser/issues/429)) ([5a591aa](https://github.com/JackPlowman/github-stats-analyser/commit/5a591aa9b928bda62d7e8d08b024f6b605c443bb))
+* Remove `PROJECT_TECHNOLOGIES.md` file ([#560](https://github.com/JackPlowman/github-stats-analyser/issues/560)) ([1a6cb2a](https://github.com/JackPlowman/github-stats-analyser/commit/1a6cb2a1bab0b7cb40c3a9a412e3aa62b8c0ff62))
+* Remove CodeLimit Job ([#461](https://github.com/JackPlowman/github-stats-analyser/issues/461)) ([3ab4eb4](https://github.com/JackPlowman/github-stats-analyser/commit/3ab4eb48aa34dc879d3267209f68c8c0685003de))
+* Remove SuperLinter ([#527](https://github.com/JackPlowman/github-stats-analyser/issues/527)) ([31c67bb](https://github.com/JackPlowman/github-stats-analyser/commit/31c67bb2d3fc0003cf829fb1f0b6e15dde7656f8))
+* Set Python Version ([#436](https://github.com/JackPlowman/github-stats-analyser/issues/436)) ([7299871](https://github.com/JackPlowman/github-stats-analyser/commit/72998710cbd232b9ca264562e6ae01af4a7a12d6))
+* Set Ruff to use Colour ([#459](https://github.com/JackPlowman/github-stats-analyser/issues/459)) ([8b9bd6b](https://github.com/JackPlowman/github-stats-analyser/commit/8b9bd6b0742233285706487c8b63ff7106f7f637))
+* Set Workflow Job Name ([#467](https://github.com/JackPlowman/github-stats-analyser/issues/467)) ([070f422](https://github.com/JackPlowman/github-stats-analyser/commit/070f42296b925f33cfdde9ab4c741f17dabf8b62))
+* Set Zizmor persona to auditor ([#452](https://github.com/JackPlowman/github-stats-analyser/issues/452)) ([f00f5ca](https://github.com/JackPlowman/github-stats-analyser/commit/f00f5cae2d44863c16265282e5b6c7d5bd245db5))
+* Split Python Code Check Jobs ([#456](https://github.com/JackPlowman/github-stats-analyser/issues/456)) ([3de9a61](https://github.com/JackPlowman/github-stats-analyser/commit/3de9a614b9a6abb243973550826da67bd7a62d7c))
+* Swap SuperLinter to Full Version ([#425](https://github.com/JackPlowman/github-stats-analyser/issues/425)) ([68b2fe8](https://github.com/JackPlowman/github-stats-analyser/commit/68b2fe824220efebbb4916b53ddbcf82457b15d8))
+* Update Dependabot Configuration for Reusable Workflows ([#421](https://github.com/JackPlowman/github-stats-analyser/issues/421)) ([1201292](https://github.com/JackPlowman/github-stats-analyser/commit/12012926f4ff0b5caa3da37f21faf3dda3cc97f2))
+* Update Dependabot for Reusable Workflows ([#433](https://github.com/JackPlowman/github-stats-analyser/issues/433)) ([08ebc54](https://github.com/JackPlowman/github-stats-analyser/commit/08ebc5483ec52a7ac0206fb02c231e5f2181c039))
+* Update git package ([#477](https://github.com/JackPlowman/github-stats-analyser/issues/477)) ([b61a3a0](https://github.com/JackPlowman/github-stats-analyser/commit/b61a3a0b424968654662e4d9069ab714d55f7c71))
+* Update Lefthook Minimum Version ([#475](https://github.com/JackPlowman/github-stats-analyser/issues/475)) ([c73d5c3](https://github.com/JackPlowman/github-stats-analyser/commit/c73d5c3e25c3ca5e221b02513c0b5a191567aea0))
+* Update Lefthook Minimum Version ([#575](https://github.com/JackPlowman/github-stats-analyser/issues/575)) ([fe8e0eb](https://github.com/JackPlowman/github-stats-analyser/commit/fe8e0eb5d702be570dae0dfa334add9ad6af08e6))
+* Update Lefthook Minimum Version ([#594](https://github.com/JackPlowman/github-stats-analyser/issues/594)) ([475eeb2](https://github.com/JackPlowman/github-stats-analyser/commit/475eeb2edb9190ffa5c844593c4eea882c0313a0))
+* Update Licence File ([#502](https://github.com/JackPlowman/github-stats-analyser/issues/502)) ([6d11552](https://github.com/JackPlowman/github-stats-analyser/commit/6d11552b2f3d0e206d57e2ce29bab6e22d1e9f85))
+* Update License to Licence ([#536](https://github.com/JackPlowman/github-stats-analyser/issues/536)) ([5df7589](https://github.com/JackPlowman/github-stats-analyser/commit/5df7589229012dac5c129ed3f41993fee70a7d9a))
+* Update Pull Request Tasks Permissions ([#562](https://github.com/JackPlowman/github-stats-analyser/issues/562)) ([7a372d8](https://github.com/JackPlowman/github-stats-analyser/commit/7a372d87f4e41c44e97a88c71c604c21f8f97f49))
+* Update SuperLinter Configuration ([#495](https://github.com/JackPlowman/github-stats-analyser/issues/495)) ([c44dbcf](https://github.com/JackPlowman/github-stats-analyser/commit/c44dbcfb6b618c78c38853e99266758cd17ae992))
+* Update UV Version ([#597](https://github.com/JackPlowman/github-stats-analyser/issues/597)) ([59fb8d5](https://github.com/JackPlowman/github-stats-analyser/commit/59fb8d587a9b3df370f0438ab2e5e74f26bdf7ea))
+
 ## [2.0.0](https://github.com/JackPlowman/github-stats-analyser/compare/v1.3.0...v2.0.0) (2025-05-11)
 
 
