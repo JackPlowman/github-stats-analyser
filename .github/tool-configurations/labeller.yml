@@ -49,7 +49,7 @@ docker:
 git_hooks:
   - any:
       - changed-files:
-          - any-glob-to-any-file: ["lefthook.yml"]
+          - any-glob-to-any-file: [".pre-commit-config.yaml", "**/.pre-commit-hooks.yaml"]
 github_actions:
   - any:
       - changed-files:
