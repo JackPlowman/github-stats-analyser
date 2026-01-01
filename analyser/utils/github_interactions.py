@@ -4,11 +4,12 @@ from pathlib import Path
 from typing import TYPE_CHECKING
 
 from git import Repo
-from github import Github, PaginatedList
+from github import Github
 from structlog import get_logger, stdlib
 
 if TYPE_CHECKING:
-    from github.Repository import Repository
+    from github.PaginatedList import PaginatedList
+    from github.RepositorySearchResult import RepositorySearchResult
 
     from .configuration import Configuration
 
@@ -37,11 +38,13 @@ def clone_repo(owner_name: str, repository_name: str) -> str:
     return file_path
 
 
-def retrieve_repositories(configuration: Configuration) -> PaginatedList[Repository]:
+def retrieve_repositories(
+    configuration: Configuration,
+) -> PaginatedList[RepositorySearchResult]:
     """Retrieve the list of repositories to analyse.
 
     Returns:
-        PaginatedList[Repository]: The list of repositories.
+        PaginatedList[RepositorySearchResult]: The list of repositories.
     """
     github = Github(configuration.github_token)
     repositories = github.search_repositories(
