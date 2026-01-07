@@ -129,7 +129,7 @@ jobs:
     strategy:
       matrix:
         language: [actions, python]
-    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@3108e71d84bdf3f50512f378742e2602f1d74628 # v2025.12.19.03
+    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@bef975f562bde20717a9cf9b171beff6386e4973 # v2026.01.06.02
     with:
       language: ${{ matrix.language }}
 
