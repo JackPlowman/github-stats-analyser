@@ -1,6 +1,6 @@
 # Pre-commit configuration for use with `prek` (https://github.com/j178/prek)
 
-minimum_prek_version: "0.2.0"
+minimum_prek_version: "0.3.0"
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
