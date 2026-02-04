@@ -60,7 +60,7 @@ repos:
         language: python
         entry: just
         additional_dependencies:
-          - rust-just==1.45.0
+          - rust-just==1.46.0
         args: ["format-check"]
         files: "(?i)(^justfile$|\\.just$)"
         pass_filenames: false
@@ -69,7 +69,7 @@ repos:
         language: golang
         entry: pinact
         additional_dependencies:
-          - github.com/suzuki-shunsuke/pinact/v3/cmd/pinact@v3.8.0
+          - github.com/suzuki-shunsuke/pinact/v3/cmd/pinact@v3.9.0
         args: ["run", "--verify", "--check"]
         files: "^\\.github/(workflows|actions)/.*\\.ya?ml$|(^|/)action\\.ya?ml$"
         pass_filenames: false
