@@ -200,3 +200,29 @@ pinact-update:
 # Install git hooks using prek
 install-git-hooks:
     prek install
+
+# ------------------------------------------------------------------------------
+# Prek
+# ------------------------------------------------------------------------------
+
+# Update prek hooks and additional dependencies
+prek-update:
+    just prek-update-hooks
+    just prek-update-additional-dependencies
+
+# Prek update hooks
+prek-update-hooks:
+    prek autoupdate
+
+prek-update-additional-dependencies:
+    uv run --script https://raw.githubusercontent.com/JackPlowman/update-prek-additional-dependencies/refs/heads/main/update_prek_additional_dependencies.py
+
+# ------------------------------------------------------------------------------
+# Update All Tools
+# ------------------------------------------------------------------------------
+
+# Update all tools
+update:
+    just pinact-update
+    just prek-update
+    just prek-update-additional-dependencies
