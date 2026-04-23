@@ -37,7 +37,7 @@ jobs:
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
       - name: Upload Ruff analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@45cbd0c69e560cd9e7cd7f8c32362050c9b7ded2 # v4.32.2
+        uses: github/codeql-action/upload-sarif@95e58e9a2cdfd71adc6e0353d5c52f41a045d225 # v4.35.2
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
@@ -117,7 +117,7 @@ jobs:
       actions: read
       pull-requests: write
       security-events: write
-    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@47c42c333deec95e4f84ef97faaf544dd824da4f # v2026.02.06.02
+    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@c7d13342f6f54653bc35dc14d5a19dfa44821b18 # v2026.04.11.01
     secrets:
       workflow_github_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -129,7 +129,7 @@ jobs:
     strategy:
       matrix:
         language: [actions, python]
-    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@47c42c333deec95e4f84ef97faaf544dd824da4f # v2026.02.06.02
+    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@c7d13342f6f54653bc35dc14d5a19dfa44821b18 # v2026.04.11.01
     with:
       language: ${{ matrix.language }}
 
@@ -167,7 +167,7 @@ jobs:
       - name: Run Unit Tests
         run: just unit-test
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@a31c9398be7ace6bbfaf30c0bd5d415f843d45e9 # v7.0.0
+        uses: SonarSource/sonarqube-scan-action@299e4b793aaa83bf2aba7c9c14bedbb485688ec4 # v7.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
