@@ -4,7 +4,9 @@ from analyser.commits.commits import get_commits
 
 
 @patch("analyser.commits.commits.Repo")
-def test_get_commits_groups_authors_and_counts_missing_names(mock_repo: MagicMock) -> None:
+def test_get_commits_groups_authors_and_counts_missing_names(
+    mock_repo: MagicMock,
+) -> None:
     mock_repo.return_value.iter_commits.return_value = [
         MagicMock(author=MagicMock(name="unused")),
         MagicMock(),
