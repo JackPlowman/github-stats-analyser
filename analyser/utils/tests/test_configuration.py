@@ -1,16 +1,18 @@
-from os import environ
+from typing import TYPE_CHECKING
 
 from analyser.utils.configuration import Configuration
 
+if TYPE_CHECKING:
+    import pytest
 
-def test_configuration() -> None:
+
+def test_configuration(monkeypatch: pytest.MonkeyPatch) -> None:
     # Arrange
-    environ["INPUT_REPOSITORY_OWNER"] = repo_owner = "test2"
-    environ["INPUT_GITHUB_TOKEN"] = fake_token = "TestToken"  # noqa: S105
+    repo_owner = "test2"
+    monkeypatch.setenv("INPUT_REPOSITORY_OWNER", repo_owner)
+    fake_token = "TestToken"  # noqa: S105
+    monkeypatch.setenv("INPUT_GITHUB_TOKEN", fake_token)
     configuration = Configuration()
     # Assert
     assert configuration.repository_owner == repo_owner
     assert configuration.github_token == fake_token
-    # Clean Up
-    del environ["INPUT_REPOSITORY_OWNER"]
-    del environ["INPUT_GITHUB_TOKEN"]

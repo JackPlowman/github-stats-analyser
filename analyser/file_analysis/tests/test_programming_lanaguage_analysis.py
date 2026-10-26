@@ -107,10 +107,21 @@ def test_get_language_patterns() -> None:
         (["print('Hello, world!')"], 1),
         (["# This is a comment\n"], 0),
         ([], 0),
+        (["", "  ", "print(1)"], 1),
+        (["// comment", "code();"], 1),
+        (["/* comment */", "code();"], 1),
+        (["/* comment", "", "continued", "*/", "code();"], 1),
+        (["/* unterminated comment", "still a comment"], 0),
     ],
 )
 @patch(f"{FILE_PATH}.Path")
-def test_count_sloc(mock_path: MagicMock, lines: list, expected_sloc: int) -> None:
+@patch(f"{FILE_PATH}.guess_language_from_file", return_value=None)
+def test_count_sloc(
+    mock_guess_language: MagicMock,
+    mock_path: MagicMock,
+    lines: list[str],
+    expected_sloc: int,
+) -> None:
     # Arrange
     file_name = "test.py"
     readlines = (
@@ -121,3 +132,4 @@ def test_count_sloc(mock_path: MagicMock, lines: list, expected_sloc: int) -> No
     response = count_sloc(file_name)
     # Assert
     assert response == expected_sloc
+    mock_guess_language.assert_called_once_with(file_name)
