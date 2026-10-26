@@ -3,7 +3,7 @@ FROM python:3.14-alpine AS builder
 WORKDIR /
 
 COPY pyproject.toml uv.lock ./
-RUN pip install --no-cache-dir uv==0.13.5 && \
+RUN pip install --no-cache-dir --only-binary=:all: uv==0.13.5 && \
   uv export --frozen --no-dev --no-emit-project --format=requirements-txt > requirements.txt
 
 FROM python:3.14-alpine AS analyser
@@ -19,6 +19,6 @@ COPY analyser analyser
 
 COPY --from=builder requirements.txt requirements.txt
 
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir --only-binary=:all: --require-hashes -r requirements.txt
 
 ENTRYPOINT [ "/run.sh" ]

@@ -179,7 +179,6 @@ jobs:
 
   run-local-action:
     name: Run Local Action
-    environment: ci
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -192,7 +191,7 @@ jobs:
       - name: Run GitHub Stats Analyser
         uses: ./ # zizmor: ignore[self-repository] actionlint requires checkout-relative paths
         with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
           REPOSITORY_OWNER: ${{ github.REPOSITORY_OWNER }}
       - name: Download GitHub Action Summary
         uses: austenstone/job-summary@996a8271f63c4cf68782155ca8dcb511d6347f0f # v3
