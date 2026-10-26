@@ -1,48 +1,48 @@
-
 [project]
 name = "github-stats-analyser"
 dynamic = ["version"]
-requires-python = "~=3.13.0"
+requires-python = "~=3.14.0"
 dependencies = [
-  "gitpython==3.1.45",
-  "pygithub==2.7.0",
-  "structlog==25.4.0",
-  "pygments==2.19.2",
-  "pandas==2.3.2",
-  "tabulate==0.9.0",
+  "gitpython==3.2.1",
+  "pygithub==2.10.0",
+  "structlog==26.1.0",
+  "pygments==2.21.0",
+  "pandas==3.1.0",
+  "tabulate==0.10.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-  "pytest==8.4.1",
-  "pytest-cov==6.2.1",
-  "ruff==0.15.0",
-  "vulture==2.14",
-  "ty==0.0.15",
+  "pytest==9.1.1",
+  "pytest-github-actions-annotate-failures==0.4.2",
+  "pytest-cov==7.1.0",
+  "ruff==0.17.2",
+  "vulture==2.16",
+  "ty==0.0.91",
 ]
 test = [
-  "check-jsonschema==0.33.3",
-  "requests==2.32.5",
-  "Markdown==3.8.2",
-  "beautifulsoup4==4.13.5",
+  "check-jsonschema==0.38.2",
+  "requests==2.34.2",
+  "Markdown==3.11.2",
+  "beautifulsoup4==4.15.0",
 ]
 
 [tool.uv]
-required-version = "~=0.10.0"
+required-version = "~=0.13.0"
 package = false
-override-dependencies = ["urllib3==2.6.3"]
 
 [tool.setuptools]
 py-modules = ["analyser", "tests"]
 
 [tool.ruff]
-target-version = "py313"
+target-version = "py314"
 
 [tool.ruff.lint]
 extend-select = ["E501"]
 select = ["ALL"]
 
 ignore = [
+  "CPY001",  # Copyright is documented in LICENCE rather than per-file headers
   "COM812",  # Ignore due to conflict with Ruff formatter
   "ISC001",  # Ignore due to conflict with Ruff formatter
   "PLR2004", # Ignore magic value

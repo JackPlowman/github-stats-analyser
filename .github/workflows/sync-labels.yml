@@ -14,8 +14,8 @@ jobs:
   configure-labels:
     name: Configure Labels
     permissions:
-      contents: read
-      pull-requests: write
-    uses: JackPlowman/reusable-workflows/.github/workflows/common-sync-labels.yml@47c42c333deec95e4f84ef97faaf544dd824da4f # v2026.02.06.02
+      contents: read # read repository contents
+      pull-requests: write # manage pull request checks and labels
+    uses: JackPlowman/reusable-workflows/.github/workflows/common-sync-labels.yml@f82d61d53648ae90f8a0406c0f4bbf1aef332337 # v2026.10.25.01
     secrets:
       workflow_github_token: ${{ secrets.GITHUB_TOKEN }}

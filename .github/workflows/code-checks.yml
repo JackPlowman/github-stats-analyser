@@ -9,27 +9,31 @@ on:
     - cron: "0 0 * * *"
 
 permissions:
-  contents: read
-  packages: read
+  contents: read # read repository contents
+  packages: read # access container packages
 
 env:
   FORCE_COLOR: 1
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   run-python-lint-checks:
     name: Run Python Lint Checks
     runs-on: ubuntu-latest
     permissions:
-      statuses: write
-      security-events: write
+      statuses: write # publish commit status
+      security-events: write # upload security scan results
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up dependencies
-        uses: ./.github/actions/setup-dependencies
+        uses: ./.github/actions/setup-dependencies # zizmor: ignore[self-repository] actionlint requires checkout-relative paths
       - name: Generate Ruff Sarif
         run: just ruff-lint-check
         env:
@@ -37,7 +41,7 @@ jobs:
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
       - name: Upload Ruff analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@45cbd0c69e560cd9e7cd7f8c32362050c9b7ded2 # v4.32.2
+        uses: github/codeql-action/upload-sarif@9b3254085494b55a0f7c4c2b3d2d52cc712ce370 # v4.39.1
         with:
           sarif_file: ruff-results.sarif
           wait-for-processing: true
@@ -51,12 +55,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up dependencies
-        uses: ./.github/actions/setup-dependencies
+        uses: ./.github/actions/setup-dependencies # zizmor: ignore[self-repository] actionlint requires checkout-relative paths
       - name: Check Python Code Format (Ruff)
         run: just ruff-format-check
         env:
@@ -67,12 +71,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up dependencies
-        uses: ./.github/actions/setup-dependencies
+        uses: ./.github/actions/setup-dependencies # zizmor: ignore[self-repository] actionlint requires checkout-relative paths
       - name: Check Python Code Types (ty) Checks
         run: just ty-check
 
@@ -80,16 +84,16 @@ jobs:
     name: Run Python Dead Code Checks
     runs-on: ubuntu-latest
     permissions:
-      statuses: write
-      security-events: write
+      statuses: write # publish commit status
+      security-events: write # upload security scan results
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up dependencies
-        uses: ./.github/actions/setup-dependencies
+        uses: ./.github/actions/setup-dependencies # zizmor: ignore[self-repository] actionlint requires checkout-relative paths
       - name: Check Python Code for Dead Code (Vulture)
         run: just vulture
 
@@ -97,39 +101,39 @@ jobs:
     name: Run Python Lockfile Check
     runs-on: ubuntu-latest
     permissions:
-      statuses: write
-      security-events: write
+      statuses: write # publish commit status
+      security-events: write # upload security scan results
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up dependencies
-        uses: ./.github/actions/setup-dependencies
+        uses: ./.github/actions/setup-dependencies # zizmor: ignore[self-repository] actionlint requires checkout-relative paths
       - name: Check UV Lockfile
         run: just uv-lock-check
 
   common-code-checks:
     name: Common Code Checks
     permissions:
-      contents: read
-      actions: read
-      pull-requests: write
-      security-events: write
-    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@47c42c333deec95e4f84ef97faaf544dd824da4f # v2026.02.06.02
+      contents: read # read repository contents
+      actions: read # inspect workflow runs
+      pull-requests: write # manage pull request checks and labels
+      security-events: write # upload security scan results
+    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@f82d61d53648ae90f8a0406c0f4bbf1aef332337 # v2026.10.25.01
     secrets:
       workflow_github_token: ${{ secrets.GITHUB_TOKEN }}
 
   codeql-checks:
     name: CodeQL Analysis
     permissions:
-      contents: read
-      security-events: write
+      contents: read # read repository contents
+      security-events: write # upload security scan results
     strategy:
       matrix:
         language: [actions, python]
-    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@47c42c333deec95e4f84ef97faaf544dd824da4f # v2026.02.06.02
+    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@f82d61d53648ae90f8a0406c0f4bbf1aef332337 # v2026.10.25.01
     with:
       language: ${{ matrix.language }}
 
@@ -137,56 +141,57 @@ jobs:
     name: Build Docker Image
     runs-on: ubuntu-latest
     permissions:
-      statuses: write
+      statuses: write # publish commit status
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up Just
-        uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff # v3.0.0
+        uses: extractions/setup-just@53165ef7e734c5c07cb06b3c8e7b647c5aa16db3 # v4.0.0
+        with:
+          just-version: "1.59.0"
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3.12.0
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
       - name: Build Docker Image
         run: just docker-build
 
   unit-test:
     name: Run Unit Tests
+    environment: ci
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Setup Dependencies
-        uses: ./.github/actions/setup-dependencies
-      - name: Install pytest-github-actions-annotate-failures
-        run: uv pip install pytest-github-actions-annotate-failures
+        uses: ./.github/actions/setup-dependencies # zizmor: ignore[self-repository] actionlint requires checkout-relative paths
       - name: Run Unit Tests
         run: just unit-test
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@a31c9398be7ace6bbfaf30c0bd5d415f843d45e9 # v7.0.0
+        uses: SonarSource/sonarqube-scan-action@d209202bc7d53ff1cc128f7f907dac145c9d6ae9 # v8.3.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   run-local-action:
     name: Run Local Action
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Setup Dependencies
-        uses: ./.github/actions/setup-dependencies
+        uses: ./.github/actions/setup-dependencies # zizmor: ignore[self-repository] actionlint requires checkout-relative paths
       - name: Run GitHub Stats Analyser
-        uses: ./.github/actions/local
+        uses: ./ # zizmor: ignore[self-repository] actionlint requires checkout-relative paths
         with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
           REPOSITORY_OWNER: ${{ github.REPOSITORY_OWNER }}
       - name: Download GitHub Action Summary
         uses: austenstone/job-summary@996a8271f63c4cf68782155ca8dcb511d6347f0f # v3
@@ -197,7 +202,7 @@ jobs:
           create-md: true
           create-md-artifact: true
       - name: Upload Artifact
-        uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6.0.0
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: repository_statistics
           path: repository_statistics.json
@@ -208,14 +213,14 @@ jobs:
     needs: run-local-action
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Setup Dependencies
-        uses: ./.github/actions/setup-dependencies
+        uses: ./.github/actions/setup-dependencies # zizmor: ignore[self-repository] actionlint requires checkout-relative paths
       - name: Download Artifact
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: repository_statistics
           path: tests/schema_validation
@@ -228,14 +233,14 @@ jobs:
     needs: run-local-action
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Setup Dependencies
-        uses: ./.github/actions/setup-dependencies
+        uses: ./.github/actions/setup-dependencies # zizmor: ignore[self-repository] actionlint requires checkout-relative paths
       - name: Download Artifact
-        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
         with:
           name: md
           path: tests/github_summary

@@ -1,5 +1,6 @@
 from json import dump
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 import git
 from pandas import DataFrame
@@ -8,9 +9,11 @@ from structlog import get_logger, stdlib
 from analyser.commits.commits import get_commits
 from analyser.file_analysis.repository_analysis import analyse_repository
 from analyser.utils.catalogued_repository import CataloguedRepository
-from analyser.utils.configuration import Configuration
 from analyser.utils.github_interactions import clone_repo, retrieve_repositories
 from analyser.utils.repository_actions import remove_excluded_files
+
+if TYPE_CHECKING:
+    from analyser.utils.configuration import Configuration
 
 logger: stdlib.BoundLogger = get_logger()
 DEFAULT_FILE_LOCATION = "statistics/repository_statistics.json"

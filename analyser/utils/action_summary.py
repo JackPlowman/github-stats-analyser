@@ -1,8 +1,11 @@
 from os import environ
 from pathlib import Path
+from typing import TYPE_CHECKING
 
-from pandas import DataFrame
 from structlog import get_logger, stdlib
+
+if TYPE_CHECKING:
+    from pandas import DataFrame
 
 logger: stdlib.BoundLogger = get_logger()
 

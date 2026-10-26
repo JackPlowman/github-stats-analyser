@@ -48,10 +48,10 @@ def guess_language_from_file(file_path: str) -> str | None:
         str | None: The programming language, or None if no language is found.
     """
     try:
-        with Path.open(file_path) as file:
+        with Path(file_path).open() as file:
             lexer = lexers.guess_lexer_for_filename(file_path, file.read())
             return lexer.name
-    except (ClassNotFound, UnicodeDecodeError):
+    except ClassNotFound, UnicodeDecodeError:
         logger.debug("Could not guess language from file", file_path=file_path)
         return None
 
@@ -86,7 +86,7 @@ def get_language_patterns(
     return patterns.get(language, (single_line, multi_line))
 
 
-def count_sloc(file_path: str) -> int:  # noqa: C901
+def count_sloc(file_path: str) -> int:
     """Count source lines of code excluding comments and blank lines.
 
     Update to use Pygount when it supports Python 3.13.
@@ -100,52 +100,36 @@ def count_sloc(file_path: str) -> int:  # noqa: C901
     language = guess_language_from_file(file_path)
     single_line_patterns, multi_line_patterns = get_language_patterns(language)
 
-    sloc = 0
-    in_multiline_comment = False
-    current_multi_pattern = None
-
     try:
         with Path(file_path).open() as file:
-            content = file.readlines()
-
-            i = 0
-            while i < len(content):
-                line = content[i].strip()
-
-                # Skip empty lines
-                if not line:
-                    i += 1
-                    continue
-
-                # Handle multi-line comments
-                if not in_multiline_comment:
-                    for start, end in multi_line_patterns:
-                        if line.startswith(start) or start in line:
-                            in_multiline_comment = True
-                            current_multi_pattern = end
-                            break
-
-                if in_multiline_comment:
-                    if current_multi_pattern in line:
-                        in_multiline_comment = False
-                        current_multi_pattern = None
-                    i += 1
-                    continue
-
-                # Handle single-line comments
-                is_comment = False
-                for pattern in single_line_patterns:
-                    if line.lstrip().startswith(pattern):
-                        is_comment = True
-                        break
-
-                if not is_comment:
-                    sloc += 1
-
-                i += 1
-
-    except (OSError, UnicodeDecodeError):
+            return _count_code_lines(
+                file.readlines(), single_line_patterns, multi_line_patterns
+            )
+    except OSError, UnicodeDecodeError:
         logger.exception("Error reading file", file_path=file_path)
         return 0
 
+
+def _count_code_lines(
+    content: list[str],
+    single_line_patterns: list[str],
+    multi_line_patterns: list[tuple[str, str]],
+) -> int:
+    """Count non-empty lines outside the language's comment patterns."""
+    sloc = 0
+    current_multi_pattern = None
+    for raw_line in content:
+        line = raw_line.strip()
+        if not line:
+            continue
+        if current_multi_pattern is None:
+            current_multi_pattern = next(
+                (end for start, end in multi_line_patterns if start in line), None
+            )
+        if current_multi_pattern is not None:
+            if current_multi_pattern in line:
+                current_multi_pattern = None
+            continue
+        if not any(line.startswith(pattern) for pattern in single_line_patterns):
+            sloc += 1
     return sloc

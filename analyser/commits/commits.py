@@ -17,9 +17,10 @@ def get_commits(path_to_repo: str) -> dict[str, int]:
 
     user_commits = {}
     for commit in commits:
-        if commit.author.name not in user_commits:
-            user_commits[commit.author.name] = 1
+        author_name = commit.author.name or "Unknown"
+        if author_name not in user_commits:
+            user_commits[author_name] = 1
         else:
-            user_commits[commit.author.name] += 1
+            user_commits[author_name] += 1
 
     return user_commits
