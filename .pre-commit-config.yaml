@@ -20,26 +20,26 @@ repos:
         name: Detect Private Key
         description: Detects private keys that may have been added to the repository
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.30.0
+    rev: v8.30.1
     hooks:
       - id: gitleaks
         name: Gitleaks - Secret Detection
         description: Scan for secrets using Gitleaks
-        language_version: "go1.25"
+        language_version: "go1.27.3"
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.10
+    rev: v1.7.12
     hooks:
       - id: actionlint
         name: Actionlint
         description: Linter for GitHub Actions workflow files
   - repo: https://github.com/editorconfig-checker/editorconfig-checker.python
-    rev: 3.6.0
+    rev: 3.11.1
     hooks:
       - id: editorconfig-checker
         name: EditorConfig Checker
         description: Validates files against .editorconfig rules
   - repo: https://github.com/zizmorcore/zizmor-pre-commit
-    rev: v1.19.0
+    rev: v1.31.1
     hooks:
       - id: zizmor
         name: Zizmor
@@ -52,7 +52,7 @@ repos:
         language: node
         entry: prettier
         additional_dependencies:
-          - prettier@3.7.4
+          - prettier@3.9.10
         args: ["--check"]
         files: "(?i)(\\.(md|markdown|ya?ml|json)$|^(README|LICENSE|CONTRIBUTING|CODE_OF_CONDUCT|SECURITY|SUPPORT)(\\.md)?$)"
       - id: justfile-format-check
@@ -60,7 +60,7 @@ repos:
         language: python
         entry: just
         additional_dependencies:
-          - rust-just==1.46.0
+          - rust-just==1.59.0
         args: ["format-check"]
         files: "(?i)(^justfile$|\\.just$)"
         pass_filenames: false
@@ -69,7 +69,7 @@ repos:
         language: golang
         entry: pinact
         additional_dependencies:
-          - github.com/suzuki-shunsuke/pinact/v3/cmd/pinact@v3.9.0
+          - github.com/suzuki-shunsuke/pinact/v5/cmd/pinact@v5.0.2
         args: ["run", "--verify", "--check"]
         files: "^\\.github/(workflows|actions)/.*\\.ya?ml$|(^|/)action\\.ya?ml$"
         pass_filenames: false

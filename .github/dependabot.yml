@@ -5,13 +5,14 @@ updates:
     directories:
       - "/"
       - ".github/actions/setup-dependencies"
-      - ".github/actions/local"
     commit-message:
       prefix: "deps(github-actions)"
     schedule:
       interval: "cron"
       cronjob: "30 7 * * *"
       timezone: "Europe/London"
+    cooldown:
+      default-days: 7
     target-branch: "main"
     groups:
       github-actions:
@@ -32,6 +33,8 @@ updates:
       interval: "cron"
       cronjob: "30 7 * * *"
       timezone: "Europe/London"
+    cooldown:
+      default-days: 7
     target-branch: "main"
     groups:
       python:
@@ -50,6 +53,8 @@ updates:
       interval: "cron"
       cronjob: "30 7 * * *"
       timezone: "Europe/London"
+    cooldown:
+      default-days: 7
     target-branch: "main"
     groups:
       docker:

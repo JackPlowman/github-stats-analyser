@@ -6,12 +6,16 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   check-pull-request-title:
     name: Check Pull Request Title
     runs-on: ubuntu-latest
     permissions:
-      pull-requests: read
+      pull-requests: read # manage pull request checks and labels
     steps:
       - name: Check Pull Request Title
         uses: deepakputhraya/action-pr-title@3864bebc79c5f829d25dd42d3c6579d040b0ef16 # v1.0.2
@@ -21,7 +25,7 @@ jobs:
   common-pull-request-tasks:
     name: Common Pull Request Tasks
     permissions:
-      pull-requests: write
-    uses: JackPlowman/reusable-workflows/.github/workflows/common-pull-request-tasks.yml@47c42c333deec95e4f84ef97faaf544dd824da4f # v2026.02.06.02
+      pull-requests: write # manage pull request checks and labels
+    uses: JackPlowman/reusable-workflows/.github/workflows/common-pull-request-tasks.yml@f82d61d53648ae90f8a0406c0f4bbf1aef332337 # v2026.10.25.01
     secrets:
       workflow_github_token: ${{ secrets.GITHUB_TOKEN }}

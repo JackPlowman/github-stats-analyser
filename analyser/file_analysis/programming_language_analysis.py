@@ -48,10 +48,10 @@ def guess_language_from_file(file_path: str) -> str | None:
         str | None: The programming language, or None if no language is found.
     """
     try:
-        with Path.open(file_path) as file:
+        with Path(file_path).open() as file:
             lexer = lexers.guess_lexer_for_filename(file_path, file.read())
             return lexer.name
-    except (ClassNotFound, UnicodeDecodeError):
+    except ClassNotFound, UnicodeDecodeError:
         logger.debug("Could not guess language from file", file_path=file_path)
         return None
 
@@ -126,7 +126,10 @@ def count_sloc(file_path: str) -> int:  # noqa: C901
                             break
 
                 if in_multiline_comment:
-                    if current_multi_pattern in line:
+                    if (
+                        current_multi_pattern is not None
+                        and current_multi_pattern in line
+                    ):
                         in_multiline_comment = False
                         current_multi_pattern = None
                     i += 1
@@ -144,7 +147,7 @@ def count_sloc(file_path: str) -> int:  # noqa: C901
 
                 i += 1
 
-    except (OSError, UnicodeDecodeError):
+    except OSError, UnicodeDecodeError:
         logger.exception("Error reading file", file_path=file_path)
         return 0
 

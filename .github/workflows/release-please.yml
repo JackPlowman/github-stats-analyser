@@ -7,19 +7,24 @@ on:
 
 permissions: {}
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   release:
     name: Release
+    environment: release
     runs-on: ubuntu-latest
     permissions:
-      contents: write
-      issues: write
-      packages: write
-      pull-requests: write
+      contents: write # read repository contents
+      issues: write # manage release labels
+      packages: write # access container packages
+      pull-requests: write # manage pull request checks and labels
     timeout-minutes: 60
     steps:
       - name: Release Please
-        uses: googleapis/release-please-action@16a9c90856f42705d54a6fda1823352bdc62cf38 # v4.4.0
+        uses: googleapis/release-please-action@45996ed1f6d02564a971a2fa1b5860e934307cf7 # v5.0.0
         id: release
         with:
           config-file: .github/release-please/release-please-config.json

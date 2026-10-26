@@ -9,7 +9,7 @@ class LanguageAnalysis(TypedDict):
 
     file_count: int
     file_paths: list[str]
-    sloc: int = 0
+    sloc: int
 
 
 @dataclass
@@ -27,7 +27,11 @@ class RepositoryLanguages:
             file_path (str): The file path.
         """
         if language_name not in self.languages:
-            self.languages[language_name] = {"file_count": 1, "file_paths": [file_path]}
+            self.languages[language_name] = {
+                "file_count": 1,
+                "file_paths": [file_path],
+                "sloc": 0,
+            }
             return
         language_file_count = self.languages[language_name]["file_count"]
         self.languages[language_name]["file_count"] = language_file_count + 1
@@ -46,7 +50,11 @@ class RepositoryLanguages:
             else:
                 self.languages[language_name]["sloc"] = sloc
         else:
-            self.languages[language_name] = {"sloc": sloc}
+            self.languages[language_name] = {
+                "file_count": 0,
+                "file_paths": [],
+                "sloc": sloc,
+            }
 
     def __repr__(self) -> str:
         """Return a string representation of the repository languages."""
